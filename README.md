@@ -7,13 +7,20 @@
 <img height="520px" src="/app/src/main/assets/www/img/swipeclouds.gif" width="264px" />
 
 # Old Frameworks NO Longer Needed #
-  - **NO React Native**       - **NO Xamarin**
-  - **NO Ionic**              - **NO Kendo UI**
-  - **NO Intel XDK**          - **NO Framework 7**
-  - **NO Onsen UI**	          - **NO Angular UI**
-  - **NO Trigger.IO**         - **NO NativeScript**
-  - **NO ng2-Bootstrap**	    - **NO Sencha Touch**	
+  - **NO React Native**
+  - **NO Ionic**
+  - **NO Intel XDK**
+  - **NO Onsen UI**	
+  - **NO Trigger.IO**
+  - **NO ng2-Bootstrap**	
   - **NO TopCoat**
+  - **NO Sencha Touch**	
+  - **NO NativeScript**
+  - **NO Angular UI**
+  - **NO Flutter**	
+  - **NO Framework 7**
+  - **NO Kendo UI**
+  - **NO Xamarin**
   
 # A Few Features Included #
 
