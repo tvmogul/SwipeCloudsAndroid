@@ -4,7 +4,7 @@
 ## NO React Native, NO Ionic, NO Flutter, NO Unnecessary 3rd-Party Frameworks!  ##
 ## by William SerGio ##
 
-<img height="520px" src="/SwipeCloudsAndroid/app/src/main/assets/www/img/swipeclouds.gif" width="264px" />
+<img height="520px" src="/app/src/main/assets/www/img/swipeclouds.gif" width="264px" />
 
 # Old Frameworks NO Longer Needed #
   - **NO React Native**       - **NO Xamarin**
