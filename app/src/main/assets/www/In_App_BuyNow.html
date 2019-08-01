@@ -1,0 +1,1073 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
+	<!--<link rel="stylesheet" href="css/mdpi.css" media="only screen and (-webkit-max-device-pixel-ratio:1.0) and (max-device-width:480px)">-->
+	<!--<link rel="stylesheet" href="css/hdpi.css" media="only screen and (-webkit-min-device-pixel-ratio:1.5)">-->
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->   
+    <!-- For Samsung Galaxy S4-5 & larger Screens, use "target-densitydpi=medium-dpi" instead of device-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>www.SerGioApps.com</title> 
+       
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery.mobile.icons-1.4.5.css" rel="stylesheet" type="text/css" />
+    <link href="css/jqm-icon-pack-fa.css" rel="stylesheet" type="text/css" />
+
+    <link href="js_iscroll/jquery.mobile.iscrollview.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="js_iscroll/demo.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!--<script src="cordova.js" type="text/javascript"></script>-->
+    <!--<script type="text/javascript" src="js/index.js"></script>-->
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+    <script src="js_iscroll/iscroll.js" type="text/javascript"></script>
+    <script src="js_iscroll/jquery.mobile.iscrollview.js" type="text/javascript"></script>
+
+    <script src="js_auth/AppItem.js" type="text/javascript"></script>
+    <script src="js/CacheManager.js" type="text/javascript"></script>    
+
+    <script src="js/general.js" type="text/javascript"></script>
+    <script src="js/store.min.js" type="text/javascript"></script>
+    <link id="link_dronestv" href="" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">        
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+        height: 100%;
+    }
+
+    body {
+        background-color: #000000 !important;
+        padding: 0 0 0 0px;
+        background-repeat: no-repeat;
+        margin: 0px aoto;
+        margin-left: 0px;
+        text-decoration: none;
+        overflow: hidden !important;
+    }
+
+    .ui-content {
+        position: fixed;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        height: 100% !important;
+        right: 0 !important;
+        left: 0 !important;
+        overflow: hidden !important;
+    }
+
+        
+    .clearfix {
+        clear: both;
+        height: 1px;
+        overflow: hidden;
+        margin-bottom: -1px;
+        line-height: 1%;
+        font-size: 0px;
+    }
+                                   
+    
+    .ui-page, .ui-page-fullscreen {
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+    }
+    
+    .center-wrapper {
+      text-align: center;
+    }
+    .center-wrapper * {
+      margin: 0px auto 0px auto;
+    }     
+    
+    .bcolor_purple {
+        border-bottom: 6px solid #b753d8 !important;
+    }
+    .bcolor_green {
+        border-bottom: 6px solid #6bc356 !important;   
+    }
+    .bcolor_mustard {
+        border-bottom: 6px solid #fab903 !important;      
+    }
+    .bcolor_red {
+        border-bottom: 6px solid #e94739 !important;       
+    }
+    .bcolor_blue {
+        border-bottom: 6px solid #427fed !important;        
+    }
+    
+    .ui-header {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    .ui-footer {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+
+    .ui-navbar ul {
+        margin-top: 2px !important;
+        height: 54px !important;
+    }
+    
+    [data-role="navbar"] li {
+        margin-top: -6px !important;
+        height: 54px !important;
+        margin-bottom: 6px !important;
+        padding: 0px 0px 6px 0px !important;
+    }
+
+    [data-role="navbar"] a {
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+    }
+    
+
+  div {
+        overflow-x:hidden;
+        overflow-y:hidden;
+    }
+
+    #videotext {
+        width: 85% !important;
+        height: 300px !important;
+        background-color: transparent !important;
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        -webkit-font-smoothing: antialiased;
+        font-size: 1.2em; 
+        line-height: 1.0em; 
+        font-weight: normal; 
+        letter-spacing: -0.03em;          
+        position: absolute;
+        white-space: normal;
+        text-overflow: normal;
+        overflow: normal;
+        padding: 20px 0px 0px 28px;
+        vertical-align: top;
+        text-align:left;   
+        cursor: hand;    
+    }
+    
+    .cc-container {
+        margin: auto;
+    }    
+
+    header {
+        clear: left;
+        box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -moz-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -webkit-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+    }
+
+    #buynow-editable input[type=text]
+    {
+	    border-radius: 6px;
+	    -webkit-border-radius: 6px;
+	    -moz-border-radius: 6px;
+	    height: 22px;
+    }
+
+    #buynow-editable label
+    {
+
+    }
+    
+    input[type="text"], textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #262626;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#262626), to(#333));
+    background-image: -webkit-linear-gradient(top, #262626, #333);
+    background-image: -moz-linear-gradient(top, #262626, #333);
+    background-image: -o-linear-gradient(top, #262626, #333);
+    background-image: linear-gradient(to bottom, #262626, #333);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3) inset, 0px 1px 0px rgba(255, 255, 255, 0.2);
+    border: 1px solid #000000;
+    border-radius: 4px;
+    padding: 1px 1px 0px 2px !important;
+    color: #fff;
+    line-height: .6em !important;
+    font-size: .9em;
+    height: .6em !important;
+    }
+    
+    #authorization_code [name="authorization_code"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color: #262626;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#262626), to(#333));
+    background-image: -webkit-linear-gradient(top, #262626, #333);
+    background-image: -moz-linear-gradient(top, #262626, #333);
+    background-image: -o-linear-gradient(top, #262626, #333);
+    background-image: linear-gradient(to bottom, #262626, #333);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3) inset, 0px 1px 0px rgba(255, 255, 255, 0.2);
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    padding: 1px 2px;
+    color: #fff;
+    }
+
+    header {
+        clear: left;
+        box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -moz-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -webkit-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+    }
+    
+   
+    /* DO NOT REMOVE THIS !!! */
+    .iscroll-scroller {
+        min-width: 100% !important;
+    }     
+    </style>
+ 
+	<script type="text/javascript">
+
+	    var _themeid_dronestv = "";
+	    if (localStorage["themeid_dronestv"]) {
+	        _themeid_dronestv = localStorage["themeid_dronestv"];
+	    } else {
+	        //_themeid_dronestv = "light";
+	        _themeid_dronestv = "dark";
+	        localStorage["themeid_dronestv"] = "dark";
+	    }
+	    var _path = "themes/" + _themeid_dronestv + ".css";
+	    $("#link_dronestv").attr("href", _path);
+
+	    var refreshIntervalId;
+	    var g_content_width = 100;
+	    var g_content_height = 100;
+
+	    /* Use this for high compatibility (iDevice + Android)*/
+	    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	    document.addEventListener('DOMContentLoaded', loaded, false);
+	    document.addEventListener("deviceready", function () { onDeviceReady(); }, false);
+
+	    $(document).bind("mobileinit", function () {
+	        jQuery.support.cors = true;
+	        jQuery.mobile.allowCrossDomainPages = true;
+	        jQuery.mobile.phonegapNavigationEnabled = true;
+	        jQuery.mobile.defaultDialogTransition = "slide";
+	    });
+
+	    function onDeviceReady() {
+
+	        // AUTHOR: Bill SerGio - Loads data from Java Code into LocalStorage
+	        //LoadLocalStorage();
+
+	        // AUTHOR: Bill SerGio - This loads the SQLite Plugin from JavaScript
+	        //LoadSQLitePlugin();
+
+	        //alert("Finished!");
+	        ///////////////////////////////////////////////////////////////////
+	        // AUTHOR: Bill SerGio - This calls into native Java SDK.
+	        // or C++ ndk, code and creates and loads our AdMob Frame in Java
+	        // We load it from this page because this page is never called again.
+	        //LoadAdMobPlugin();
+	        ///////////////////////////////////////////////////////////////////
+	        //window.location = "index.html";
+
+	    } //end function
+
+	    function loaded() {
+	        screenAdjust();
+	    }
+
+	    $(document).bind("mobileinit", function () {
+	        jQuery.support.cors = true;
+	        jQuery.mobile.allowCrossDomainPages = true;
+	        jQuery.mobile.phonegapNavigationEnabled = true;
+	        jQuery.mobile.defaultDialogTransition = "slide";
+	    });
+
+	    $(document).delegate('.ui-page', 'touchmove', false);
+
+	    $(document).ready(function () {
+
+	        //By default jQM always makes an AJAX request for pages even if you've already visited it before. 
+	        //If so you will need to set reloadPage to true when you call $.mobile.changePage 
+	        //if you need to refresh the page - otherwise the page will be stale.
+	        //then only will jQM not reload pages.
+	        $.mobile.page.prototype.options.domCache = true;
+
+	        //	$.ajax({
+	        //	    type: "POST",
+	        //	    url: "https://www.paypal.com/cgi-bin/webscr",
+	        //	    data: $('#PayPalForm').serialize(),
+	        //	    dataType: "json"
+	        //	}).done(function () {
+	        //	    alert("xxxxxx");
+	        //	    tbody.append('<tr><th scope="row" style="background-color:' + form['new-task-color'].value +
+	        //    '"><input type="checkbox" /></th><td>' + form['new-task-date'].value +
+	        //    '</td><td>' + form['new-task-priority'].value + '</td><td>' + form['new-task-name'].value +
+	        //    '</td><td>' + form['new-task-desc'].value + '</td><td>' + form['new-task-email'].value + '</td></tr>');
+	        //	}).fail(function () {
+	        //	    alert("Failed to add to-do");
+	        //	});
+
+	        //	return true;
+	        //});
+
+
+	        jQuery('form#PayPalForm').bind('submit', function (event) {
+	            //event.preventDefault();
+	            //var _first_name = $('[name = "first_name"]').val();
+	            //var _last_name = $('[name = "last_name"]').val();
+	            //var _city = $('[name = "city"]').val();
+	            //var _state = $('[name = "state"]').val();
+	            //var _zip = $('[name = "zip"]').val();
+	            //var _email = $('[name = "email"]').val();
+
+	            //jQuery('form#PayPalForm [name="email"]').val("success@success.com");
+	            var _email = $('[name = "email"]').val();
+
+
+	            var cache = new Cache(localStorage, JSON);
+	            if (cache.hasItem("appdata")) {
+	                //alert(cache.getItem("appdata").appid);
+
+	                //var appItem = cache.getItem("appdata");
+	                //appItem.areacode = "qqq";
+	                //cache.setItem("appdata", appItem)
+	                //alert(cache.getItem("appdata").areacode);
+
+	            }
+
+	            //if ((_first_name.length > 0) &&
+	            //    (_last_name.length > 0) &&
+	            //    (_city.length > 0) &&
+	            //    (_state.length > 0) &&
+	            //    (_zip.length > 0) &&
+	            //    (_email.length > 0)) {
+	            //	//$("#PayPalForm").css("display", "block");
+	            //	//$("#authorize").css("display", "block");
+	            //}
+
+	            if (_email.length > 0) {
+	                //$("#PayPalForm").css("display", "block");
+	                //$("#authorize").css("display", "block");
+	            }
+	            else {
+	                alert("Email can't be blank!");
+	                return false;
+	            }
+	            return true;
+	        });
+	        //$("#PayPalForm").css("display", "block");
+	        //$("#authorize").css("display", "block");
+	    });
+
+	    window.onload = function () {
+
+	        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	        // AUTHOR: HERE WE DYNAMICALLY SET VALUES IN OUR FORM THAT WILL POST TO PAYPAL
+	        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	        var cache = new Cache(localStorage, JSON);
+	        if (cache.hasItem("appdata")) {
+	            //alert(cache.getItem("appdata").appid);
+
+	            //var appItem = cache.getItem("appdata");
+	            //appItem.areacode = "qqq";
+	            //cache.setItem("appdata", appItem)
+	            //alert(cache.getItem("appdata").areacode);
+
+	            //<input type="hidden" name="notify_url" value="http://www.SerGioApps.com/">	
+	            //jQuery('form#PayPalForm [name="notify_url"]').val("http://www.sergioapps.com/wwhandler.ashx?appid=" + _appid);
+
+	            //<input type=”hidden” name=”item_number” value=”test1″> 
+	            //jQuery('form#PayPalForm [name="item_number"]').val("WW01");
+
+	            //<input type=”hidden” name=”custom” value=”WW01”> 
+	            jQuery('form#PayPalForm [name="custom"]').val(cache.getItem("appdata").appid);
+
+	            //<input type=”hidden” name=”invoice” value=”123456″>	
+	            //var randomnumber = Math.floor(100000 + Math.random() * 900000).toString();
+	            //var _invoice = "WW" + randomnumber;
+	            var _invoice = cache.getItem("appdata").appid;
+	            var _authcode = _invoice.substring(0, 5).toUpperCase();
+	            jQuery('form#PayPalForm [name="invoice"]').val(_authcode);
+
+	        }
+	        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	        screenAdjust();
+
+	        $("[data-role=header]").fixedtoolbar({ tapToggle: false });
+	        $("[data-role=footer]").fixedtoolbar({ tapToggle: false });
+	    };
+
+	    function screenAdjust() {
+	        g_content_width = window.innerWidth - 50;
+	        g_content_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height() - 0);
+	        var orientation = "portrait";
+	        if (window.orientation == -90 || window.orientation == 90) orientation = "landscape";
+	        if (orientation == "portrait") {
+	            g_content_height = (3 * (g_content_width)) / 4;
+	            g_content_height = g_content_height + 20;
+	        }
+	        $('#yt_player').width(g_content_width + 'px');
+	        $('#yt_player').height(g_content_height + 'px');
+	    }
+
+	    $(window).bind('resize', function (e) {
+	        screenAdjust();
+	        //$("#panel_controls").trigger("updatelayout");
+	    });
+
+	    $(document).delegate("#mainPage", "pageinit", function () {
+	        //alert('A page with an id of "mainPage" was just created by jQuery Mobile!');
+	    });
+
+	    $(document).delegate('header a', 'click touchend', function () {
+	        //$('header a').on('click touchend', function (e) {
+	        //e.preventDefault();
+	        //e.stopPropagation();
+	        //$("#sidebar").show();
+	        //$("#sidebar").trigger("updatelayout");
+	        var el = $(this);
+	        var link = el.attr('href');
+	        if (link == "#back") {
+	            history.back();
+	        }
+	        else if (link == "#back_from_player") {
+	            $.mobile.changePage("#mainPage");
+	            $("#mainPage").trigger("updatelayout");
+	        }
+	        else if (link == "#go_home") {
+	            window.location = "./index.html";
+	        }
+	        return false;
+	    });
+
+	    $(document).delegate('#btnAuthorize', 'click touchend', function () {
+	        //event.preventDefault();
+	        //event.stopPropagation();
+	        //JavaCallback.authorizeApp(zauth);
+
+	        //var _first_name = $('[name = "first_name"]').val();
+	        //var _last_name = $('[name = "last_name"]').val();
+	        //var _city = $('[name = "city"]').val();
+	        //var _state = $('[name = "state"]').val();
+	        //var _zip = $('[name = "zip"]').val();
+	        //var _email = $('[name = "email"]').val();
+
+	        //var _tx = $('[name = "tx"]').val();
+	        //if ((_tx != "undefined") && (_tx != null) && (_tx.length > 0)) {
+
+	        //}
+	        //else {
+	        //	alert("You MUST Enter Your Transaction ID");
+	        //	return false;
+	        //}
+
+	        //if ((_first_name.length > 0) &&
+	        //	    (_last_name.length > 0) &&
+	        //	    (_city.length > 0) &&
+	        //	    (_state.length > 0) &&
+	        //	    (_zip.length > 0) &&
+	        //	    (_email.length > 0)) {
+	        //	var cache = new Cache(localStorage, JSON);
+	        //	if (cache.hasItem("appdata")) {
+	        //	    if (cache.getItem("appdata").authorized === "0") {
+	        //	        CallService();
+	        //	    }
+	        //	    else {
+	        //	        alert("App is already authorized!");
+	        //	    }
+	        //	}
+	        //}
+	        //else {
+	        //	alert("You MUST Enter Your Email");
+	        //	return false;
+	        //}
+
+	        var _invno = $('[name = "invno"]').val();
+	        if ((_invno != "undefined") && (_invno != null) && (_invno.length > 0)) {
+
+	        }
+	        else {
+	            alert("You MUST Enter Your Invoice No.");
+	            return false;
+	        }
+
+	        var cache = new Cache(localStorage, JSON);
+	        if (cache.hasItem("appdata")) {
+	            if (cache.getItem("appdata").authorized.length < 1) {
+	                var _invoice = cache.getItem("appdata").appid;
+	                //Invoice ID: 12a52f5c-83e0-380a-a84c-2ee215923ee4
+	                //_invoice = "12a52f5c-83e0-380a-a84c-2ee215923ee4";
+	                var _valid = _invoice.substring(0, 5).toUpperCase();
+	                var _chk = _invno.toUpperCase().trim();
+	                if (_valid === _chk) {
+	                    var appItem = cache.getItem("appdata");
+	                    appItem.authorized = "1";
+	                    cache.setItem("appdata", appItem)
+	                    //alert(cache.getItem("appdata").authorized);
+	                    alert("AUTHORIZED!");
+	                }
+	                else {
+	                    alert("NOT AUTHORIZED!");
+	                }
+	            }
+	            else {
+	                alert("App is already authorized!");
+	            }
+	        }
+	    });
+
+	    function CallService() {
+	        var _appid = "";
+	        var cache = new Cache(localStorage, JSON);
+	        if (cache.hasItem("appdata")) {
+	            _appid = cache.getItem("appdata").appid;
+	        }
+
+	        //var url = 'http://www.your_website.com/rsshandler.ashx?appid=' + s_appid + '&methodName=authWW&jsonp=onWWLoaded';
+	        //var url = 'http://www.sergioapps.com/rsshandler.ashx?appid=' + s_appid + '&methodName=authWW&jsonp=onWWLoaded';
+	        var url = 'http://www.sergioapps.com/rsshandler.ashx?appid=' + _appid + '&methodName=authAppByTX&jsonp=onWWLoaded';
+	        $.ajax({
+	        	type: 'GET',
+	        	url: url,
+	        	async: false,
+	        	contentType: "application/json",
+	        	dataType: 'jsonp'
+	        });
+	    }
+
+	    function onWWLoaded(result, methodName) {
+            //$.each(result, function (i, data) {
+            //	var title = cleanEntities(data.title);
+            //	var link = data.link;
+            //});
+            if (result === "AUTHORIZED!") {
+                localStorage["authorized"] = 1;
+                var cache = new Cache(localStorage, JSON);
+                if (cache.hasItem("appdata")) {
+                    var appItem = cache.getItem("appdata");
+                    appItem.authorized = "1";
+                    cache.setItem("appdata", appItem)
+                    //alert(cache.getItem("appdata").authorized);
+                }
+                alert(result);
+            }
+            else {
+                alert("Sorry, not authorized");
+            }
+	    }
+
+	    //]]>
+    </script>
+</head>
+<body>
+    <!-- /main  page -->
+    <div data-role="page" id="mainPage">
+
+        <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom:4px solid #00ff00 !important;">
+            <a href="#go_home" data-role="button" data-icon="home" data-theme="a" class="ui-btn-left" style="margin-top:8px;">Home</a>
+            <div class="center-wrapper"><img id="header_logo" src="img/header_logo.png" alt="Wild Workout" style="margin-top:4px;"></div>
+            <a href="#back" data-role="button" data-icon="arrow-l" data-theme="a"  class="ui-btn-right" style="margin-top:8px;">Back</a>
+        </header>
+
+        <div id="zvideowrapper2" data-iscroll="{
+                'hScroll':false,
+                'vScroll':true,
+                'resizeEvents':'orientationchange',
+                'resizeWrapper':true, 
+                'mouseWheel': true, 
+                'click': true, 
+                'interactiveScrollbars': true, 
+                'shrinkScrollbars': 'scale'
+                }" data-role="content" style="height: 900px; overflow: hidden;" class="ui-content iscroll-wrapper" role="main">
+            <div class="iscroll-scroller" style="padding-top:10px !important;min-height: 1600px; -webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+            <div class="center-wrapper" style="padding-top: 10px !important;">
+                <div class="iscroll-content">
+                    <div data-role="controlgroup" style="width:300px !important;"> 
+                        <div>
+                            <!--<form id="PayPalForm" method="post" action="https://www.paypal.com/cgi-bin/webscr" target="_blank">-->	
+                            <form id="PayPalForm" method="post" action="https://www.paypal.com/cgi-bin/webscr" target="_blank">
+                                <h4>Complete Wild Workout Just $49.95</h4>
+                                <!--<div style="padding:0px 0px 2px 0px;">
+                                    <div style="float:left;width:48%;padding: 0px 4px 4px 0px;">
+                                    <input type="text" name="first_name" placeholder="First Name" /></div>
+                                    <div style="float:left;width:48%;padding: 0px 4px 4px 0px;">
+                                    <input type="text" name="last_name" placeholder="Last Name" /></div>
+                                </div>-->
+                                <div style="padding:4px 0px 2px 0px;">
+                                <div style="float:left;width:48%;padding: 0px 4px 4px 0px;">
+                                <input type="text" name="city" placeholder="City" /></div>
+                                <div style="float:left;width:24%;padding: 0px 4px 4px 0px;">
+                                <input type="text" name="state" placeholder="State" /></div>
+                                <div style="float:left;width:22%;padding: 0px 4px 4px 0px;">
+                                <input type="text" name="zip" placeholder="Zip" /></div>
+                                <div style="float:left;width:100%;margin-top:0px !important;padding: 0px 4px 4px 0px;"> 
+                                <input type="text" name="email" placeholder="somebody@domain.com" /></div>
+                                </div>
+
+                                <!--<div style="padding:0px 0px 2px 0px;">
+                                    <div style="float:left;width:18%;padding: 14px 4px 0px 0px;line-height: .8em !important;font-size: .8em;">Email:</div>                                
+                                    <div style="float:left;width:76%;margin-top:0px !important;padding: 0px 0px 0px 2px;"> 
+                                    <input type="text" name="email" placeholder="somebody@domain.com" /></div>
+                                </div>-->
+
+                                <input type="hidden" name="first_name" value="First Name" />
+                                <input type="hidden" name="last_name" value="Last Name" />
+                                <input type="hidden" name="city" value="City" />
+                                <input type="hidden" name="state" value="State" />
+                                <input type="hidden" name="zip" value="Zip" />
+                                <input type="hidden" name="business" value="M8C5AAJNS4JWQ">
+                                <!--<input type="hidden" name="business" value="stationbreaktv@gmail.com">-->
+                                <input type="hidden" name="item_name" value="Wild Workout App">
+                                <input type="hidden" name="amount" value="49.95">
+                                <input type="hidden" name="currency_code" value="USD">
+                                <input type="hidden" name="quantity" value="1">										
+                                <input type="hidden" name="lc" value="en_US">										
+                                <input type="hidden" name="notify_url" value="http://www.sergioapps.com/ww_notify.aspx">	
+                                <input type="hidden" name="return" value="http://www.sergioapps.com/ww_notify.aspx">
+                                <input type="hidden" name="cancel_return" value="http://www.sergioapps.com/ww_cancel.aspx">	
+                                <input type="hidden" name="item_number" value="WW01"> 
+                                <input type="hidden" name="custom" value="anythingyouwant"> 
+                                <input type="hidden" name="invoice" value="123456">		
+                                <input type="hidden" name="cmd" value="_xclick">	
+
+                            <div style="float:left;width:46%;padding: 10px 4px 36px 0px;"><img src="img/cc.gif" /></div>
+                            <div style="float:right;width:44%;padding: 0px 4px 6px 0px;"><input id="btnSubmit" type="submit" value="Purchase" /></div>
+                            </form>
+                        </div>
+                        <div style="margin-top: -8px !important;">
+                            <div style="float:left;width:96%;padding: 0px 4px 6px 0px;">
+                            <h4>After Purchase Enter Invoice ID:</h4>
+                            </div>
+
+                            <div style="float:left;width:52%;"> 
+                                <input type="text" name="invno" placeholder="" />
+                            </div>
+                            <div style="float:right;width:44%;padding: 0px 4px 6px 0px;">
+                                <input id="btnAuthorize" type="submit" data-icon="check" data-theme="a" value="Authorize" />
+                            </div>
+                        </div>
+                    </div>
+                </div>         
+            </div>
+            </div>
+
+             <div id="inlinecontent" class="popup" style="display: none;background-color: #8DBCF2 !important;"> 
+                <div style="padding-top:60px;background-color: #8DBCF2 !important;">
+			        <a href="#" id="dok" data-role="button" data-theme="a">OK</a>       
+			        <a href="#" id="dcancel" rel="close" data-role="button" data-theme="f">Cancel</a>   
+                </div>
+                <div id="datatest" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!--<footer id="footer" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+            <div id="navbar" data-role="navbar" data-theme="a">
+                <ul>
+                    <li class="bcolor_purple"><a href="#category" data-icon="coffee">Topics</a></li>
+                    <li class="bcolor_green"><a href="#movies" data-icon="video-camera">Movies</a></li>
+                    <li class="bcolor_mustard"><a href="#music" data-icon="music">Music</a></li>
+                    <li class="bcolor_red"><a href="#blogs" data-icon="star">Blogs</a></li>
+                    <li class="bcolor_blue"><a href="#statiobreaktv" id="statiobreaktv" data-icon="bars">SBTV</a></li>
+                </ul>
+            </div>
+        </footer>-->
+    </div> 
+    <!-- /main page -->
+
+</body>
+</html>
+
+
+<!--<div id="buynow-editable">
+    <h3>Complete Wild Workout<br />Program Just 99 cents!</h3>
+        <script async src="cc/button.js?merchant=M8C5AAJNS4JWQ"
+        data-name="Wild Workout App"
+        data-number="WW01"
+        data-custom="123"
+        data-button="buynow"
+        data-type="form"
+        data-address1-editable="Address1"
+        data-amount="0.99"
+        data-quantity="1"
+        data-locale="en_US"
+        data-callback="http://www.Yahoo.com/"
+        ></script>
+</div>-->
+
+<!--                      <p>
+<select id="location" name="location" style="font-size: .9em !important;">
+    <option value="AF"> Afghanistan (â€«Ø§Ù�ØºØ§Ù†Ø³ØªØ§Ù†â€¬â€Ž) </option>
+    <option value="AX"> Ã…land Islands </option>
+    <option value="AL"> Albania (ShqipÃ«ria) </option>
+    <option value="DZ"> Algeria (â€«Ø§Ù„Ø¬Ø²Ø§Ø¦Ø±â€¬â€Ž) </option>
+    <option value="AS"> American Samoa </option>
+    <option value="AD"> Andorra </option>
+    <option value="AO"> Angola </option>
+    <option value="AI"> Anguilla </option>
+    <option value="AQ"> Antarctica </option>
+    <option value="AG"> Antigua and Barbuda </option>
+    <option value="AR"> Argentina </option>
+    <option value="AM"> Armenia (Õ€Õ¡ÕµÕ¡Õ½Õ¿Õ¡Õ¶) </option>
+    <option value="AW"> Aruba </option>
+    <option value="AU"> Australia </option>
+    <option value="AT"> Austria (Ã–sterreich) </option>
+    <option value="AZ"> Azerbaijan (AzÉ™rbaycan) </option>
+    <option value="BS"> Bahamas </option>
+    <option value="BH"> Bahrain (â€«Ø§Ù„Ø¨Ø­Ø±ÙŠÙ†â€¬â€Ž) </option>
+    <option value="BD"> Bangladesh (à¦¬à¦¾à¦‚à¦²à¦¾à¦¦à§‡à¦¶) </option>
+    <option value="BB"> Barbados </option>
+    <option value="BY"> Belarus (Ð‘ÐµÐ»Ð°Ñ€ÑƒÌ�Ñ�ÑŒ) </option>
+    <option value="BE"> Belgium (BelgiÃ«) </option>
+    <option value="BZ"> Belize </option>
+    <option value="BJ"> Benin (BÃ©nin) </option>
+    <option value="BM"> Bermuda </option>
+    <option value="BT"> Bhutan (à½ à½–à¾²à½´à½‚à¼‹à½¡à½´à½£) </option>
+    <option value="BO"> Bolivia </option>
+    <option value="BA"> Bosnia and Herzegovina </option>
+    <option value="BW"> Botswana </option>
+    <option value="BV"> Bouvet Island </option>
+    <option value="BR"> Brazil (Brasil) </option>
+    <option value="IO"> British Indian Ocean Territory </option>
+    <option value="VG"> British Virgin Islands </option>
+    <option value="BN"> Brunei (Brunei Darussalam) </option>
+    <option value="BG"> Bulgaria (Ð‘ÑŠÐ»Ð³Ð°Ñ€Ð¸Ñ�) </option>
+    <option value="BF"> Burkina Faso </option>
+    <option value="BI"> Burundi (Uburundi) </option>
+    <option value="KH"> Cambodia (Kampuchea) </option>
+    <option value="CM"> Cameroon (Cameroun) </option>
+    <option value="CA"> Canada </option>
+    <option value="CV"> Cape Verde (Cabo Verde) </option>
+    <option value="KY"> Cayman Islands </option>
+    <option value="CF"> Central African Republic </option>
+    <option value="TD"> Chad (Tchad) </option>
+    <option value="CL"> Chile </option>
+    <option value="CN"> China (ä¸­å›½) </option>
+    <option value="CX"> Christmas Island </option>
+    <option value="CC"> Cocos [Keeling] Islands </option>
+    <option value="CO"> Colombia </option>
+    <option value="KM"> Comoros (Comores) </option>
+    <option value="CD"> Congo [DRC] </option>
+    <option value="CG"> Congo [Republic] </option>
+    <option value="CK"> Cook Islands </option>
+    <option value="CR"> Costa Rica </option>
+    <option value="CI"> CÃ´te dâ€™Ivoire </option>
+    <option value="HR"> Croatia (Hrvatska) </option>
+    <option value="CU"> Cuba </option>
+    <option value="CY"> Cyprus (ÎšÏ…Ï€Ï�Î¿Ï‚) </option>
+    <option value="CZ"> Czech Republic (ÄŒesko) </option>
+    <option value="DK"> Denmark (Danmark) </option>
+    <option value="DJ"> Djibouti </option>
+    <option value="DM"> Dominica </option>
+    <option value="DO"> Dominican Republic </option>
+    <option value="EC"> Ecuador </option>
+    <option value="EG"> Egypt (â€«Ù…ØµØ±â€¬â€Ž) </option>
+    <option value="SV"> El Salvador </option>
+    <option value="GQ"> Equatorial Guinea </option>
+    <option value="ER"> Eritrea (Ertra) </option>
+    <option value="EE"> Estonia (Eesti) </option>
+    <option value="ET"> Ethiopia (Ityop'iya) </option>
+    <option value="FK"> Falkland Islands </option>
+    <option value="FO"> Faroe Islands </option>
+    <option value="FJ"> Fiji </option>
+    <option value="FI"> Finland (Suomi) </option>
+    <option value="FR"> France </option>
+    <option value="GF"> French Guiana </option>
+    <option value="PF"> French Polynesia </option>
+    <option value="TF"> French Southern Territories </option>
+    <option value="GA"> Gabon </option>
+    <option value="GM"> Gambia </option>
+    <option value="GE"> Georgia (áƒ¡áƒ�áƒ¥áƒ�áƒ áƒ—áƒ•áƒ”áƒšáƒ�) </option>
+    <option value="DE"> Germany (Deutschland) </option>
+    <option value="GH"> Ghana </option>
+    <option value="GI"> Gibraltar </option>
+    <option value="GR"> Greece (Î•Î»Î»Î¬Ï‚) </option>
+    <option value="GL"> Greenland </option>
+    <option value="GD"> Grenada </option>
+    <option value="GP"> Guadeloupe </option>
+    <option value="GU"> Guam </option>
+    <option value="GT"> Guatemala </option>
+    <option value="GG"> Guernsey </option>
+    <option value="GN"> Guinea (GuinÃ©e) </option>
+    <option value="GW"> Guinea-Bissau </option>
+    <option value="GY"> Guyana </option>
+    <option value="HT"> Haiti (HaÃ¯ti) </option>
+    <option value="HM"> Heard / McDonald Islands </option>
+    <option value="HN"> Honduras </option>
+    <option value="HK"> Hong Kong </option>
+    <option value="HU"> Hungary (MagyarorszÃ¡g) </option>
+    <option value="IS"> Iceland (Ã�sland) </option>
+    <option value="IN"> India </option>
+    <option value="ID"> Indonesia </option>
+    <option value="IR"> Iran (â€«Ø§ÛŒØ±Ø§Ù†â€¬â€Ž) </option>
+    <option value="IQ"> Iraq (â€«Ø§Ù„Ø¹Ø±Ø§Ù‚â€¬â€Ž) </option>
+    <option value="IE"> Ireland </option>
+    <option value="IM"> Isle of Man </option>
+    <option value="IL"> Israel (â€«×™×©×¨×�×œâ€¬â€Ž) </option>
+    <option value="IT"> Italy (Italia) </option>
+    <option value="JM"> Jamaica </option>
+    <option value="JP"> Japan (æ—¥æœ¬) </option>
+    <option value="JE"> Jersey </option>
+    <option value="JO"> Jordan (â€«Ø§Ù„Ø§Ø±Ø¯Ù†â€¬â€Ž) </option>
+    <option value="KZ"> Kazakhstan (ÒšÐ°Ð·Ð°Ò›Ñ�Ñ‚Ð°Ð½) </option>
+    <option value="KE"> Kenya </option>
+    <option value="KI"> Kiribati </option>
+    <option value="KW"> Kuwait (â€«Ø§Ù„ÙƒÙˆÙŠØªâ€¬â€Ž) </option>
+    <option value="KG"> Kyrgyzstan (ÐšÑ‹Ñ€Ð³Ñ‹Ð·Ñ�Ñ‚Ð°Ð½) </option>
+    <option value="LA"> Laos (àº™àº¥àº²àº§) </option>
+    <option value="LV"> Latvia (Latvija) </option>
+    <option value="LB"> Lebanon (â€«Ù„Ø¨Ù†Ø§Ù†â€¬â€Ž) </option>
+    <option value="LS"> Lesotho </option>
+    <option value="LR"> Liberia </option>
+    <option value="LY"> Libya (â€«Ù„ÙŠØ¨ÙŠØ§â€¬â€Ž) </option>
+    <option value="LI"> Liechtenstein </option>
+    <option value="LT"> Lithuania (Lietuva) </option>
+    <option value="LU"> Luxembourg (LÃ«tzebuerg) </option>
+    <option value="MO"> Macau </option>
+    <option value="MK"> Macedonia (ÐœÐ°ÐºÐµÐ´Ð¾Ð½Ð¸Ñ˜Ð°) </option>
+    <option value="MG"> Madagascar (Madagasikara) </option>
+    <option value="MW"> Malawi </option>
+    <option value="MY"> Malaysia </option>
+    <option value="MV"> Maldives (â€«ÞŽÞªÞ–Þ­Þ‡Þ°ÞƒÞ§ Þ”Þ§Þ‡Þ°ÞƒÞ¨Þ€Þ«Þ‰Þ°Þ–â€¬â€Ž) </option>
+    <option value="ML"> Mali </option>
+    <option value="MT"> Malta </option>
+    <option value="MH"> Marshall Islands </option>
+    <option value="MQ"> Martinique </option>
+    <option value="MR"> Mauritania (â€«Ù…ÙˆØ±ÙŠØªØ§Ù†ÙŠØ§â€¬â€Ž) </option>
+    <option value="MU"> Mauritius </option>
+    <option value="YT"> Mayotte </option>
+    <option value="MX"> Mexico (MÃ©xico) </option>
+    <option value="FM"> Micronesia </option>
+    <option value="MD"> Moldova </option>
+    <option value="MC"> Monaco </option>
+    <option value="MN"> Mongolia (ÐœÐ¾Ð½Ð³Ð¾Ð» Ð£Ð»Ñ�) </option>
+    <option value="ME"> Montenegro (Ð¦Ñ€Ð½Ð° Ð“Ð¾Ñ€Ð°) </option>
+    <option value="MS"> Montserrat </option>
+    <option value="MA"> Morocco (â€«Ø§Ù„Ù…ØºØ±Ø¨â€¬â€Ž) </option>
+    <option value="MZ"> Mozambique (MoÃ§ambique) </option>
+    <option value="MM"> Myanmar [Burma] </option>
+    <option value="NA"> Namibia </option>
+    <option value="NR"> Nauru (Naoero) </option>
+    <option value="NP"> Nepal (à¤¨à¥‡à¤ªà¤¾à¤²) </option>
+    <option value="NL"> Netherlands (Nederland) </option>
+    <option value="AN"> Netherlands Antilles </option>
+    <option value="NC"> New Caledonia </option>
+    <option value="NZ"> New Zealand </option>
+    <option value="NI"> Nicaragua </option>
+    <option value="NE"> Niger </option>
+    <option value="NG"> Nigeria </option>
+    <option value="NU"> Niue </option>
+    <option value="NF"> Norfolk Island </option>
+    <option value="MP"> Northern Mariana Islands </option>
+    <option value="KP"> North Korea (ì¡°ì„ ) </option>
+    <option value="NO"> Norway (Norge) </option>
+    <option value="OM"> Oman (â€«Ø¹Ù…Ø§Ù†â€¬â€Ž) </option>
+    <option value="PK"> Pakistan (â€«Ù¾Ø§Ú©Ø³ØªØ§Ù†â€¬â€Ž) </option>
+    <option value="PW"> Palau (Belau) </option>
+    <option value="PS"> Palestinian Territories </option>
+    <option value="PA"> Panama (PanamÃ¡) </option>
+    <option value="PG"> Papua New Guinea </option>
+    <option value="PY"> Paraguay </option>
+    <option value="PE"> Peru (PerÃº) </option>
+    <option value="PH"> Philippines (Pilipinas) </option>
+    <option value="PN"> Pitcairn Islands </option>
+    <option value="PL"> Poland (Polska) </option>
+    <option value="PT"> Portugal </option>
+    <option value="PR"> Puerto Rico </option>
+    <option value="QA"> Qatar (â€«Ù‚Ø·Ø±â€¬â€Ž) </option>
+    <option value="RE"> RÃ©union </option>
+    <option value="RO"> Romania (RomÃ¢nia) </option>
+    <option value="RU"> Russia (Ð Ð¾Ñ�Ñ�Ð¸Ñ�) </option>
+    <option value="RW"> Rwanda </option>
+    <option value="SH"> Saint Helena </option>
+    <option value="KN"> Saint Kitts and Nevis </option>
+    <option value="LC"> Saint Lucia </option>
+    <option value="PM"> Saint Pierre and Miquelon </option>
+    <option value="VC"> Saint Vincent / Grenadines </option>
+    <option value="WS"> Samoa </option>
+    <option value="SM"> San Marino </option>
+    <option value="ST"> SÃ£o TomÃ© and PrÃ­ncipe </option>
+    <option value="SA"> Saudi Arabia </option>
+    <option value="SN"> Senegal (SÃ©nÃ©gal) </option>
+    <option value="RS"> Serbia (Ð¡Ñ€Ð±Ð¸Ñ˜Ð°) </option>
+    <option value="CS"> Serbia and Montenegro </option>
+    <option value="SC"> Seychelles </option>
+    <option value="SL"> Sierra Leone </option>
+    <option value="SG"> Singapore (Singapura) </option>
+    <option value="SK"> Slovakia (Slovensko) </option>
+    <option value="SI"> Slovenia (Slovenija) </option>
+    <option value="SB"> Solomon Islands </option>
+    <option value="SO"> Somalia (Soomaaliya) </option>
+    <option value="ZA"> South Africa </option>
+    <option value="GS"> South Georgia / S. Sandwich Islands </option>
+    <option value="KR"> South Korea (í•œêµ­) </option>
+    <option value="ES"> Spain (EspaÃ±a) </option>
+    <option value="LK"> Sri Lanka </option>
+    <option value="SD"> Sudan (â€«Ø§Ù„Ø³ÙˆØ¯Ø§Ù†â€¬â€Ž) </option>
+    <option value="SR"> Suriname </option>
+    <option value="SJ"> Svalbard and Jan Mayen </option>
+    <option value="SZ"> Swaziland </option>
+    <option value="SE"> Sweden (Sverige) </option>
+    <option value="CH"> Switzerland (Schweiz) </option>
+    <option value="SY"> Syria (â€«Ø³ÙˆØ±ÙŠØ§â€¬â€Ž) </option>
+    <option value="TW"> Taiwan (å�°ç�£) </option>
+    <option value="TJ"> Tajikistan (Ð¢Ð¾Ò·Ð¸ÐºÐ¸Ñ�Ñ‚Ð¾Ð½) </option>
+    <option value="TZ"> Tanzania </option>
+    <option value="TH"> Thailand (à¸£à¸²à¸Šà¸­à¸²à¸“à¸²à¸ˆà¸±à¸�à¸£à¹„à¸—à¸¢) </option>
+    <option value="TL"> Timor-Leste </option>
+    <option value="TG"> Togo </option>
+    <option value="TK"> Tokelau </option>
+    <option value="TO"> Tonga </option>
+    <option value="TT"> Trinidad and Tobago </option>
+    <option value="TN"> Tunisia (â€«ØªÙˆÙ†Ø³â€¬â€Ž) </option>
+    <option value="TR"> Turkey (TÃ¼rkiye) </option>
+    <option value="TM"> Turkmenistan (TÃ¼rkmenistan) </option>
+    <option value="TC"> Turks and Caicos Islands </option>
+    <option value="TV"> Tuvalu </option>
+    <option value="UM"> U.S. Minor Outlying Islands </option>
+    <option value="VI"> U.S. Virgin Islands </option>
+    <option value="UG"> Uganda </option>
+    <option value="UA"> Ukraine (Ð£ÐºÑ€Ð°Ñ—Ð½Ð°) </option>
+    <option value="AE"> United Arab Emirates </option>
+    <option value="GB"> United Kingdom </option>
+    <option value="US" selected> United States </option>
+    <option value="UY"> Uruguay </option>
+    <option value="UZ"> Uzbekistan (O'zbekiston) </option>
+    <option value="VU"> Vanuatu </option>
+    <option value="VA"> Vatican City </option>
+    <option value="VE"> Venezuela </option>
+    <option value="VN"> Vietnam (Viá»‡t Nam) </option>
+    <option value="WF"> Wallis and Futuna </option>
+    <option value="EH"> Western Sahara </option>
+    <option value="YE"> Yemen (â€«Ø§Ù„ÙŠÙ…Ù†â€¬â€Ž) </option>
+    <option value="ZM"> Zambia </option>
+    <option value="ZW"> Zimbabwe </option>
+</select>
+</p>-->
+
+
+<!--	    //$(document).delegate('#btnSubmit', 'click', function (event) {
+        function submitForm() {
+	        //1. Check your code so you are not vulnerable to SQL Injection.
+	        //2. Access your server via https instead of http.
+	        //3. Add a server page (.aspx or .php) to accept a login request for a name and password which will return a unique session key. 
+	        //A large random number could be good enough, or a sha1 hash of random data + some data in the request.
+	        //4. Store this number in a serverside database along with the date it was issued.
+	        //6. Make your mobile app get a session key from this file before uploading the score.
+	        //7. Make your Credit Card web page (handler, webservice, etc.) accepts your session key along with the data and compare 
+	        //it against the database to see if its valid, and not too old (check the issue date).
+	        //8. Store a new session key and return it with the result of the data update, and remove the old session key from the database.
+	        //9. Make your js use the new key in later posts, each time getting a new one form the server.
+
+	        //event.preventDefault();
+//	        var _appid = "WW01";
+//	        var _first_name = $("#first_name").val();
+//	        var _last_name = $("#last_name").val();
+//	        var _city = $("#city").val();
+//	        var _state = $("#state").val();
+//	        var _zip = $("#zip").val();
+//	        var _email = $("#email").val();
+	        //we don't need to pass price since we are fixing that at 99 cents
+
+
+	        //<map methodName="buyNow" typeName="buyHandlerHandler"/>
+
+	        //PLEASE NOTE HERE WE ONLY POST CC DATA TO HTTPS !!!
+	        // ALSO- in a reall app you would pass in a the equivalent of a user name and password
+	        // the username and password could be the card id of the phone that was uploaded to your server when the app was originally downloaded
+
+	        // HTTPS
+	        //var url = 'https://www.your_domain.com/rsshandler.ashx?appid=' + _appid + '&first_name=' + _first_name + '&last_name=' + _last_name + '&city=' + _city + '&state=' + _state + '&zip=' + _zip + '&email=' + _email + '&methodName=buyNow&jsonp=onRSSLoaded';
+
+	        //for testing
+	        //NOTE: These URL parameters match the PayPlay variable names!
+	        //var url = 'rsshandler.ashx?custom=' + _appid + '&first_name=' + _first_name + '&last_name=' + _last_name + '&city=' + _city + '&state=' + _state + '&zip=' + _zip + '&email=' + _email + '&methodName=buyNow&jsonp=onRSSLoaded';
+
+	        // The only thing that POST is a security measure towards? Protection against your jealous ex flipping through your browser history. 
+	        // That's it. The rest of the world is logged into your account laughing at you.
+	        // USE SSL, namely HTTPS only for the handler!!!
+
+	        // Note that you may still be attacked with CSRF even if you use HTTPS and your site does not contain XSS vulnerabilities. 
+	        // In short, this attack scenario assumes that the victim (the user of your site or service) is already logged in and 
+	        // has a proper cookie and then the victim's browser is requested to do something with your (supposedly secure) site. 
+	        // If you do not have protection against CSRF the attacker can still execute actions with the victims credentials. 
+	        // The attacker cannot see the server response because it will be transferred to the victim's browser but the damage is usually already done at that point.
+
+	        //string strSandbox = "https://www.sandbox.paypal.com/cgi-bin/webscr";
+	        //string strLive = "https://www.paypal.com/cgi-bin/webscr";
+
+	        //	        var strRequest = "https://www.paypal.com/cgi-bin/webscr?";
+	        //        //strRequest += "&cmd=_notify-validate";
+	        //        strRequest += "cmd=_xclick";
+	        //        strRequest += "&business=tvmogul1@yahoo.com";
+	        //        strRequest += "&item_name=Wild Workout App";
+	        //        strRequest += "&amount=0.99";
+	        //        strRequest += "&currency_code=USD";
+	        //        strRequest += "&custom=WW123";
+	        //        strRequest += "&address1=address1";
+	        //        strRequest += "&address2=address2";
+
+	        //        url = strRequest;
+            alert("aaa");
+            $.ajax({
+                type:'POST', 
+	            url: 'https://www.paypal.com/cgi-bin/webscr',
+	            contentType: "application/json",
+	            dataType: 'json',
+                data:$('#PayPalForm').serialize()
+	        });
+
+
+	        //	        $.ajax({
+	        //	            type: 'POST',
+	        //	            url: url,
+	        //	            async: false,
+	        //	            contentType: "application/json",
+	        //	            dataType: 'jsonp'
+	        //	        });
+
+	        return false;
+	    });-->
+
+
+
+<!--<script type="text/javascript">
+    $(function () {
+        $('#btnClick').click(function () {
+            $(this).attr("disabled", true);
+            $(this).val('Please wait Processing');
+            // Write your Code
+        })
+        $('#btnReset').click(function () {
+            $('#btnClick').attr("disabled", false);
+            $('#btnClick').val('Click');
+        })
+    })
+</script>-->
+
+
+
+

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
+	<!--<link rel="stylesheet" href="css/mdpi.css" media="only screen and (-webkit-max-device-pixel-ratio:1.0) and (max-device-width:480px)">-->
+	<!--<link rel="stylesheet" href="css/hdpi.css" media="only screen and (-webkit-min-device-pixel-ratio:1.5)">-->
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->   
+    <!-- For Samsung Galaxy S4-5 & larger Screens, use "target-densitydpi=medium-dpi" instead of device-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>www.SerGioApps.com</title> 
+       
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet"  href="css/jquery.mobile.icons-1.4.0.css" />
+	<link rel="stylesheet"  href="css/jqm-icon-pack-fa.css" />
+
+    <link href="js_iscroll/jquery.mobile.iscrollview.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="js_iscroll/demo.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!--<script src="cordova.js" type="text/javascript"></script>-->
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+    <script src="js_iscroll/iscroll.js" type="text/javascript"></script>
+    <script src="js_iscroll/jquery.mobile.iscrollview.js" type="text/javascript"></script>
+
+    <link href="youtube/youtube-video-gallery.css" rel="stylesheet" type="text/css" />
+    <script src="youtube/jquery.youtubevideogallery.js"></script>
+    <script src="js/retina.js" type="text/javascript"></script>
+
+    <!-- Add fancyBox -->
+    <!-- Add mousewheel plugin (this is optional) -->
+    <!--<script type="text/javascript" src="youtube/jquery.mousewheel-3.0.6.pack.js"></script>-->
+
+    <!-- Add fancyBox main JS and CSS files -->
+    <!--<script type="text/javascript" src="youtube/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <link rel="stylesheet" type="text/css" href="youtube/jquery.fancybox.css?v=2.1.5" media="screen" />-->
+
+    <!-- Add fancyBox - button helper (this is optional) -->
+    <!--<link rel="stylesheet" type="text/css" href="youtube/jquery.fancybox-buttons.css?v=2.1.5" />
+    <script type="text/javascript" src="youtube/jquery.fancybox-buttons.js?v=2.1.5"></script>-->
+
+    <!-- Add fancyBox - thumbnail helper (this is optional) -->
+    <!--<link rel="stylesheet" type="text/css" href="youtube/jquery.fancybox-thumbs.css?v=2.1.5" />
+    <script type="text/javascript" src="youtube/jquery.fancybox-thumbs.js?v=2.1.5"></script>-->
+
+    <!-- Add fancyBox - media helper (this is optional) -->
+    <!--<script type="text/javascript" src="youtube/jquery.fancybox-media.js?v=1.0.0"></script>-->
+
+
+    <!-- add colorbox -->
+    <link href="youtube/colorbox.css" rel="stylesheet" type="text/css" />
+    <script src="youtube/jquery.colorbox-min.js" type="text/javascript"></script>
+
+    <script src="js/store.min.js" type="text/javascript"></script>
+
+    <link id="link_frame" href="" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        
+              
+    html, body {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        overflow: hidden !important;
+    } 
+    
+    html { 
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0px;
+    }
+              
+    body 
+    {
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+    	font-size: .9em;
+	    line-height: 1.1em;
+        font-weight: normal; 
+        letter-spacing: -0.03em; 
+        background-color: #F2F2F2 !important;
+        background-repeat: no-repeat;
+        text-decoration: none;
+    }
+    
+    .ui-header {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    .ui-footer {
+        display: block !important;
+        width: 100% !important;
+        height: 2px !important;
+        z-index: 99999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    
+    .ui-page, .ui-page-fullscreen{
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+    }
+
+    .ui-content {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        left: 0 !important;
+    } 
+   
+   
+    div {
+        overflow-x:hidden;
+        overflow-y:hidden;
+    }
+
+    .center-wrapper {
+      text-align: center;
+    }
+    .center-wrapper * {
+      margin: 0px auto 0px auto;
+    }     
+    
+    .bcolor_purple {
+        border-bottom: 6px solid #b753d8 !important;
+    }
+    .bcolor_green {
+        border-bottom: 6px solid #6bc356 !important;  
+    }
+    .bcolor_mustard {
+        border-bottom: 6px solid #fab903 !important;      
+    }
+    .bcolor_red {
+        border-bottom: 6px solid #e94739 !important;       
+    }
+    .bcolor_blue {
+        border-bottom: 6px solid #427fed !important;        
+    }
+      
+    #yt_content {
+        height: 1100px !important;
+        z-index:1 !important;
+        width: 100% !important;
+    }
+
+    header {
+        clear: left;
+        box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -moz-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -webkit-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+    }
+    
+    /* DO NOT REMOVE THIS !!! */
+    .iscroll-scroller {
+        min-width: 100% !important;
+    }     
+    </style>
+ 
+	<script type="text/javascript">
+
+	    var _themeid_dronestv = "";
+	    if (localStorage["themeid_dronestv"]) {
+	        _themeid_dronestv = localStorage["themeid_dronestv"];
+	    } else {
+	        //_themeid_dronestv = "light";
+	        _themeid_dronestv = "dark";
+	        localStorage["themeid_dronestv"] = "dark";
+	    }
+	    var _path = "themes/" + _themeid_dronestv + ".css";
+	    $("#link_frame").attr("href", _path);
+
+	    var refreshIntervalId;
+	    var g_content_width = 100;
+	    var g_content_height = 100;
+
+	    /* Use this for high compatibility (iDevice + Android)*/
+	    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	    document.addEventListener('DOMContentLoaded', loaded, false);
+	    //document.addEventListener("deviceready", function (e) { }, "false");
+	    document.addEventListener('deviceready', function () {
+	        StatusBar.overlaysWebView(false);
+	        StatusBar.backgroundColorByName('black');
+	    }, false);
+
+	    function loaded() {
+	        screenAdjust();
+	    }
+
+	    $(document).bind("mobileinit", function () {
+	        jQuery.support.cors = true;
+	        jQuery.mobile.allowCrossDomainPages = true;
+	        jQuery.mobile.phonegapNavigationEnabled = true;
+	        jQuery.mobile.defaultDialogTransition = "slide";
+	    });
+
+	    $(document).delegate('.ui-page', 'touchmove', false);
+
+	    $(window).bind('resize', function (e) {
+	        screenAdjust();
+	        $("#wrapper_controls").trigger("updatelayout");
+	    });
+
+	    $('#listview').on('click', 'li', function () {
+	        event.preventDefault();
+	    });
+
+	    $(document).delegate('.ui-footer a', 'click', function () {
+	        $('#wrapper_controls').panel("close");
+	        var el = $(this);
+	        var link = el.attr('href');
+
+	        screenAdjust();
+
+	        if (link == "#ostaro") {
+	            //store.set('yt_criteria', {
+	            //    type: 'search_users',
+	            //    start_index: 1,
+	            //    qvalue: 'ostaro',
+	            //    nb_display: 'std'
+	            //});
+	            //window.location = "./youtube.html";
+	            window.location = "./ostaro.html";
+	        }
+	        else if (link == "#movies") {
+	            window.location = "./movies.html";
+	        }
+	        else if (link == "#music") {
+	            window.location = "./music.html";
+	        }
+	        else if (link == "#blogs") {
+	            window.location = "./blogs.html";
+	        }
+	        else if (link == "#listcloud") {
+	            $('#listcloud .ui-btn-text').text('Cloud');
+	            window.location = "./general.html";
+	            //if( $('#listcloud .ui-btn-text').text() == 'Cloud' ) {
+	            //    $('#listcloud .ui-btn-text').text('List');
+	            //}
+	            //else {
+	            //    $('#listcloud .ui-btn-text').text('Cloud');
+	            //    window.location = "./general.html";
+	            //}
+	        }
+
+	    });
+
+	    $(document).ready(function () {
+
+	    });
+
+	    $(window).bind('resize', function (e) {
+	        screenAdjust();
+	        //$("#wrapper_controls").trigger("updatelayout");
+	    });
+
+	    $(document).delegate("#mainPage", "pageinit", function () {
+	        //alert('A page with an id of "aboutPage" was just created by jQuery Mobile!');
+	        //myScroll = new iScroll('zvideowrapper', { scrollbarClass: 'myScrollbar', hScrollbar: false });
+	    });
+
+
+	    window.onload = function () {
+	        screenAdjust();
+	        var zurl = localStorage.getItem('idata');
+
+	        //zurl = './paypal.html';
+	        $("#zbrowser").attr("src", zurl);
+	    };
+
+	    function screenAdjust() {
+	        g_content_width = window.innerWidth;
+	        g_content_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height() - 0);
+	        var orientation = "portrait";
+	        if (window.orientation == -90 || window.orientation == 90) orientation = "landscape";
+	        if (orientation == "portrait") {
+	            g_content_height = ($(window).height() - 100);
+	        }
+	        else {
+	            g_content_height = ($(window).height() - 100);
+	        }
+
+	        $('#zbrowser').width(g_content_width + 'px');
+	        $('#zbrowser').height(g_content_height + 'px');
+	    }
+
+	    $(document).one('mobileinit', function () {
+	        // Setting #container div as a jqm pageContainer
+	        $.mobile.pageContainer = $('#container');
+
+	        // Setting default page transition to slide
+	        $.mobile.defaultPageTransition = 'slide';
+	    });
+
+    //]]>
+    </script>
+</head>
+<body>
+    <div data-role="page" id="mainPage" data-theme="c" style="background-color: #121212 !important;text-align: center; margin: 0 auto; border: 0px none #121212;">
+
+        <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom:4px solid #427fed !important;">
+            <a data-icon="home" class="ui-btn-left" data-theme="a" style="margin-top:8px;" href="index.html" rel="external">Home</a>
+            <div class="center-wrapper"><img id="header_logo" src="img/header_logo.png" alt="DronesTV" style="margin-top:4px;"></div>
+            <a href="#" data-role="button" data-icon="arrow-l" data-theme="a"  class="ui-btn-right" style="margin-top:8px;" data-rel="back">Back</a>
+        </header>
+
+        <!-- content/ -->
+        <div id="content_browser" data-iscroll="{
+            'hScroll':false,
+            'vScroll':true,
+            'resizeEvents':'orientationchange',
+            'resizeWrapper':true, 
+            'mouseWheel': true, 
+            'click': true, 
+            'interactiveScrollbars': true, 
+            'shrinkScrollbars': 'scale'
+            }" data-id="content" data-role="content" data-iscroll>
+
+            <div id="scroller_browser">
+                <iframe id="zbrowser" name="zbrowser" src="about:blank" marginheight="0" frameborder="0" width="240" height="180"></iframe><br />
+            </div>
+        </div>
+        <!-- /content -->
+
+        <footer id="footer" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+        </footer>
+
+    </div>
+    <!-- /page -->
+</body>
+</html>
+
+
+<!--<meta http-equiv="X-Frame-Options" content="deny">
+There are three possible values for X-Frame-Options:
+DENY - The page cannot be displayed in a frame, regardless of the site attempting to do so.
+SAMEORIGIN - The page can only be displayed in a frame on the same origin as the page itself.
+ALLOW-FROM uri - The page can only be displayed in a frame on the specified origin.-->
+
+
+<!--Uri uri = Uri.parse("http://<link-to-RAW-youtube-video>"); // i.e. mp4 version
+Intent intent = new Intent(Intent.ACTION_VIEW);
+intent.setDataAndType(uri, "video/*"); // important! otherwise you just download the video
+startActivity(intent); // called directly from an other activity as you see-->
+<!--
+http://o-o.preferred.ber01s04.v22.lscache2.c.youtube.com/videoplayback?sparams=cp%2Cid%2Cip%2Cipbits%2Citag%2Cratebypass%2Csource%2Cexpire&fexp=904550%2C919700%2C911614&itag=18&ip=77.0.0.0&signature=C721CE7543081FC0C805C86F5D3C4D9B34D77764.D4288106CF7A3153FF1574F2334161CBD1176535&sver=3&ratebypass=yes&source=youtube&expire=1332001847&key=yt1&ipbits=8&cp=U0hSR1BLT19JUUNOMl9IRVNJOmllRjJJYy1SSG92&id=6c83dca1b28c07de&title=AT%26T%20Samsung%20Captivate%20TV%20Commercial%20-%20Galaxy%20S%20Phone-360p
+-->

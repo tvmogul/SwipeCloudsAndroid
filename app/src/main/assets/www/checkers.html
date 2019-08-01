@@ -1,0 +1,1143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
+	<!--<link rel="stylesheet" href="css/mdpi.css" media="only screen and (-webkit-max-device-pixel-ratio:1.0) and (max-device-width:480px)">-->
+	<!--<link rel="stylesheet" href="css/hdpi.css" media="only screen and (-webkit-min-device-pixel-ratio:1.5)">-->
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->   
+    <!-- For Samsung Galaxy S4-5 & larger Screens, use "target-densitydpi=medium-dpi" instead of device-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>www.SerGioApps.com</title> 
+       
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet"  href="css/jquery.mobile.icons-1.4.0.css" />
+	<link rel="stylesheet"  href="css/jqm-icon-pack-fa.css" />
+
+    <!--<script src="cordova.js" type="text/javascript"></script>-->
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+    <script src="js_iscroll/iscroll.js" type="text/javascript"></script>
+    <script src="js_iscroll/jquery.mobile.iscrollview.js" type="text/javascript"></script>
+
+
+    <script src="js/store.min.js" type="text/javascript"></script>
+    <link id="link_checkers" href="" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        
+    html, body {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        overflow: hidden !important;
+    } 
+    
+    html { 
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0px;
+    }
+              
+    body {
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+    	font-size: 1.1em;
+	    line-height: 1.1em;
+        font-weight: normal; 
+        letter-spacing: -0.03em; 
+        background-color: #F2F2F2 !important;
+        background-repeat: no-repeat;
+        text-decoration: none;
+    }
+      
+    .ui-header {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    .ui-footer {
+        display: block !important;
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 99999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    
+    .ui-page, .ui-page-fullscreen{
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+    }
+
+    .ui-content {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        left: 0 !important;
+    } 
+
+    .ui-page, .ui-page-fullscreen {
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+    }
+   
+   .zclear {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+   }    
+   
+    .ui-li-aside{
+        content:'';
+        width:50px !important;
+        padding-top:-2px !important;
+        padding-right:8px !important;    
+        vertical-align:top;
+        font-size:.8em;
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        font-weight: normal;
+        font-style: normal;    
+        position:absolute;
+        float:right;
+        right:8px;
+        top:-2px;
+        color:#ff0000;
+        display: none !important;
+    }  
+
+    .imgtime {
+        z-index:99999;
+        position:absolute;
+        bottom:26px;
+        left:58px;
+        float:left;   
+        font: Helvetica, Arial, sans-serif;
+        font-size:.8em;
+        text-decoration:none;
+        font-variant:normal;
+        font-style:normal;
+        font-weight:normal;
+        color:White;
+        display: none !important;       
+    }
+
+
+  
+
+    /* rounded image styles youtube-videogallery-img */   
+    .rounded-img, .ui-li-icon {
+        float: left;
+        top: 1px;
+        padding: 0px 0px 0px 0px;
+        margin-top: 8px;
+        margin-left: 30px;
+        width: 65px !important;
+        height: 60px !important;
+	    display: inline-block;
+	    border: none 0px transparent !important;     /* #9CAAC1; */
+	    overflow: hidden; 
+	    background-color: transparent !important;
+    }
+
+    .rounded-img:hover, img.ui-li-icon:hover {
+        float: left;
+        top: 1px;
+        padding: 0px 0px 0px 0px;
+        margin-left: 40px;
+        width: 65px !important;
+        height: 60px !important;
+	    display: inline-block;
+	    border: none 0px transparent !important;    /* #9CAAC1; */
+	    overflow: hidden;
+	    -webkit-border-radius: 10px;
+	    -moz-border-radius: 12px;
+	    border-radius: 12px;
+	    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    border:1px solid #ff0000 !important;
+    }
+    
+    .ellipsis {
+        position: absolute;
+        top: 2px;
+        left: 0px;
+        width: 60%;
+        margin: 0px 0px 0px 118px;
+        padding: 0px 0px 0px 0px;
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        -webkit-font-smoothing: antialiased; 
+        font-size: 1.1em;
+	    line-height: .9em;
+	    font-weight: normal;
+        font-style: normal;
+        display: list-item;
+        white-space: normal;
+        background-color: transparent !important;
+    }
+    
+    .ellipsis2 {
+        position: absolute;
+        top: 24px;
+        left: 0px;
+        width: 60%;
+        height: 70px !important;
+        margin: 0px 0px 0px 118px;
+        padding: 0px 0px 0px 0px;   
+        font-family: "Calibri", Arial, Helvetica, sans-serif;   
+        font-size: .8em;
+        font-weight: normal;
+        font-style: normal;
+        display: list-item;
+        text-overflow: ellipsis;
+        overflow: ellipsis;
+        white-space: normal;  
+        text-decoration: inherit;
+        -webkit-font-smoothing: antialiased;
+        vertical-align: top;
+        line-height: 1.0em;
+        text-align: left;
+        background-color: transparent !important;
+    }
+    
+    #zvideowrapper ul li, #zvideowrapper li {
+        height: 94px !important;
+        z-index:1 !important;
+        border-bottom: 1px solid #464954;
+        border-top: 1px solid #464954;
+
+    }
+    
+    .center-wrapper {
+      text-align: center;
+    }
+    .center-wrapper * {
+      margin: 0px auto 0px auto;
+    }     
+    
+    
+    .bcolor_purple {
+        border-bottom: 6px solid #b753d8 !important;
+    }
+    .bcolor_green {
+        border-bottom: 6px solid #6bc356 !important;   
+    }
+    .bcolor_mustard {
+        border-bottom: 6px solid #fab903 !important;      
+    }
+    .bcolor_red {
+        border-bottom: 6px solid #e94739 !important;       
+    }
+    .bcolor_blue {
+        border-bottom: 6px solid #427fed !important;        
+    }
+ 
+    .ui-li-divider {
+        line-height:60px !important;
+        text-decoration: none;
+        white-space:nowrap;
+    }
+    .ui-li-divider img {
+        max-width: 300px;
+        max-height: 60px;
+        padding-top: 0px!important;
+    }
+
+    .ui-navbar ul {
+        margin-top: 2px !important;
+        height: 54px !important;
+    }
+    
+    #navbar li {
+        margin-top: -6px !important;
+        height: 54px !important;
+        margin-bottom: 6px !important;
+        padding: 0px 0px 6px 0px !important;
+    }
+        
+    #navbar li a {
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-weight: normal; 
+        letter-spacing: 0.04em;         
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+        
+    .bcolor_purple {
+        border-bottom: 6px solid #b753d8 !important;
+    }
+    .bcolor_green {
+        border-bottom: 6px solid #6bc356 !important;
+    }
+    .bcolor_mustard {
+        border-bottom: 6px solid #fab903 !important;
+    }
+    .bcolor_red {
+        border-bottom: 6px solid #e94739 !important;
+    }
+    .bcolor_blue {
+        border-bottom: 6px solid #427fed !important;
+    }
+        
+    .feed_wrapper li {
+        float: left;
+        padding-right: 40px !important;
+        width: 100% !important;
+    }
+
+    .category_header {
+        float: left;
+        padding-top: 12px !important;
+        padding-left: 12px !important;
+    }
+
+    header {
+        clear: left;
+        box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -moz-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -webkit-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+    }
+    
+    /* DO NOT REMOVE THIS !!! */
+    .iscroll-scroller {
+        min-width: 100% !important;
+    }         
+    
+    [data-role="navbar"] li {
+        margin-top: -6px !important;
+        height: 54px !important;
+        margin-bottom: 6px !important;
+        padding: 0px 0px 6px 0px !important;
+    }
+
+    [data-role="navbar"] li a {
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-weight: normal; 
+        letter-spacing: 0.04em;         
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }    
+</style>
+           
+
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+        var _themeid_dronestv = "";
+        if (localStorage["themeid_dronestv"]) {
+            _themeid_dronestv = localStorage["themeid_dronestv"];
+        } else {
+            //_themeid_dronestv = "light";
+            _themeid_dronestv = "dark";
+            localStorage["themeid_dronestv"] = "dark";
+        }
+        var _path = "themes/" + _themeid_dronestv + ".css";
+        $("#link_checkers").attr("href", _path);
+
+        $(document).bind("mobileinit", function () {
+            jQuery.support.cors = true;
+            jQuery.mobile.allowCrossDomainPages = true;
+            jQuery.mobile.phonegapNavigationEnabled = true;
+            jQuery.mobile.defaultDialogTransition = "slide";
+        });
+
+        $(window).bind('resize', function (e) {
+            screenAdjust();
+        });
+
+        $(window).bind('orientationchange', function (e) {
+            var orientation = "portrait";
+            if (window.orientation == -90 || window.orientation == 90) orientation = "landscape";
+
+            switch (orientation) {
+                case 'portrait':
+                    // alert('portrait');
+                    //$.mobile.fixedToolbars.setTouchToggleEnabled(true);
+                    break;
+                case 'landscape':
+                    // alert('landscape');        
+                    $.mobile.fixedToolbars.setTouchToggleEnabled(false);
+                    break;
+                default:
+                    break;
+            };
+            screenAdjust();
+        });
+
+        $(document).delegate("#mainPage", "pageinit", function () {
+            //alert('A page with an id of "aboutPage" was just created by jQuery Mobile!');
+        });
+
+        window.onload = function () {
+
+        };
+
+        $(document).delegate('header a', 'click', function () {
+            var el = $(this);
+            var link = el.attr('href');
+            //if (link == "#clouds") {
+            //}
+            return false;
+        });
+
+        $(document).delegate('footer a', 'click', function () {
+            var link = $(this).attr('href');
+            if (link == "#back") {
+                history.back();
+            }
+            else if (link == "#statiobreaktv") {
+                window.open("http://www.stationbreaktv.com/mobile/index.html", "_blank");
+            }
+        });
+
+        //iframe.contentWindow.changeTheme();
+        function changeTheme(ztheme) {
+            localStorage["themeid_dronestv"] = ztheme;
+            var _path = "themes/" + ztheme + ".css";
+            $("#link_index").attr("href", _path);
+        }
+
+        $(document).delegate('header a', 'click touchend', function (e) {
+            //e.preventDefault();
+            //e.stopPropagation();
+            //$("#sidebar").show();
+            //$("#sidebar").trigger("updatelayout");
+            var el = $(this);
+            var link = $(this).attr('href');
+            if (link == "#go_home") {
+                window.location = "./index.html";
+            }
+            else if (link == "#go_panel_topnav") {
+                $('#panel_topnav').panel("open");
+            }
+            else if (link == "#back") {
+                history.back();
+            }
+        });
+
+        $(document).delegate('footer a', 'click', function () {
+            //$(document).delegate('.ui-footer a', 'click', function () {
+            //window.location = "./ad01.html#mainPage";
+            //window.location = "./ad01.html#mainPage";
+            var link = $(this).attr('href');
+            if (link == "#back") {
+                history.back();
+            }
+            else if (link == "#statiobreaktv") {
+                window.open("http://www.stationbreaktv.com/mobile/index.html", "_blank");
+            }
+            else if (link == '#intro') {
+                /////////////////////////////////////////////////////
+                var _link = 'b5dAMId4qdQ';
+                var _desc = 'We invite you to try out our CHEST Workout which we have included FREE. Just click on the CHEST icon on the previous page.'
+                store.set('ww_category', {
+                    cat: 'ww_chest'
+                });
+                localStorage.setItem('videoid', 'b5dAMId4qdQ');
+                localStorage.setItem('videodesc', _desc);
+                window.location = "./videoplayer.html";
+                /////////////////////////////////////////////////////
+            }
+            //<li class="bcolor_purple"><a href="#category" data-icon="coffee">Topics</a></li>
+            //<li class="bcolor_green"><a href="#sports" data-icon="video">Sports</a></li>
+            //<li class="bcolor_mustard"><a href="#animals" data-icon="power">Animals</a></li>
+            //<li class="bcolor_red"><a href="#listcloud" data-icon="bars">Bonus</a></li>
+            //<li class="bcolor_blue"><a href="#unlock" data-icon="key">Unlock</a></li>
+            else if (link == "#shop") {
+                //window.location = "http://www.sergioapps.com/storefront.html#/store";
+                //window.open("http://www.sergioapps.com/storefront.html#/store", "_self");
+                window.open("http://www.muscles2go.com/storefront.html#/store", "_blank");
+            }
+            else if (link == "#back") {
+                history.back();
+            }
+            else if (link == "#ostaro") {
+                //store.set('yt_criteria', {
+                //    type: 'search_users',
+                //    start_index: 1,
+                //    qvalue: 'ostaro',
+                //    nb_display: 'std'
+                //});
+                //window.location = "./youtube.html";
+                window.location = "./ostaro.html";
+            }
+            //YouTube User ID: TSL7kPXsdBkh918wyWVCuQ
+            //YouTube Channel ID: UCTSL7kPXsdBkh918wyWVCuQ
+            else if (link == "#stationbreaktv") {
+                window.location = "./stationbreak.html";
+                store.set('yt_criteria', {
+                    type: 'search_users',
+                    start_index: 1,
+                    qvalue: 'UCTSL7kPXsdBkh918wyWVCuQ',
+                    nb_display: 'std'
+                });
+                window.location = "./youtube.html";
+            }
+            else if (link == "#topics_m2g") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#m2g_web") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#rssmobi") {
+                window.location = "./rssmobi.html";
+            }
+            else if (link == "#tv") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#movies") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#music") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#blogs") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#shop") {
+                window.open("http://www.sergioapps.com/storefront.html#/store", "_blank");
+            }
+            else if (link == "#listcloud") {
+                $('#listcloud .ui-btn-text').text('Cloud');
+                window.location = "./general.html";
+            }
+            else if (link == "#rss_ads") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#category") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#blogs_fitness") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#tvshows_bodybuilding") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#movies_bodybuilding") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#sports") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#animals") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#unlock") {
+                window.location = "./In_App_BuyNow.html";
+            }
+            else if (link == "#games") {
+                window.location = "./games.html";
+            }
+            else if (link == "#rss_ads") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#politics") {
+                store.set('yt_criteria', {
+                    type: 'search_users',
+                    start_index: 1,
+                    qvalue: 'RealTime',
+                    nb_display: 'std'
+                });
+                window.location = "./youtube.html";
+            }
+            else if (link == "#movies") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#music") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#blogs") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+        });
+
+        $(document).delegate('#newgame', 'click touchend', function (e) {
+            window.location = "./checkers.html";
+        });
+
+    //]]>
+    </script>
+
+</head>
+<body>
+    <div data-role="page" id="mainPage" style="text-align: center; border: 0px none #fff;">
+
+        <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom:4px solid #427fed !important;">
+            <a data-icon="home" class="ui-btn-left" data-theme="a" style="margin-top:8px;" href="#go_home" rel="external">Home</a>
+            <div class="center-wrapper"><img id="header_logo" src="img/header_logo.png" alt="DronesTV" style="margin-top:4px;"></div> 
+            <a href="#back" data-role="button" data-icon="arrow-l" data-theme="a"  class="ui-btn-right" style="margin-top:8px;" data-rel="back">Back</a>
+        </header>
+
+        <div id="scroller" data-iscroll="{
+                'hScroll':false,
+                'vScroll':true,
+                'resizeEvents':'orientationchange',
+                'resizeWrapper':true, 
+                'mouseWheel': true, 
+                'click': true, 
+                'interactiveScrollbars': true, 
+                'shrinkScrollbars': 'scale'
+                }" data-role="content" class="ui-content iscroll-wrapper">
+            <div class="iscroll-scroller center-wrapper" style="background-color: #000 !important;padding-top:50px;min-height: 1200px; -webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+
+        <script>
+            // Checkers Game
+
+            // black.gif
+            // gray.gif
+            // you1.gif -- normal piece (player/red)
+            // you2.gif -- highlighted piece
+            // you1k.gif -- kinged normal piece
+            // you2k.gif -- kinged highlighted piece
+            // me1.gif -- normal piece (computer/black)
+            // me2.gif -- highlighted piece
+            // me1k.gif -- kinged normal piece
+            // me2k.gif -- kinged highlighted piece
+
+            function preload() {
+                this.length = preload.arguments.length;
+                for (var i = 0; i < this.length; i++) {
+                    this[i] = new Image();
+                    this[i].src = preload.arguments[i];
+                }
+            }
+            var pics = new preload("checkers/black.gif", "checkers/gray.gif",
+ "checkers/you1.gif", "checkers/you2.gif", "checkers/you1k.gif", "checkers/you2k.gif",
+ "checkers/me1.gif", "checkers/me2.gif", "checkers/me1k.gif", "checkers/me2k.gif");
+
+            var black = -1; // computer is black
+            var red = 1; // visitor is red
+            var square_dim = 35;
+            var piece_toggled = false;
+            var my_turn = false;
+            var double_jump = false;
+            var comp_move = false;
+            var game_is_over = false;
+            var safe_from = safe_to = null;
+            var toggler = null;
+            var togglers = 0;
+
+            function Board() {
+                board = new Array();
+                for (var i = 0; i < 8; i++) {
+                    board[i] = new Array();
+                    for (var j = 0; j < 8; j++)
+                        board[i][j] = Board.arguments[8 * j + i];
+                }
+                board[-2] = new Array(); // prevents errors
+                board[-1] = new Array(); // prevents errors
+                board[8] = new Array(); // prevents errors
+                board[9] = new Array(); // prevents errors
+            }
+            var board;
+            Board(1, 0, 1, 0, 1, 0, 1, 0,
+      0, 1, 0, 1, 0, 1, 0, 1,
+      1, 0, 1, 0, 1, 0, 1, 0,
+      0, 0, 0, 0, 0, 0, 0, 0,
+      0, 0, 0, 0, 0, 0, 0, 0,
+      0, -1, 0, -1, 0, -1, 0, -1,
+      -1, 0, -1, 0, -1, 0, -1, 0,
+      0, -1, 0, -1, 0, -1, 0, -1);
+
+            function message(str) {
+                if (!game_is_over)
+                    document.disp.message.value = str;
+            }
+            function moveable_space(i, j) {
+                // calculates whether it is a gray (moveable)
+                // or black (non-moveable) space
+                return (((i % 2) + j) % 2 == 0);
+            }
+            function Coord(x, y) {
+                this.x = x;
+                this.y = y;
+            }
+            function coord(x, y) {
+                c = new Coord(x, y);
+                return c;
+            }
+
+
+            document.write("<table border=0 cellspacing=0 cellpadding=0 width=" + (square_dim * 8 + 8)
+ + "<tr><td><img src='checkers/black.gif' width=" + (square_dim * 8 + 8)
+ + " height=4><br></td></tr>");
+            for (var j = 0; j < 8; j++) {
+                document.write("<tr><td><img src='checkers/black.gif' width=4 height=" + square_dim + ">");
+                for (var i = 0; i < 8; i++) {
+                    if (moveable_space(i, j))
+                        document.write("<a href='javascript:clicked(" + i + "," + j + ")'>");
+                    document.write("<img src='");
+                    if (board[i][j] == 1) document.write("checkers/you1.gif");
+                    else if (board[i][j] == -1) document.write("checkers/me1.gif");
+                    else if (moveable_space(i, j)) document.write("checkers/gray.gif");
+                    else document.write("checkers/black.gif");
+                    document.write("' width=" + square_dim + " height=" + square_dim
+   + " name='space" + i + "" + j + "' border=0>");
+                    if (moveable_space(i, j)) document.write("</a>");
+                }
+                document.write("<img src='checkers/black.gif' width=4 height=" + square_dim + "></td></tr>");
+            }
+            //<input style='margin-top: -30px;width:80%;' type=button value=\"Start New Game\" onClick=\"location.href+=''\">
+            document.write("<tr><td><img src='checkers/black.gif' width=" + (square_dim * 8 + 8)
+ + " height=4><br></td></tr></table><ul id=\"newgame\"><br /><div style=\"margin-top: -20px;padding-right:22px;max-width:190px !important;\"><input value=\"Start New Game\" id=\"#newgame\" type=\"button\" data-id=\"newgame\" \></div>"
+ + "<form name='disp'><textarea name='message' wrap=virtual rows=2 cols=40></textarea><br></form>");
+
+
+
+
+
+            function clicked(i, j) {
+                if (my_turn) {
+                    if (integ(board[i][j]) == 1) toggle(i, j);
+                    else if (piece_toggled) move(selected, coord(i, j));
+                    else message("First click one of your red pieces, then click where you want to move it");
+                } else {
+                    message("It's not your turn yet. Hang on a sec!");
+                }
+            }
+            function toggle(x, y) {
+                if (my_turn) {
+                    if (piece_toggled)
+                        draw(selected.x, selected.y, "checkers/you1" + ((board[selected.x][selected.y] == 1.1) ? "k" : "") + ".gif");
+                    if (piece_toggled && (selected.x == x) && (selected.y == y)) {
+                        piece_toggled = false;
+                        if (double_jump) { my_turn = double_jump = false; computer(); }
+                    } else {
+                        piece_toggled = true;
+                        draw(x, y, "checkers/you2" + ((board[x][y] == 1.1) ? "k" : "") + ".gif");
+                    }
+                    selected = coord(x, y);
+                } else {
+                    if ((piece_toggled) && (integ(board[selected_c.x][selected_c.y]) == -1))
+                        draw(selected_c.x, selected_c.y, "checkers/me1" + ((board[selected_c.x][selected_c.y] == -1.1) ? "k" : "") + ".gif");
+                    if (piece_toggled && (selected_c.x == x) && (selected_c.y == y)) {
+                        piece_toggled = false;
+                    } else {
+                        piece_toggled = true;
+                        draw(x, y, "checkers/me2" + ((board[x][y] == -1.1) ? "k" : "") + ".gif");
+                    }
+                    selected_c = coord(x, y);
+                }
+            }
+            function draw(x, y, name) {
+                document.images["space" + x + "" + y].src = name;
+            }
+            function integ(num) {
+                if (num != null)
+                    return Math.round(num);
+                else
+                    return null;
+            }
+            function abs(num) {
+                return Math.abs(num);
+            }
+            function sign(num) {
+                if (num < 0) return -1;
+                else return 1;
+            }
+            function concatenate(arr1, arr2) {
+                // function tacks the second array onto the end of the first and returns result
+                for (var i = 0; i < arr2.length; i++)
+                    arr1[arr1.length + i] = arr2[i];
+                return arr1;
+            }
+            function legal_move(from, to) {
+                if ((to.x < 0) || (to.y < 0) || (to.x > 7) || (to.y > 7)) return false;
+                piece = board[from.x][from.y];
+                distance = coord(to.x - from.x, to.y - from.y);
+                if ((distance.x == 0) || (distance.y == 0)) {
+                    message("You may only move diagonally.");
+                    return false;
+                }
+                if (abs(distance.x) != abs(distance.y)) {
+                    message("Invalid move.");
+                    return false;
+                }
+                if (abs(distance.x) > 2) {
+                    message("Invalid move.");
+                    return false;
+                }
+                if ((abs(distance.x) == 1) && double_jump) {
+                    return false;
+                }
+                if ((board[to.x][to.y] != 0) || (piece == 0)) {
+                    return false;
+                }
+                if ((abs(distance.x) == 2)
+ && (integ(piece) != -integ(board[from.x + sign(distance.x)][from.y + sign(distance.y)]))) {
+                    return false;
+                }
+                if ((integ(piece) == piece) && (sign(piece) != sign(distance.y))) {
+                    return false;
+                }
+
+                return true;
+            }
+            function move(from, to) {
+                my_turn = true;
+                if (legal_move(from, to)) {
+                    piece = board[from.x][from.y];
+                    distance = coord(to.x - from.x, to.y - from.y);
+                    if ((abs(distance.x) == 1) && (board[to.x][to.y] == 0)) {
+                        swap(from, to);
+                    } else if ((abs(distance.x) == 2)
+  && (integ(piece) != integ(board[from.x + sign(distance.x)][from.y + sign(distance.y)]))) {
+                        double_jump = false;
+                        swap(from, to);
+                        remove(from.x + sign(distance.x), from.y + sign(distance.y));
+                        if ((legal_move(to, coord(to.x + 2, to.y + 2)))
+   || (legal_move(to, coord(to.x + 2, to.y - 2)))
+   || (legal_move(to, coord(to.x - 2, to.y - 2)))
+   || (legal_move(to, coord(to.x - 2, to.y + 2)))) {
+                            double_jump = true;
+                            message("You may complete the double jump or click on your piece to stay still.");
+                        }
+                    }
+                    if ((board[to.x][to.y] == 1) && (to.y == 7)) king_me(to.x, to.y);
+                    selected = to;
+                    if (game_over() && !double_jump) {
+                        setTimeout("toggle(" + to.x + "," + to.y + ");my_turn = double_jump = false;computer();", 1000);
+                    }
+                }
+                return true;
+            }
+            function king_me(x, y) {
+                if (board[x][y] == 1) {
+                    board[x][y] = 1.1; // king you
+                    draw(x, y, "checkers/you2k.gif");
+                } else if (board[x][y] == -1) {
+                    board[x][y] = -1.1; // king me
+                    draw(x, y, "checkers/me2k.gif");
+                }
+            }
+
+            function swap(from, to) {
+                if (my_turn || comp_move) {
+                    dummy_src = document.images["space" + to.x + "" + to.y].src;
+                    document.images["space" + to.x + "" + to.y].src = document.images["space" + from.x + "" + from.y].src;
+                    document.images["space" + from.x + "" + from.y].src = dummy_src;
+                }
+                dummy_num = board[from.x][from.y];
+                board[from.x][from.y] = board[to.x][to.y];
+                board[to.x][to.y] = dummy_num;
+            }
+            function remove(x, y) {
+                if (my_turn || comp_move)
+                    draw(x, y, "checkers/gray.gif");
+                board[x][y] = 0;
+            }
+            function Result(val) {
+                this.high = val;
+                this.dir = new Array();
+            }
+            function move_comp(from, to) {
+                toggle(from.x, from.y);
+                comp_move = true;
+                swap(from, to);
+                if (abs(from.x - to.x) == 2) {
+                    remove(from.x + sign(to.x - from.x), from.y + sign(to.y - from.y));
+                }
+                if ((board[to.x][to.y] == -1) && (to.y == 0)) king_me(to.x, to.y);
+                setTimeout("selected_c = coord(" + to.x + "," + to.y + ");piece_toggled = true;", 900);
+                setTimeout("bak=my_turn;my_turn=false;toggle(" + to.x + "," + to.y + ");my_turn=bak;", 1000);
+                if (game_over()) {
+                    setTimeout("comp_move = false;my_turn = true;togglers=0;", 600);
+                    message("Ok. It's your turn. You may make your move.");
+                }
+                return true;
+            }
+            function game_over() { // make sure game is not over (return false if game is over)
+                comp = you = false;
+                for (var i = 0; i < 8; i++) {
+                    for (var j = 0; j < 8; j++) {
+                        if (integ(board[i][j]) == -1) comp = true;
+                        if (integ(board[i][j]) == 1) you = true;
+                    }
+                }
+                if (!comp) message("You beat me!");
+                if (!you) message("Gotcha! Game over.");
+                game_is_over = (!comp || !you)
+                return (!game_is_over);
+            }
+
+            // the higher the jump_priority, the more often the computer will take the jump over the safe move
+            var jump_priority = 10;
+
+            function computer() {
+                // step one - prevent any jumps
+                for (var j = 0; j < 8; j++) {
+                    for (var i = 0; i < 8; i++) {
+                        if (integ(board[i][j]) == 1) {
+                            if ((legal_move(coord(i, j), coord(i + 2, j + 2))) && (prevent(coord(i + 2, j + 2), coord(i + 1, j + 1)))) {
+                                return true;
+                            } if ((legal_move(coord(i, j), coord(i - 2, j + 2))) && (prevent(coord(i - 2, j + 2), coord(i - 1, j + 1)))) {
+                                return true;
+                            }
+                        } if (board[i][j] == 1.1) {
+                            if ((legal_move(coord(i, j), coord(i - 2, j - 2))) && (prevent(coord(i - 2, j - 2), coord(i - 1, j - 1)))) {
+                                return true;
+                            } if ((legal_move(coord(i, j), coord(i + 2, j - 2))) && (prevent(coord(i + 2, j - 2), coord(i + 1, j - 1)))) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+                // step two - if step one not taken, look for jumps
+                for (var j = 7; j >= 0; j--) {
+                    for (var i = 0; i < 8; i++) {
+                        if (jump(i, j))
+                            return true;
+                    }
+                }
+                safe_from = null;
+                // step three - if step two not taken, look for safe single space moves
+                for (var j = 0; j < 8; j++) {
+                    for (var i = 0; i < 8; i++) {
+                        if (single(i, j))
+                            return true;
+                    }
+                }
+                // if no safe moves, just take whatever you can get
+                if (safe_from != null) {
+                    move_comp(safe_from, safe_to);
+                } else {
+                    message("You beat me!!");
+                    game_is_over = true;
+                }
+                safe_from = safe_to = null;
+                return false;
+            }
+            function jump(i, j) {
+                if (board[i][j] == -1.1) {
+                    if (legal_move(coord(i, j), coord(i + 2, j + 2))) {
+                        move_comp(coord(i, j), coord(i + 2, j + 2));
+                        setTimeout("jump(" + (i + 2) + "," + (j + 2) + ");", 500);
+                        return true;
+                    } if (legal_move(coord(i, j), coord(i - 2, j + 2))) {
+                        move_comp(coord(i, j), coord(i - 2, j + 2));
+                        setTimeout("jump(" + (i - 2) + "," + (j + 2) + ");", 500);
+                        return true;
+                    }
+                } if (integ(board[i][j]) == -1) {
+                    if (legal_move(coord(i, j), coord(i - 2, j - 2))) {
+                        move_comp(coord(i, j), coord(i - 2, j - 2));
+                        setTimeout("jump(" + (i - 2) + "," + (j - 2) + ");", 500);
+                        return true;
+                    } if (legal_move(coord(i, j), coord(i + 2, j - 2))) {
+                        move_comp(coord(i, j), coord(i + 2, j - 2));
+                        setTimeout("jump(" + (i + 2) + "," + (j - 2) + ");", 500);
+                        return true;
+                    }
+                }
+                return false;
+            }
+            function single(i, j) {
+                if (board[i][j] == -1.1) {
+                    if (legal_move(coord(i, j), coord(i + 1, j + 1))) {
+                        safe_from = coord(i, j);
+                        safe_to = coord(i + 1, j + 1);
+                        if (wise(coord(i, j), coord(i + 1, j + 1))) {
+                            move_comp(coord(i, j), coord(i + 1, j + 1));
+                            return true;
+                        }
+                    } if (legal_move(coord(i, j), coord(i - 1, j + 1))) {
+                        safe_from = coord(i, j);
+                        safe_to = coord(i - 1, j + 1);
+                        if (wise(coord(i, j), coord(i - 1, j + 1))) {
+                            move_comp(coord(i, j), coord(i - 1, j + 1));
+                            return true;
+                        }
+                    }
+                } if (integ(board[i][j]) == -1) {
+                    if (legal_move(coord(i, j), coord(i + 1, j - 1))) {
+                        safe_from = coord(i, j);
+                        safe_to = coord(i + 1, j - 1);
+                        if (wise(coord(i, j), coord(i + 1, j - 1))) {
+                            move_comp(coord(i, j), coord(i + 1, j - 1));
+                            return true;
+                        }
+                    } if (legal_move(coord(i, j), coord(i - 1, j - 1))) {
+                        safe_from = coord(i, j);
+                        safe_to = coord(i - 1, j - 1);
+                        if (wise(coord(i, j), coord(i - 1, j - 1))) {
+                            move_comp(coord(i, j), coord(i - 1, j - 1));
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+            function possibilities(x, y) {
+                if (!jump(x, y))
+                    if (!single(x, y))
+                        return true;
+                    else
+                        return false;
+                else
+                    return false;
+            }
+            function prevent(end, s) {
+                i = end.x;
+                j = end.y;
+                if (!possibilities(s.x, s.y))
+                    return true;
+                else if ((integ(board[i - 1][j + 1]) == -1) && (legal_move(coord(i - 1, j + 1), coord(i, j)))) {
+                    return move_comp(coord(i - 1, j + 1), coord(i, j));
+                } else if ((integ(board[i + 1][j + 1]) == -1) && (legal_move(coord(i + 1, j + 1), coord(i, j)))) {
+                    return move_comp(coord(i + 1, j + 1), coord(i, j));
+                } else if ((board[i - 1][j - 1] == -1.1) && (legal_move(coord(i - 1, j - 1), coord(i, j)))) {
+                    return move_comp(coord(i - 1, j - 1), coord(i, j));
+                } else if ((board[i + 1][j - 1] == -1.1) && (legal_move(coord(i + 1, j - 1), coord(i, j)))) {
+                    return move_comp(coord(i + 1, j - 1), coord(i, j));
+                } else {
+                    return false;
+                }
+            }
+            function wise(from, to) {
+                i = to.x;
+                j = to.y;
+                n = (j > 0);
+                s = (j < 7);
+                e = (i < 7);
+                w = (i > 0);
+                if (n && e) ne = board[i + 1][j - 1]; else ne = null;
+                if (n && w) nw = board[i - 1][j - 1]; else nw = null;
+                if (s && e) se = board[i + 1][j + 1]; else se = null;
+                if (s && w) sw = board[i - 1][j + 1]; else sw = null;
+                eval(((j - from.y != 1) ? "s" : "n") + ((i - from.x != 1) ? "e" : "w") + "=0;");
+                if ((sw == 0) && (integ(ne) == 1)) return false;
+                if ((se == 0) && (integ(nw) == 1)) return false;
+                if ((nw == 0) && (se == 1.1)) return false;
+                if ((ne == 0) && (sw == 1.1)) return false;
+                return true;
+            }
+
+            message("You may begin! Select a piece to move.");
+            my_turn = true;
+        </script>
+
+           </div>
+        </div>
+
+        <footer id="footer" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+            <div id="navbar" data-role="navbar" class="ui-navbar" role="navigation" data-theme="a">
+                <ul>
+                    <li class="bcolor_purple"><a href="#topics_ww" data-icon="coffee">Topics</a></li>
+                    <li class="bcolor_green"><a href="#animals" data-icon="power">Animals</a></li>
+                    <li class="bcolor_mustard"><a href="#sports" data-icon="video">Sports</a></li>
+                    <li class="bcolor_red"><a href="#listcloud" data-icon="bars">Bonus</a></li>
+                    <li class="bcolor_blue"><a href="#unlock" data-icon="key">Unlock</a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+ 
+
+
+
+
+
+

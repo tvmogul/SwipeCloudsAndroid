@@ -1,0 +1,372 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
+	<!--<link rel="stylesheet" href="css/mdpi.css" media="only screen and (-webkit-max-device-pixel-ratio:1.0) and (max-device-width:480px)">-->
+	<!--<link rel="stylesheet" href="css/hdpi.css" media="only screen and (-webkit-min-device-pixel-ratio:1.5)">-->
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->   
+    <!-- For Samsung Galaxy S4-5 & larger Screens, use "target-densitydpi=medium-dpi" instead of device-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>www.Ostaro.com</title> 
+       
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet"  href="css/jquery.mobile.icons-1.4.0.css" />
+	<link rel="stylesheet"  href="css/jqm-icon-pack-fa.css" />
+
+    <link href="js_iscroll/jquery.mobile.iscrollview.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="js_iscroll/demo.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!--<script src="cordova.js" type="text/javascript"></script>-->
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+    <script src="js_iscroll/iscroll.js" type="text/javascript"></script>
+    <script src="js_iscroll/jquery.mobile.iscrollview.js" type="text/javascript"></script>
+
+    <link href="youtube/youtube-video-gallery.css" rel="stylesheet" type="text/css" />
+    <script src="youtube/jquery.youtubevideogallery.js"></script>
+    <script src="js/retina.js" type="text/javascript"></script>
+
+    <link href="js_rss/jquery.rssfetch.css" rel="stylesheet" type="text/css" />
+    <script src="js_rss/jquery.rssfetch.js" type="text/javascript"></script>
+
+    <link id="link_services" href="" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript">
+
+	    var _themeid_dronestv = "";
+	    if (localStorage["themeid_dronestv"]) {
+	        _themeid_dronestv = localStorage["themeid_dronestv"];
+	    } else {
+	        //_themeid_dronestv = "ios7plus";
+	        _themeid_dronestv = "dark";
+	        localStorage["themeid_dronestv"] = "dark";
+	    }
+	    var _path = "themes/" + _themeid_dronestv + ".css";
+	    $("#link_services").attr("href", _path);
+        
+	    var refreshIntervalId;
+	    var g_content_width = 100;
+	    var g_content_height = 100;
+
+	    /* Use this for high compatibility (iDevice + Android)*/
+	    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	    document.addEventListener('DOMContentLoaded', loaded, false);
+	    //document.addEventListener("deviceready", function (e) { }, "false");
+	    document.addEventListener('deviceready', function () {
+	        StatusBar.overlaysWebView(false);
+	        StatusBar.backgroundColorByName('black');
+	    }, false);
+
+	    function loaded() {
+	        screenAdjust();
+	    }
+
+	    $(document).bind("mobileinit", function () {
+	        jQuery.support.cors = true;
+	        jQuery.mobile.allowCrossDomainPages = true;
+	        jQuery.mobile.phonegapNavigationEnabled = true;
+	        jQuery.mobile.defaultDialogTransition = "slide";
+	    });
+
+	    window.onload = function () {
+
+	        $('#qqq a').on('click touchend', function (e) {
+	            var link = $(this).attr('data-id');
+	            if ((link == 'undefined') || (link == '#') || link.length < 1) {
+	                return;
+	            }
+	            if (link == "chart") {
+	                event.preventDefault();
+	                localStorage.setItem('idata', "http://www.sergioapps.com/");
+	                window.location = "./frame.html";
+	            }
+	            else if (link == "love") {
+	                event.preventDefault();
+	                localStorage.setItem('idata', "http://www.sergioapps.com/");
+	                window.location = "./frame.html";
+	            }
+	        });
+
+//	        $(document).delegate('.ui-footer', 'click', function () {
+//	            //window.location = "./ad01.html#mainPage";
+//	            //window.location = "./ad01.html#mainPage";
+//	        });
+
+	    };
+
+	    function screenAdjust() {
+	        g_content_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height() - 0);
+
+	        var orientation = "portrait";
+	        if (window.orientation == -90 || window.orientation == 90) orientation = "landscape";
+	        if (orientation == "portrait") {
+	            g_content_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height() - 0);
+	        }
+	        else {
+	            g_content_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - 0);
+	        }
+	        g_content_width = window.innerWidth; ;
+
+	        document.getElementById('scroller').style.height = g_content_height;
+	        document.getElementById('scroller').style.top = 0;
+	    }
+
+</script>
+
+<style>
+    /* portrait */
+    @media screen and (orientation:portrait) {
+        /* portrait-specific styles */
+        #footer {
+            display:block;
+        } 
+    }
+    /* landscape */
+    @media screen and (orientation:landscape) {
+        /* landscape-specific styles */
+        #footer {
+            display:none;
+        } 
+    }
+    
+    html, body
+    {
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+        height: 100%;
+    }
+
+    body
+    {
+        background-color: #F2F2F2 !important;
+        padding: 0 0 0 0px;
+        background-repeat: no-repeat;
+        margin: 0px aoto;
+        margin-left: 0px;
+        text-decoration: none;
+        overflow: hidden !important;
+    }
+        
+      
+   .ui-header, .ui-footer, .ui-page-fullscreen, ui-page, .ui-page-fullscreen .ui-footer {
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+        border-left-width: 0;
+        border-right-width: 0;
+        border: 0 !important;
+    }
+
+    .ui-header {
+        width: 100% !important;
+        height: 60px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    .ui-footer {
+        display: block !important;
+        width: 100% !important;
+        height: 2px !important;
+        z-index: 99999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    
+    .ui-page, .ui-page-fullscreen{
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+    }
+
+
+    .center-wrapper {
+      text-align: center;
+    }
+    .center-wrapper * {
+      margin: 0px auto 0px auto;
+    }     
+    
+</style>
+</head>
+<body>
+
+    <div data-role="page" id="mainPage" data-theme="d" style="text-align: center; margin: 0 auto; border: 0px none #fff;">
+
+        <header style="height:60px;" data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a">
+            <a data-icon="home" class="ui-btn-green-left" data-theme="a" style="margin-top:16px;" href="index.html" rel="external">Home</a>
+            <div class="center-wrapper"><img id="header_logo" src="img/header_logo.png" alt="Station Break TV" style="margin-top:14px;"></div>
+            <a href="#" data-rel="back" data-icon="arrow-l" class="ui-btn-right ui-btn-back" data-theme="a" style="margin-top:16px;">Back</a>
+        </header>
+
+        <div id="yt_content" data-iscroll="{
+            'hScroll':false,
+            'vScroll':true,
+            'resizeEvents':'orientationchange',
+            'resizeWrapper':true, 
+            'mouseWheel': true, 
+            'click': true, 
+            'interactiveScrollbars': true, 
+            'shrinkScrollbars': 'scale'
+            }" data-id="zzzcontent" data-role="content" data-iscroll>
+
+            <div id="scroller_player" style="margin-top: 8px;">
+                <h3>Legal Notice &amp; Terms of Service</h3>
+
+                <div style="text-align:left; height: 100%;">
+                    <strong>Disclaimer: IMPORTANT:</strong><br />  
+This software is supplied to you by <strong>Ouslan, Inc. ("Ouslan") </strong>in consideration of your agreement to the 
+                    <strong>End-User License Agreement</strong> for StationBreak Mobile App. This <strong>End-User License Agreement (EULA)
+                    </strong>is a legal agreement between you (either an individual or a single entity) and the mentioned author (www.sergioapps.com) of this Software for the software product identified above, which includes computer software and may include associated media, printed materials, and “online” or electronic documentation (“SOFTWARE PRODUCT”). By installing, copying, or otherwise using the SOFTWARE PRODUCT, you agree to be bounded by the terms of this EULA.
+If you do not agree to the terms of this EULA, do not install or use the SOFTWARE PRODUCT.
+
+                    <br />
+
+<br /><strong>SOFTWARE PRODUCT LICENSE
+</strong>
+<br />a) StationBreak App Free Version is being distributed as Freeware for personal, commercial use, non-profit organization, educational purpose. It may be included with CD-ROM/DVD-ROM distributions. You are NOT allowed to make a charge for distributing this Software (either for profit or merely to recover your media and distribution costs) whether as a stand-alone product, or as part of a compilation or anthology, nor to use it for supporting your business or customers. It may be distributed freely on any website or through any other distribution mechanism, as long as no part of it is changed in any way.
+<br />b) StationBreak App Professional Version, another mobile software, is available with additional features.
+
+<br /><strong>1. GRANT OF LICENSE. </strong>This EULA grants you the following rights: Installation and Use. You may install and use an unlimited number of copies of the SOFTWARE PRODUCT. Reproduction and Distribution. You may reproduce and distribute an unlimited number of copies of the SOFTWARE PRODUCT; provided that each copy shall be a true and complete copy, including all copyright and trademark notices, and shall be accompanied by a copy of this EULA.
+Copies of the SOFTWARE PRODUCT may be distributed as a standalone product or included with your own product as long as The SOFTWARE PRODUCT is not sold or included in a product or package that intends to receive benefits through the inclusion of the SOFTWARE PRODUCT.
+The SOFTWARE PRODUCT may be included in any free or non-profit packages or products.
+                    <br />
+<br /><strong>2. DESCRIPTION OF OTHER RIGHTS AND LIMITATIONS.
+</strong>
+<br />Limitations on Reverse Engineering, Decompilation, Disassembly and change (add,delete or modify) the resources in the compiled the assembly. You may not reverse engineer, decompile, or disassemble the SOFTWARE PRODUCT, except and only to the extent that such activity is expressly permitted by applicable law notwithstanding this limitation.
+<br />Update and Maintenance: StationBreak App upgrades are FREE of charge.
+<br />Separation of Components.
+The SOFTWARE PRODUCT is licensed as a single product. Its component parts may not be separated for use on more than one computer.
+<br />Software Transfer.
+You may permanently transfer all of your rights under this EULA, provided the recipient agrees to the terms of this EULA.
+<br />Termination.
+Without prejudice to any other rights, the Author of this Software may terminate this EULA if you fail to comply with the terms and conditions of this EULA. In such event, you must destroy all copies of the SOFTWARE PRODUCT and all of its component parts.
+<br />3. COPYRIGHT.
+<br />All title and copyrights in and to the SOFTWARE PRODUCT (including but not limited to any images, photographs, clipart, libraries, and examples incorporated into the SOFTWARE PRODUCT), the accompanying printed materials, and any copies of the SOFTWARE PRODUCT are owned by the Author of this Software. The SOFTWARE PRODUCT is protected by copyright laws and international treaty provisions. Therefore, you must treat the SOFTWARE PRODUCT like any other copyrighted material. The licensed users or licensed company can use all functions, example, templates, clipart, libraries and symbols in the SOFTWARE PRODUCT to create new diagrams and distribute the diagrams.
+<br />LIMITED WARRANTY
+<br />NO WARRANTIES.
+<br />The Author of this Software expressly disclaims any warranty for the SOFTWARE PRODUCT. The SOFTWARE PRODUCT and any related documentation is provided “as is” without warranty of any kind, either express or implied, including, without limitation, the implied warranties or merchantability, fitness for a particular purpose, or noninfringement. The entire risk arising out of use or performance of the SOFTWARE PRODUCT remains with you.
+<br />NO LIABILITY FOR DAMAGES.
+<br />In no event shall the author of this Software be liable for any special, consequential, incidental or indirect damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or any other pecuniary loss) arising out of the use of or inability to use this product, even if the Author of this Software is aware of the possibility of such damages and known defects.
+<br />Copyright (C) 2010 Ouslan, Inc. All Rights Reserved Worldwide.
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+        </footer>
+
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+

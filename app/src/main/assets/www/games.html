@@ -1,0 +1,807 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
+    <!--<link rel="stylesheet" href="css/mdpi.css" media="only screen and (-webkit-max-device-pixel-ratio:1.0) and (max-device-width:480px)">-->
+    <!--<link rel="stylesheet" href="css/hdpi.css" media="only screen and (-webkit-min-device-pixel-ratio:1.5)">-->
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <!-- For Samsung Galaxy S4-5 & larger Screens, use "target-densitydpi=medium-dpi" instead of device-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>www.StationBreakTV.com</title>
+
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <!-- <script src="js/singleton.js" type="text/javascript"></script>-->
+    <!--<script type="text/javascript" src="js/index.js"></script>-->
+    <!-- jQuery Mobile CSS bits -->
+    <!--<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="hdpi.css" />
+    <link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="mdpi.css" />
+    <link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 0.75)" href="ldpi.css" />-->
+
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.0.css" />
+    <link rel="stylesheet" href="css/jqm-icon-pack-fa.css" />
+
+    <link href="js_iscroll/jquery.mobile.iscrollview.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="js_iscroll/demo.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!--<script src="cordova.js" type="text/javascript"></script>-->
+    <!--<script type="text/javascript" src="js/index.js"></script>-->
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+    <script src="js_iscroll/iscroll.js" type="text/javascript"></script>
+    <script src="js_iscroll/demo.js" type="text/javascript"></script>
+    <script src="js_iscroll/jquery.mobile.iscrollview.js" type="text/javascript"></script>
+
+    <script src="js/general.js" type="text/javascript"></script>
+    <script src="js/store.min.js" type="text/javascript"></script>
+    <link id="link_index" href="" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        * {
+            -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+        }
+
+        body {
+            -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+            -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+            -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
+            font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+        }
+
+        /* Author: Bill SerGio. To add an image background use this! */
+        /*
+        .ui-page {
+            background: url(img/bg_buuf.jpg);
+            background-repeat:repeat-y;
+            background-position:center center;
+            background-attachment:scroll;
+            background-size:100% 100%;
+        }
+        */
+        .ui-content {
+            background: transparent;
+        }
+        /* Author: Bill SerGio. To add an image background use this! */
+
+
+        /* Swipe works with mouse as well but often causes text selection. */
+        #mainPage * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+
+
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden !important;
+            height: 100%;
+        }
+
+        body {
+            padding: 0 0 0 0px;
+            margin: 0px aoto;
+            margin-left: 0px;
+            text-decoration: none;
+            overflow: hidden !important;
+        }
+
+        .ui-content {
+            position: fixed;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 0 !important;
+            outline: 0 !important;
+            height: 100%;
+            overflow: hidden;
+            right: 0 !important;
+            left: 0 !important;
+            top: 0 !important;
+            overflow: hidden !important;
+            height: 100%;
+        }
+
+
+        .clearfix {
+            clear: both;
+            height: 1px;
+            overflow: hidden;
+            margin-bottom: -1px;
+            line-height: 1%;
+            font-size: 0px;
+        }
+
+        .ui-controlgroup {
+            margin: 0; /*make the buttons flush to the top*/
+        }
+
+        #bars-button {
+            margin: 1px;
+        }
+
+        .ui-page, .ui-page-fullscreen {
+            margin: 0;
+            padding: 0;
+            overflow: hidden !important;
+        }
+
+        .center-wrapper {
+            text-align: center;
+        }
+
+            .center-wrapper * {
+                margin: 0px auto 0px auto;
+            }
+
+        .bcolor_purple {
+            border-bottom: 6px solid #b753d8 !important;
+        }
+
+        .bcolor_green {
+            border-bottom: 6px solid #6bc356 !important;
+        }
+
+        .bcolor_mustard {
+            border-bottom: 6px solid #fab903 !important;
+        }
+
+        .bcolor_red {
+            border-bottom: 6px solid #e94739 !important;
+        }
+
+        .bcolor_blue {
+            border-bottom: 6px solid #427fed !important;
+        }
+
+        .ui-header {
+            width: 100% !important;
+            height: 50px !important;
+            z-index: 999999999999 !important;
+            padding: 0px !important;
+            margin: 0 !important;
+            border-left-width: 0 !important;
+            border-right-width: 0 !important;
+            border: 0 !important;
+        }
+
+        .ui-footer {
+            width: 100% !important;
+            height: 50px !important;
+            z-index: 999999999999 !important;
+            padding: 0px !important;
+            margin: 0 !important;
+            border-left-width: 0 !important;
+            border-right-width: 0 !important;
+            border: 0 !important;
+        }
+
+        #navbar li {
+            margin-top: -6px !important;
+            height: 54px !important;
+            margin-bottom: 6px !important;
+            padding: 0px 0px 6px 0px !important;
+        }
+
+            #navbar li a {
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+        li {
+            cursor: pointer !important;
+            cursor: hand !important;
+            padding-right: 16px !important;
+        }
+
+        .feed_wrapper li {
+            float: left;
+            padding-right: 40px !important;
+            width: 100% !important;
+        }
+
+
+        /* add a tint layer to brighten (or darken) */
+        /*BILL SERGIO - z-index: -1 prevents controls on panel from being blurred */
+        .frosted::after {
+            z-index: -1 !important; /*BILL SERGIO - Only blurs background of panel, NOT controls on panel !!! */
+            position: absolute;
+            content: "";
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.5);
+            -webkit-filter: blur(8px) brightness(110%);
+            -moz-filter: blur(8px);
+            -ms-filter: blur(8px);
+            -o-filter: blur(8px);
+            filter: blur(8px);
+        }
+
+        /* The content */
+        .frosted {
+            font-family: Avenir Next, Avenir, Verdana, sans-serif;
+            color: #333;
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+            position: relative;
+            margin: 0px;
+            padding-left: 0px;
+        }
+
+        #panel_controls, #thelist, #scroller, #wrapper, #wrapper_left, .ui-panel-inner {
+            background: transparent !important; /* #DD2C33 */
+        }
+
+        /* position dismiss panels */
+        /* data-dismissible="false" */
+        .ui-panel-dismiss {
+            z-index: 100000 !important;
+        }
+
+        .ui-panel {
+            position: absolute;
+            right: 0px !important;
+            margin: 0;
+            padding: 0px;
+            margin-right: 0px;
+            width: 84%;
+        }
+
+        #panel_controls {
+            width: 84%;
+            height: 100%;
+            margin: 0;
+            padding: 0px;
+        }
+
+        #thelist {
+            width: 80%;
+            height: 100%;
+            margin: 0;
+            padding: 0px;
+            margin-right: 0px;
+        }
+
+        #scroller_player {
+            text-align: center;
+        }
+
+            #scroller_player * {
+                margin: 0px auto 0px auto;
+            }
+
+        .backfrost_on {
+            -webkit-filter: blur(2px) brightness(110%);
+            -moz-filter: blur(2px);
+            -ms-filter: blur(2px);
+            -o-filter: blur(2px);
+            filter: blur(2px);
+        }
+
+        .backfrost_off {
+        }
+
+        fieldset {
+            padding-bottom: 2px !important;
+            width: 200px !important;
+        }
+
+        button {
+            margin-top: 2px !important;
+            margin-bottom: 2px !important;
+            padding: 0.55em 5px 0.55em 0.25em !important;
+            width: 60% !important;
+        }
+
+        header {
+            clear: left;
+            box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+            -moz-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+            -webkit-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        }
+
+        /* DO NOT REMOVE THIS !!! */
+        .iscroll-scroller {
+            min-width: 100% !important;
+        }
+
+        .blur-filter {
+            -webkit-filter: blur(2px);
+            -moz-filter: blur(2px);
+            -o-filter: blur(2px);
+            -ms-filter: blur(2px);
+            filter: blur(2px);
+        }
+
+
+        .ui-dialog-contain {
+            opacity: 1 !important;
+            background: #FFFFFF !important;
+        }
+
+        .ui-dialog .ui-header .ui-btn-icon-notext {
+            display: none !important;
+        }
+
+        .ui-dialog-background {
+            opacity: 0.5;
+            display: block !important;
+            -webkit-transition: opacity 0.5s ease-in;
+        }
+
+            .ui-dialog-background.pop.in {
+                opacity: 1;
+                -webkit-transition: opacity 0.5s ease-in;
+            }
+
+        .ui-dialog {
+            min-height: 100% !important;
+            background: transparent !important;
+        }
+
+        .ui-popup-screen {
+            background-color: #000 !important;
+            opacity: 0.75 !important;
+        }
+
+        .containing-element .ui-slider-switch {
+            width: 14em;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        var _themeid_dronestv = "ios7light";
+        if (localStorage["themeid_dronestv"]) {
+            _themeid_dronestv = localStorage["themeid_dronestv"];
+        } else {
+            _themeid_dronestv = "ios7light";
+            localStorage["themeid_dronestv"] = "ios7light";
+        }
+        var _path = "themes/" + _themeid_dronestv + ".css";
+        $("#link_index").attr("href", _path);
+
+        var arGamesBgs = [
+        "img/bg_ww.gif",
+        "img/bg_blackweb.gif",
+        "img/bg_colors.jpg",
+        "img/bg_black.jpg",
+        "img/bg_wood.jpg"];
+
+        var _bgGamesImage = "img/bg_ww.gif";
+        if (localStorage["bg_games"]) {
+            _bgGamesImage = localStorage["bg_games"];
+        } else {
+            _bgGamesImage = "img/bg_ww.gif";
+            localStorage["bg_games"] = _bgGamesImage;
+        }
+
+        $(document).bind("mobileinit", function () {
+            jQuery.support.cors = true;
+            jQuery.mobile.allowCrossDomainPages = true;
+            jQuery.mobile.phonegapNavigationEnabled = true;
+            jQuery.mobile.defaultDialogTransition = "slide";
+        });
+
+        $(window).bind('resize', function (e) {
+            screenAdjust();
+            $("#panel_controls").trigger("updatelayout");
+        });
+
+        $(window).bind('orientationchange', function (e) {
+            var orientation = "portrait";
+            if (window.orientation == -90 || window.orientation == 90) orientation = "landscape";
+
+            switch (orientation) {
+                case 'portrait':
+                    // alert('portrait');
+                    //$.mobile.fixedToolbars.setTouchToggleEnabled(true);
+                    break;
+                case 'landscape':
+                    // alert('landscape');
+                    $.mobile.fixedToolbars.setTouchToggleEnabled(false);
+                    break;
+                default:
+                    break;
+            };
+            screenAdjust();
+        });
+
+
+        $(document).ready(function () {
+
+            // In JQM the .ui-page controls the background !!!
+            $("#zvideowrapper").css("background-image", "url(" + _bgGamesImage + ")");
+            $("#zvideowrapper").css("background-repeat", "repeat-y");
+            $("#zvideowrapper").css("background-position", "center center");
+            $("#zvideowrapper").css("background-attachment", "scroll");
+            $("#zvideowrapper").css("background-size", "120% 120%");
+
+            $("#panel_controls").on("panelbeforeopen", function (event, ui) {
+                $('#scroller_player').removeClass('backfrost_off');
+                $('#scroller_player').addClass('backfrost_on');
+            });
+
+            $("#panel_controls").on("panelbeforeclose", function (event, ui) {
+                $('#scroller_player').removeClass('backfrost_on');
+                $('#scroller_player').addClass('backfrost_off');
+            });
+            //if ($(".ui-panel").hasClass("ui-panel-open") == true) {
+            //    alert("OPENED");
+            //} else {
+            //    alert("CLOSED");
+            //}
+        });
+
+        window.onload = function () {
+
+            $('#scroller #controlgroup1').buttonMarkup('refresh');
+            $('#scroller li a').buttonMarkup('refresh');
+            $('#scroller2 li a').buttonMarkup('refresh');
+
+        };
+
+        //document.addEventListener("backbutton", function (e) {
+        //    if ($.mobile.activePage.is('#mainPage')) {
+        //        e.preventDefault();
+        //        navigator.app.exitApp();
+        //    }
+        //    else {
+        //        navigator.app.backHistory()
+        //    }
+        //}, false);
+
+        $(document).delegate('header a', 'click touchend', function (e) {
+            //e.preventDefault();
+            //e.stopPropagation();
+            //$("#panel_controls").trigger("updatelayout");
+            $('#panel_controls').panel("close");
+            var link = $(this).attr('href');
+            if (link == "#go_home") {
+                window.location = "./index.html";
+            }
+            else if (link == "#back") {
+                history.back();
+            }
+            else if (link == "#ddBackgrounds2") {
+                //$('#panel_controls').panel("close");
+                var x = 0
+                for (x = 0; x < arGamesBgs.length; x++) {
+                    if (_bgGamesImage == arGamesBgs[x]) { break; }
+                }
+                if (x + 1 < arGamesBgs.length) {
+                    _bgGamesImage = arGamesBgs[x + 1];
+                }
+                else {
+                    x = 0;
+                    _bgGamesImage = arGamesBgs[x];
+                }
+                localStorage['bg_games'] = _bgGamesImage;
+
+                // In JQM the .ui-page controls the background !!!
+                $("#zvideowrapper").css("background-image", "url(" + _bgGamesImage + ")");
+                $("#zvideowrapper").css("background-repeat", "repeat-y");
+                $("#zvideowrapper").css("background-position", "center center");
+                $("#zvideowrapper").css("background-attachment", "scroll");
+                $("#zvideowrapper").css("background-size", "120% 120%");
+
+                event.preventDefault();
+                event.stopPropagation();
+                return false;
+            }
+            else if (link == "#back_from_player") {
+                history.back();
+            }
+            else if (link == "#unlock") {
+                window.location = "./In_App_BuyNow.html";
+            }
+            return false;
+        });
+
+        function screenAdjust() {
+            $('#panel_controls').panel("close");
+            var the_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height() - 0);
+            var orientation = "portrait";
+            if (window.orientation == -90 || window.orientation == 90) orientation = "landscape";
+            if (orientation == "portrait") {
+                the_height = ($(window).height() - 100);
+            }
+            else {
+                the_height = ($(window).height() - 100);
+            }
+        }
+
+        function showChess() {
+            window.location = "./chess.html";
+        }
+
+        function showCheckers() {
+            window.location = "./checkers.html";
+        }
+
+        function showPuzzle() {
+            window.location = "./puzzle.html";
+        }
+
+        function showFlappy() {
+            window.location = "./flappy.html";
+        }
+
+        function showBurstMyBubbles() {
+            window.location = "./BurstMyBubbles.html";
+        }
+
+        function showBounce() {
+            window.location = "./bounce.html";
+        }
+
+        function showBlackjack() {
+            window.location = "./blackjack.html";
+        }
+
+        function showInAppMerchant() {
+            window.location = "./In_App_Merchant.html";
+        }
+
+        function showInAppBuyNow() {
+            window.location = "./In_App_BuyNow.html";
+        }
+
+        //TV Ads
+        function showRSSFeeds() {
+            window.location = "./tvads.html";
+        }
+
+        function showInAppLogin() {
+            $("#login_listview").popup("open");
+        }
+
+        $(document).delegate('#login_listview a', 'click', function () {
+            var link = $(this).attr('id');
+            if (link === "login_simple") {
+                window.location = "./In_App_Login.html";
+            }
+            if (link === "login_fancy") {
+                window.location = "./In_App_Login2.html";
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var background = document.getElementById(".ui-page");
+            var position = document.getElementById("position");
+
+            if (window.DeviceOrientationEvent) {
+                window.addEventListener('deviceorientation', function (eventData) {
+                    var yTilt = Math.round((-eventData.beta + 90) * (40 / 180) - 40);
+                    var xTilt = Math.round(-eventData.gamma * (40 / 180) - 20);
+                    if (xTilt > 0) {
+                        xTilt = -xTilt;
+                    } else if (xTilt < -40) {
+                        xTilt = -(xTilt + 80);
+                    }
+
+                    var backgroundPositionVal = xTilt + 'px ' + yTilt + 'px';
+                    background.style.backgroundPosition = backgroundPositionVal;
+
+                }, false);
+
+            } else {
+                //document.getElementById("foreground").innerHTML = "Not supported on your device or browser."
+            };
+        });
+
+        var background = document.getElementByID('zvideowrapper');
+        window.addEventListener('deviceorientation', function (eventData) {
+            // Retrieving the front/back tilting of the device and moves the
+            // background in the opposite way of the tilt
+
+            var yTilt = Math.round((-eventData.beta + 90) * (40 / 180) - 40);
+
+            // Retrieve the side to side tilting of the device and move the
+            // background the opposite direction.
+
+            var xTilt = Math.round(-eventData.gamma * (20 / 180) - 20);
+
+            // Thi 'if' statement checks if the phone is upside down and corrects
+            // the value that is returned.
+            if (xTilt > 0) {
+                xTilt = -xTilt;
+            } else if (xTilt < -40) {
+                xTilt = -(xTilt + 80);
+            }
+
+            var backgroundPositionValue = yTilt + 'px ' + xtilt + 'px';
+
+            background.style.backgroundPosition = backgroundPositionValue;
+
+            $("#zvideowrapper").css("background-repeat", "repeat-y");
+            $("#zvideowrapper").css("background-position", backgroundPositionValue);
+            $("#zvideowrapper").css("background-attachment", "scroll");
+            $("#zvideowrapper").css("background-size", "120% 120%");
+
+        }, false);
+
+    </script>
+
+</head>
+<body>
+    <div data-role="page" id="mainPage" style="text-align: center; border: 0px none #fff;">
+
+        <div data-role="panel" id="panel_controls" data-display="overlay" data-position="right" class="frosted" data-dismissible="true" data-theme="a">
+            <div id="scroller" data-iscroll='{"hScroll":false,"vScroll":true,"resizeEvents":"orientationchange","resizeWrapper":true}' style="padding-right:16px;padding-left:2px;margin-top:60px;">
+                <div class="iscroll-scroller" style="padding-top:0px !important;min-height: 600px; -webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+                    <div id="thelist" data-role="controlgroup" data-type="vertical" data-inline="false">
+                        <pq><a href="#" type="button" data-id="dark" class="ui-btn">Dark</a></pq>
+                        <pq><a href="#" type="button" data-id="light" class="ui-btn">Light</a></pq>
+                        <pq><a href="#" type="button" data-id="ios7dark" class="ui-btn">iOS7 Dark</a></pq>
+                        <pq><a href="#" type="button" data-id="ios7light" class="ui-btn">iOS7 Light</a></pq>
+                        <p><a href="#" type="button" id="ddBackgrounds2" data-id="ddBackgrounds2" class="ui-btn">Backgrounds</a></p>
+                        <p><a href="#" type="button" data-type="button" data-id="close" data-icon="delete" class="ui-btn">Close</a></p>
+                        <div style="height:140px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom: 4px solid #cb0000 !important;">
+            <a href="#go_home" data-role="button" data-icon="home" data-theme="a" class="ui-btn-left" style="z-index: 9999 !important;margin-top:8px;">Home</a>
+            <div class="center-wrapper" style="position: relative !important;z-index: 99 !important;"><img id="header_logo" src="img/header_logo.png" alt="Games" style="margin-top:4px;"></div>
+            <a href="#ddBackgrounds2" data-role="button" class="ui-btn-right" data-icon="action" data-theme="a" style="z-index: 9999 !important;margin-top:8px;">BGs</a>
+            <div style="margin-top:-9px;z-index: 1 !important;">
+                <img src="img/redtop.gif" style="height: 32px !important;width: 100% !important;" />
+            </div>
+        </header>
+
+        <div id="zvideowrapper" data-iscroll="{
+                    'hScroll':false,
+                    'vScroll':true,
+                    'resizeEvents':'orientationchange',
+                    'resizeWrapper':true,
+                    'mouseWheel': true,
+                    'click': true,
+                    'interactiveScrollbars': true,
+                    'shrinkScrollbars': 'scale'
+                    }" data-role="content" style="min-height: 100% !important; overflow: hidden;padding-top:20px !important;" class="ui-content iscroll-wrapper" role="main">
+            <div class="iscroll-scroller" style="padding-top:10px !important;min-height: 1600px; -webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+
+                <div class="backfrost_off" id="scroller_player" style="margin-top: 20px;width:90%;padding-left:10px !important;">
+
+                    <div style="text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;padding-bottom: 8px;padding-top:20px;">
+                        <h2>Cordova / PhoneGap</h2>
+                    </div>
+
+                    <table>
+                        <tr>
+                            <td>
+                                <img onclick="showChess();" src="img_default/1_chess.png" style="cursor:pointer;width:90px;height:90px;" />
+                                <div style="font-size:1.2em !important;margin-top:-6px !important;color: white; text-shadow: black 0.1em 0.1em 0.2em">Chess</div>
+                            </td>
+
+                            <td>
+                                <img onclick="showCheckers();" src="img_default/1_checkers.png" style="cursor:pointer;width:90px;height:90px;" />
+                                <div style="font-size:1.2em !important;margin-top:-6px !important;color: white; text-shadow: black 0.1em 0.1em 0.2em">Checkers</div>
+                            </td>
+
+                            <td>
+                                <img onclick="showBlackjack();" src="img_default/1_blackjack.png" style="cursor:pointer;width:90px;height:90px;" />
+                                <div style="font-size:1.2em !important;margin-top:-6px !important;color: white; text-shadow: black 0.1em 0.1em 0.2em">Blackjack</div>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <img onclick="showFlappy();" src="img_default/1_flappy.png" style="cursor:pointer;width:90px;height:90px;" />
+                                <div style="font-size:1.2em !important;margin-top:-6px !important;color: white; text-shadow: black 0.1em 0.1em 0.2em">Flappy</div>
+                            </td>
+
+                            <td>
+                                <img onclick="showBounce();" src="img_default/1_bounce.png" style="cursor:pointer;width:90px;height:90px;" />
+                                <div style="font-size:1.2em !important;margin-top:-6px !important;color: white; text-shadow: black 0.1em 0.1em 0.2em">Bounce</div>
+                            </td>
+
+                            <td>
+                                <img onclick="showPuzzle();" src="img_default/1_puzzle.png" style="cursor:pointer;width:90px;height:90px;" />
+                                <div style="font-size:1.2em !important;margin-top:-6px !important;color: white; text-shadow: black 0.1em 0.1em 0.2em">Puzzle</div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <img onclick="showBurstMyBubbles();" src="img_default/1_bubbles.png" style="cursor:pointer;width:90px;height:90px;" />
+                                <div style="font-size:1.2em !important;margin-top:-6px !important;color: white; text-shadow: black 0.1em 0.1em 0.2em">Bubbles</div>
+                            </td>
+
+                            <td></td>
+
+                            <td></td>
+
+                        </tr>
+
+                    </table>
+
+
+                    <!--<button onclick="showChess();"> Chess </button>
+                    <button onclick="showCheckers();"> Checkers </button>
+                    <button onClick="showPuzzle();"> Puzzle </button>
+                    <button onClick="showFlappy();"> Flappy </button>
+                    <button onClick="showBurstMyBubbles();"> Bubbles </button>-->
+
+                    <button onclick="showInAppMerchant();"> In-App Merchant </button>
+                    <button onclick="showInAppBuyNow();"> In-App BuyNow </button>
+                    <button onclick="showInAppLogin();"> In-App Login </button>
+
+                    <!--<a href="#listview" data-rel="popup" data-transition="slideup">Listview Menu</a>
+                    <ul data-role="listview" data-inset="true">
+                        <li>
+                            <a href="#listview" data-rel="popup" data-transition="slideup">Listview Menu</a>
+                        </li>
+                    </ul>-->
+                    <!-- listview -->
+                    <div data-role="popup" id="login_listview" data-overlay-theme="b" data-theme="a" data-tolerance="0,0" data-rel="popup" data-transition="flip">
+                        <h4>Choices...</h4>
+                        <ul data-role="listview" data-theme="b">
+                            <li>
+                                <a id="login_simple" href="#">Simple Login</a>
+                            </li>
+                            <li>
+                                <a id="login_fancy" href="#">Fancy Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--<div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+                        <div data-role="header" data-theme="a">
+                            <h1>Delete Page?</h1>
+                        </div>
+                        <div role="main" class="ui-content">
+                            <h3 class="ui-title">Are you sure you want to delete this page?</h3>
+                            <p>This action cannot be undone.</p>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancel</a>
+                            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Delete</a>
+                        </div>
+                    </div>-->
+
+
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+            <div id="navbar" data-role="navbar" data-theme="a">
+                <ul>
+                    <li class="bcolor_purple"><a href="#sol_" data-icon="search">Cures?</a></li>
+                    <li class="bcolor_green"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_mustard"><a href="#rssmobi" data-icon="rss">Feeds</a>
+                    <li class="bcolor_red"><a href="#shop" data-icon="shop">Shop</a></li>
+                    <li class="bcolor_blue"><a href="#cool" data-icon="coffee">Cool</a></li>
+
+                    <!--<li class="bcolor_purple"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_green"><a href="#rssmobi" data-icon="rss">Feeds</a></li>
+                    <li class="bcolor_mustard"><a href="#games" data-icon="gamepad">Games</a>
+                    <li class="bcolor_red"><a href="#shop" data-icon="shop">Shop</a></li>
+                    <li class="bcolor_blue"><a href="#cool" data-icon="coffee">Cool</a></li>-->
+                    <!--<li class="bcolor_purple"><a href="#sol_" data-icon="search">Cures?</a></li>
+                    <li class="bcolor_green"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_mustard"><a href="#cool" data-icon="coffee">Cool</a>
+                    <li class="bcolor_red"><a href="#prev" data-icon="arrow-l">Prev</a></li>
+                    <li class="bcolor_blue"><a href="#next" data-icon="arrow-r">Next</a></li>-->
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>

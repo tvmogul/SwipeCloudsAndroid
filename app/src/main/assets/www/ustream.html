@@ -1,0 +1,846 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+	<!--<link rel="stylesheet" href="css/mdpi.css" media="only screen and (-webkit-max-device-pixel-ratio:1.0) and (max-device-width:480px)">-->
+	<!--<link rel="stylesheet" href="css/hdpi.css" media="only screen and (-webkit-min-device-pixel-ratio:1.5)">-->
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->   
+    <!-- For Samsung Galaxy S4-5 & larger Screens, use "target-densitydpi=medium-dpi" instead of device-->
+	<meta name="viewport" content="user-scalable=no, width=device-width, target-densitydpi=medium-dpi">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>www.SerGioApps.com</title> 
+     
+	<!-- jQuery Mobile CSS bits -->
+
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery.mobile.icons-1.4.5.css" rel="stylesheet" type="text/css" />
+    <link href="css/jqm-icon-pack-fa.css" rel="stylesheet" type="text/css" />
+
+    <link href="css/_styles.css" rel="stylesheet" type="text/css" />
+
+    <link href="js_iscroll/jquery.mobile.iscrollview.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="js_iscroll/demo.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!--<script src="cordova.js" type="text/javascript"></script>-->
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+    <script src="js_iscroll/iscroll.js" type="text/javascript"></script>
+    <script src="js_iscroll/jquery.mobile.iscrollview.js" type="text/javascript"></script>
+
+    <script src="js_ustream/ustream-embedapi.js" type="text/javascript"></script>
+
+    <script src="js/general.js" type="text/javascript"></script>
+    <script src="js/store.min.js" type="text/javascript"></script>
+    <link id="link_malibudiet" href="" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">        
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+        height: 100%;
+    }
+
+    body {
+        background-color: #000000 !important;
+        padding: 0 0 0 0px;
+        background-repeat: no-repeat;
+        margin: 0px aoto;
+        margin-left: 0px;
+        text-decoration: none;
+        overflow: hidden !important;
+    }
+
+    .ui-content {
+        position: fixed;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        height: 100% !important;
+        right: 0 !important;
+        left: 0 !important;
+        overflow: hidden !important;
+    }
+
+        
+    .clearfix {
+        clear: both;
+        height: 1px;
+        overflow: hidden;
+        margin-bottom: -1px;
+        line-height: 1%;
+        font-size: 0px;
+    }
+                                   
+    .ui-controlgroup {
+        margin:0; /*make the buttons flush to the top*/
+    }
+    #bars-button {
+        margin:1px;
+    }
+     
+    .ui-page, .ui-page-fullscreen {
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+    }
+    
+    .center-wrapper {
+      text-align: center;
+    }
+    .center-wrapper * {
+      margin: 0px auto 0px auto;
+    }     
+    
+    .bcolor_purple {
+        border-bottom: 6px solid #b753d8 !important;
+    }
+    .bcolor_green {
+        border-bottom: 6px solid #6bc356 !important;   
+    }
+    .bcolor_mustard {
+        border-bottom: 6px solid #fab903 !important;      
+    }
+    .bcolor_red {
+        border-bottom: 6px solid #e94739 !important;       
+    }
+    .bcolor_blue {
+        border-bottom: 6px solid #427fed !important;        
+    }
+    
+    .ui-header {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    .ui-footer {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    
+    #topnavbar li a {
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+    }
+    
+    #topnavbar {
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	    position: fixed !important;
+        top: -6px !important;
+        left: 0 !important;
+        right: 0 !important;
+	    width:100% !important;
+	    z-index:1 !important;
+    }
+
+    .ui-navbar ul {
+        margin-top: 2px !important;
+        height: 54px !important;
+    }
+    
+    [data-role="navbar"] li {
+        margin-top: -6px !important;
+        height: 54px !important;
+        margin-bottom: 6px !important;
+        padding: 0px 0px 6px 0px !important;
+    }
+
+    [data-role="navbar"] a {
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+    }
+    
+    /* position dismiss panels */   
+    /* data-dismissible="false" */
+    .ui-panel-dismiss {
+        z-index: 100 !important;
+    }
+    #panel_topnav, #panel_controls {
+        z-index: 200 !important;        
+    }  
+          
+    #panel_controls {
+        width: 98%;
+        height: 100%;
+        margin: 0;
+        padding: 0px;   
+        text-align: center !important;             
+    }     
+    
+    #thelist {
+        width: 94%; 
+        height: 100%;
+        margin: 0;
+        padding: 0px 0px 0px 0px !important;
+        margin-right:0px;
+        text-align: center !important;
+    }   
+
+    #search_panel {
+        width: 94%; 
+        height: 100%;
+        margin: 0;
+        padding: 0px 0px 0px 0px !important;
+        margin-right:0px;
+        text-align: center !important;
+    }  
+    
+    /* Swipe works with mouse as well but often causes text selection. */
+    #demo-page * {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+
+    /*
+    .ui-panel {
+        width: 92%;  
+        height:100%;
+    }  
+
+    #thelist {
+        width: 80%;  
+        height: 100%;
+        margin: 0;
+        padding: 0px;
+        margin-right:36px;
+    }   
+    
+    #panel_controls {
+        width: 92%;
+        height: 100%;
+        margin: 0;
+        padding: 0px;
+    }   
+    
+   .ui-btn-inner ui-li {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 300px;
+   } 
+    .ui-controlgroup {
+        height:36px;
+    }           
+    */
+
+    #fancybox-buttons {
+        display:none;
+    }
+    
+    #cboxTitle {
+        display:none;
+    }
+    
+    .ui-li-aside{
+        content:'';
+        width: 50px !important;
+        padding-top:-2px !important;
+        padding-right:8px !important;    
+        vertical-align:top;
+        font-size:.8em;
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        -webkit-font-smoothing: antialiased; 
+        font-weight: normal;
+        font-style: normal;    
+        position:absolute;
+        float: right;
+        right: 8px;
+        top: -2px;
+        color: #ff0000;
+    }  
+
+    .imgtime {
+        z-index: 99999;
+        position: absolute;
+        bottom: 26px;
+        left: 58px;
+        float: left;   
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;   
+        font-size: 1.0em;
+        text-decoration: none;
+        font-variant: normal;
+        font-style: normal;
+        font-weight: normal;
+        color: White;
+        text-shadow:1px 1px #000;
+    }
+
+    a:hover div.imgtime {
+        left: 64px;    
+    }
+
+  
+  div {
+        overflow-x:hidden;
+        overflow-y:hidden;
+    }
+
+    /* rounded image styles youtube-videogallery-img */   
+    .rounded-img, .ui-li-icon {
+        float: left;
+        top: 1px;
+        left: 0px;
+        padding: 0px 0px 0px 0px;
+        margin-left: 0px;
+        width: 116px;
+        height: 84px;
+	    display: inline-block;
+	    border: solid 1px #9CAAC1 !important;   /* #9CAAC1; */
+	    overflow: hidden;
+	    -webkit-border-radius: 10px;
+	    -moz-border-radius: 12px;
+	    border-radius: 12px;
+	    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    box-shadow: 0 1px 6px rgba(0, 0, 0, .8);   
+	    background-color: transparent !important;
+    }
+    
+    /* a:hover img.rounded-img, a:hover img.ui-li-icon */
+    a:hover img.ui-li-icon {
+        float: left;
+        top: 1px;
+        left: 6px;
+        padding: 0px 0px 0px 0px;
+        margin-left: 0px;
+        width: 116px;
+        height: 84px;
+	    display: inline-block;
+	    border: solid 1px #ffffff !important;   /* #9CAAC1; */
+	    overflow: hidden;
+	    -webkit-border-radius: 10px;
+	    -moz-border-radius: 12px;
+	    border-radius: 12px;
+	    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    border:1px solid #ff0000 !important;
+	    background-color: #ff0000 !important;
+    }
+    
+    .ellipsis {
+        position: absolute;
+        top: 2px;
+        left: 0px;
+        width: 60%;
+        margin: 0px 0px 0px 94px;
+        padding: 0px 0px 0px 0px;
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        -webkit-font-smoothing: antialiased; 
+        font-size: 1.2em;
+	    line-height: .9em;
+	    font-weight: normal;
+        font-style: normal;
+        display: list-item;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: ellipsis;
+        text-align:left;
+    }
+    
+    .ellipsis2 {
+        position: absolute;
+        top: 20px;
+        left: 0px;
+        width: 60%;
+        height: 69px;
+        margin: 0px 0px 0px 94px;
+        padding: 0px 0px 0px 0px;   
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        -webkit-font-smoothing: antialiased;   
+        font-size: 1.0em;
+        line-height: .9em;
+        font-weight: normal;
+        font-style: normal;
+        display: list-item;
+        text-overflow: ellipsis;
+        overflow: ellipsis;
+        white-space: normal;  
+        text-decoration: inherit;
+        vertical-align: top;
+        text-align: left;
+    }
+    
+    #zvideowrapper {
+        padding-top: 0px !important;
+        height: 100% !important;
+    }
+    
+    #zvideowrapper ul li, #zvideowrapper li {
+        height: 94px !important;
+        z-index:1 !important;
+        border-bottom: 1px solid #464954;
+        border-top: 1px solid #464954;
+    }
+    
+    #zvideowrapper .youtube-videogallery-link, #zvideowrapper a.youtube-videogallery-link, #zvideowrapper .novideos-link {
+        display: inline-block;
+        position: absolute !important;
+        width: 70px;
+        float: left;
+        top: 4px;
+        left: 0px;
+        margin-left: 20px;
+        height: 90px;
+        z-index:1 !important;
+        border: 1px none #303030;   
+        background-color: transparent !important; 
+    }
+   
+         
+    #yt_content {
+        height: 1100px !important;
+        z-index:1 !important;
+        width: 100% !important;
+    }
+    
+    #videotext {
+        width: 85% !important;
+        height: 300px !important;
+        background-color: transparent !important;
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        -webkit-font-smoothing: antialiased;
+        font-size: 1.2em; 
+        line-height: 1.0em; 
+        font-weight: normal; 
+        letter-spacing: -0.03em;          
+        position: absolute;
+        white-space: normal;
+        text-overflow: normal;
+        overflow: normal;
+        padding: 20px 0px 0px 28px;
+        vertical-align: top;
+        text-align:left;   
+        cursor: hand;    
+    }
+   
+    #yt_content {
+        z-index: 1 !important;
+    }
+
+    #yt_content:hover,.iscroll-scroller:hover,#videotext:hover {
+        cursor: hand;
+    }
+
+    header {
+        clear: left;
+        box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -moz-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -webkit-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+    }
+    
+    /* DO NOT REMOVE THIS !!! */
+    .iscroll-scroller {
+        min-width: 100% !important;
+    }    
+    </style>
+ 
+	<script type="text/javascript">
+
+	    var _themeid_dronestv = "";
+	    if (localStorage["themeid_dronestv"]) {
+	        _themeid_dronestv = localStorage["themeid_dronestv"];
+	    } else {
+	        //_themeid_dronestv = "light";
+	        _themeid_dronestv = "dark";
+	        localStorage["themeid_dronestv"] = "dark";
+	    }
+	    var _path = "themes/" + _themeid_dronestv + ".css";
+	    $("#link_malibudiet").attr("href", _path);
+
+	    var refreshIntervalId;
+	    var g_content_width = 100;
+	    var g_content_height = 100;
+
+	    /* Use this for high compatibility (iDevice + Android)*/
+	    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	    document.addEventListener('DOMContentLoaded', loaded, false);
+	    document.addEventListener("deviceready", function (e) { }, "false");
+
+	    $(document).bind("mobileinit", function () {
+	        jQuery.support.cors = true;
+	        jQuery.mobile.allowCrossDomainPages = true;
+	        jQuery.mobile.phonegapNavigationEnabled = true;
+	        jQuery.mobile.defaultDialogTransition = "slide";
+	    });
+
+	    function loaded() {
+	        screenAdjust();
+	    }
+
+	    $(document).delegate('.ui-page', 'touchmove', false);
+
+	    $(window).bind('resize', function (e) {
+	        screenAdjust();
+	    });
+
+
+
+	    $(document).ready(function () {
+
+	        var w = $(window).innerWidth() - 50;
+	        var h = (.85) * w;
+	        $('#UstreamFrame').width(w + 'px');
+	        $('#UstreamFrame').height(h + 'px');
+
+	        var viewer = UstreamEmbed("UstreamFrame");
+
+	        $('.media').on("click", function (e) {
+	            clearFields();
+
+	            var target = $(e.currentTarget),
+                        media = target.data('media'),
+                        type = target.data('type');
+
+	            viewer.callMethod('load', type, media);
+
+	            e.preventDefault();
+	        });
+
+
+	        /*
+	        set up controls
+	        */
+	        $(document.body).on("click", '.btn, .dropdown-menu a', function (e) {
+	            var target = $(e.currentTarget);
+	            control = target[0].className.match(/control-([a-zA-Z0-9\-]*)/);
+
+	            if (control && control[1]) {
+
+	                switch (control[1]) {
+
+	                    case "play":
+	                        viewer.callMethod('play');
+	                        break;
+	                    case "pause":
+	                        viewer.callMethod('pause');
+	                        break;
+	                    case "seek":
+	                        viewer.callMethod('seek', $("#SeekTo").val());
+	                        break;
+	                    case "volume":
+	                        viewer.callMethod('volume', $("#SetVolume").val());
+	                        break;
+	                    case "duration":
+	                        viewer.getProperty('duration', function (data) {
+	                            $('#Duration').val(data);
+	                        });
+	                        break;
+	                    case "progress":
+	                        viewer.getProperty('progress', function (data) {
+	                            $('#Progress').val(data);
+	                        });
+	                        break;
+	                    case "viewers":
+	                        viewer.getProperty('viewers', function (data) {
+	                            $('#Viewers').val(data);
+	                        });
+	                        break;
+	                    case "content":
+	                        viewer.getProperty('content', function (data) {
+	                            $('#Content').val(data.join(','));
+	                        });
+	                        break;
+	                    case "load-video":
+	                        clearFields();
+	                        viewer.callMethod('load', 'video', $("#LoadContent").val());
+	                        break;
+	                    case "load-channel":
+	                        clearFields();
+	                        viewer.callMethod('load', 'channel', $("#LoadContent").val());
+	                        break;
+	                    case "quality":
+	                        viewer.callMethod('quality', target.data('quality'));
+	                        break;
+
+	                }
+
+	            }
+
+	            e.preventDefault();
+	        });
+
+
+	        /*
+	        populate quality selector with receiced data
+	        */
+	        var populateQualitySelector = function (data) {
+	            var list = $('.quality-selector');
+	            list.find('li').remove(); // remove previously set data
+	            for (var id in data) {
+	                list.append('<li><a href="#" class="control-quality" data-quality="' + id + '">' + data[id].label + '</a></li>')
+	            }
+	        }
+
+	        /*
+	        clear some data fields that are relevant to content
+	        */
+	        var clearFields = function () {
+	            populateQualitySelector({});
+	            $('#Progress').val('');
+	            $('#Viewers').val('');
+	            $('#Duration').val('');
+
+	            $('.st-ended').hide();
+	            $('.st-playing').hide();
+	            $('.st-offline').hide();
+	            $('.st-live').hide();
+	        }
+
+	        /*
+	        event handler for events received from the embed iframe
+	        */
+	        var onEmbedEvent = function (event, data) {
+	            switch (event) {
+	                case "ready":
+	                    clearFields();
+	                    break;
+	                case "quality":
+	                    populateQualitySelector(data);
+	                    break;
+	                case "live":
+	                    $('.st-live').show();
+	                    $('.st-offline').hide();
+	                    break;
+	                case "offline":
+	                    $('.st-offline').show();
+	                    $('.st-live').hide();
+	                    break;
+	                case "playing":
+	                    if (data) {
+	                        $('.st-playing').show()
+	                    } else {
+	                        $('.st-playing').hide();
+	                    }
+	                    break;
+	                case "finished":
+	                    $('.st-ended').show();
+	                    break;
+	                case "content":
+	                    $('.st-content').text(data.join(','));
+	                    break;
+	                case "size":
+	                    break;
+	            }
+	        }
+
+	        viewer.addListener('ready', onEmbedEvent);
+	        viewer.addListener('quality', onEmbedEvent);
+	        viewer.addListener('live', onEmbedEvent);
+	        viewer.addListener('offline', onEmbedEvent);
+	        viewer.addListener('playing', onEmbedEvent);
+	        viewer.addListener('finished', onEmbedEvent);
+	        viewer.addListener('size', onEmbedEvent);
+	        viewer.addListener('content', onEmbedEvent);
+
+	    });
+
+
+	    window.onload = function () {
+	        //FIRES AFTER document.ready
+
+	        //By default jQM always makes an AJAX request for pages even if you've already visited it before. 
+	        //If so you will need to set reloadPage to true when you call $.mobile.changePage 
+	        //if you need to refresh the page - otherwise the page will be stale.
+	        //then only will jQM not reload pages.
+	        //$.mobile.page.prototype.options.domCache = true;
+
+	        screenAdjust();
+
+	    };
+
+	    function screenAdjust() {
+	        g_content_width = window.innerWidth;
+	        g_content_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height() - 0);
+	        var orientation = "portrait";
+	        if (window.orientation == -90 || window.orientation == 90) orientation = "landscape";
+	        if (orientation == "portrait") {
+	            g_content_height = ($(window).height() - 100);
+	        }
+	        else {
+	            g_content_height = ($(window).height() - 100);
+	        }
+	        var w = $(window).innerWidth();
+	        $('#UstreamFrame').width(w + 'px');
+	    }
+
+	    $(document).delegate('header a', 'click touchend', function (e) {
+	        //e.preventDefault();
+	        //e.stopPropagation();
+	        //$("#sidebar").show();
+	        //$("#sidebar").trigger("updatelayout");
+	        var link = $(this).attr('href');
+	        if (link == "#go_home") {
+	            window.location = "./index.html";
+	        }
+	        else if (link == "#back_from_player") {
+                history.back();
+	        }
+	        else if (link == "#playontv") {
+	            var _videoid = localStorage.getItem('videoid');
+	            window.open("https://www.youtube.com/watch?v=" + _videoid, "_blank");
+	            //alert("When App is installed on your mobile phone this will play the video on your Smart TV Set!");
+                //alert("Add your code here to send video Smart TV for YouTube video ID:\n" + _videoid);
+	        }
+	        return false;
+	    });
+
+	    function GetVideos() {
+            //alert("-linktype: " + _linktype + "\n" +
+            //"linkvalue: " + _linkvalue + "\n" +
+            //"-----link: " + _link + "\n" +
+            //"-----desc: " + _desc + "\n");
+	        var _linkType = localStorage.getItem('videotype');
+	        //var _videovalue = localStorage.getItem('videovalue');
+	        var _videolink = localStorage.getItem('videolink');
+	        var _videodesc = localStorage.getItem('videodesc');
+
+	        var w = $(window).innerWidth() - 50;
+	        var h = (.85) * w;
+	        $('#UstreamFrame').width(w + 'px');
+	        $('#UstreamFrame').height(h + 'px');
+
+	        var ztheme = "theme=dark&amp;";
+	        if (_themeid_dronestv == "dark") {
+	        } else {
+	            ztheme = "theme=light&amp;";
+	        }
+
+	        //var z_url = "https://www.youtube.com/embed/" + _link + "?rel=0&amp;hd=0&amp;modestbranding=1&amp;fs=1&amp;" + ztheme + "showinfo=0&amp;controls=1&amp;wmode=transparent";
+
+	        var z_url = 'http://www.ustream.tv/embed/' + _videolink;
+
+	        $("#UstreamFrame").attr("src", z_url);
+	        $("#videotext").text(_videodesc);
+	        
+	    }
+
+	    //]]>
+    </script>
+</head>
+<body>
+    <!-- page -->
+    <div data-role="page" id="mainPage" class="center-wrapper">
+
+        <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom:4px solid #00ff00 !important;">
+            <a data-icon="home" class="ui-btn-left" data-theme="a" style="margin-top:8px;" href="#go_home" rel="external">Home</a>
+            <div class="center-wrapper"><img id="header_logo" src="img/header_logo.png" alt="Wild Workout" style="margin-top:4px;"></div>
+            <a href="#back_from_player" data-role="button" data-icon="arrow-l" data-theme="a"  class="ui-btn-right" style="margin-top:8px;" data-rel="back">Back</a>
+        </header>
+
+        <div id="zvideowrapper" data-iscroll="{
+                'hScroll':false,
+                'vScroll':true,
+                'resizeEvents':'orientationchange',
+                'resizeWrapper':true, 
+                'mouseWheel': true, 
+                'click': true, 
+                'interactiveScrollbars': true, 
+                'shrinkScrollbars': 'scale'
+                }" data-role="content" style="height: 900px; overflow: hidden;" class="ui-content iscroll-wrapper" role="main">
+            <div class="iscroll-scroller" style="padding-top:10px !important;min-height: 1600px; -webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+                <div class="iscroll-content">
+
+                    <iframe id="UstreamFrame" name="UstreamFrame" src="http://www.ustream.tv/embed/1524" marginheight="0" frameborder="0" width="240" height="180" style="border: 0 transparent none;"></iframe><br />
+                    <div id="videotext"></div>
+                    <div></div>
+                    <ul data-role="listview" data-inset="true" class="ui-listview" data-theme="a" style="margin-top:20px;">
+                    <li class="media" data-media="4307895" data-type="channel">
+                        <a class="pull-left" href="#">
+                            <img class="rounded-img" src="http://static-cdn2.ustream.tv/i/channel/picture/4/3/0/7/4307895/4307895_4307895_creativelive-u_1322590439,66x66,r:1.jpg">
+                        </a>
+                        <div class="ellipsis">creativeLIVE <span class="label label-info">channel</span></div>
+                        <div class="ellipsis2">
+                            creativeLIVE provides the best free, live creative education on the web. We offer high-quality workshops in photography, business, video, web and graphic design, and more.
+                        </div>
+                    </li>
+
+                    <li class="media" data-media="1524" data-type="channel">
+                        <a class="pull-left" href="#">
+                            <img class="rounded-img" src="http://static-cdn1.ustream.tv/i/channel/picture/1/5/2/4/1524/1524_screenshot2013-01-03at6.4_1357331443,66x66,r:1.jpg">
+                        </a>
+                        <div class="ellipsis">TWiT Live <span class="label label-info">channel</span></div>
+                        <div class="ellipsis2">
+                            Live from the TWiT Brick House, non-stop technology news and conversation with Leo Laporte and friends.
+                        </div>
+                    </li>
+
+                    <li class="media" data-media="6540154" data-type="channel">
+                        <a class="pull-left" href="#">
+                            <img class="rounded-img" src="http://static-cdn1.ustream.tv/i/channel/picture/6/5/4/0/6540154/6540154_nasatv_public_hr_1330361732,66x66,r:1.jpg">
+                        </a>
+                        <div class="ellipsis">NASA Public <span class="label label-info">channel</span></div>
+                        <div class="ellipsis2">
+                            NASA TV airs regularly scheduled educational programming 24 hours a day on its various channels.
+                        </div>
+                    </li>
+    
+                    <li class="media" data-media="24364591" data-type="video">
+                        <a class="pull-left" href="#">
+                            <img class="rounded-img" src="http://static-cdn2.ustream.tv/i/channel/picture/4/9/8/6/498663/498663_msl_cam_100x75_1286920251,66x66,r:1.jpg">
+                        </a>
+                        <div class="ellipsis">Curiosity's Seven Minutes of Terror <span class="label label-info">recorded</span></div>
+                        <div class="ellipsis2">
+                            Video about the Mars Curiosity rover landing
+                        </div>
+                    </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+            <div id="navbar" data-role="navbar" class="ui-navbar" role="navigation" data-theme="a">
+                <ul>
+                        <li class="bcolor_purple"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                        <li class="bcolor_green"><a href="#rssmobi" data-icon="rss">Feeds</a></li>
+                        <li class="bcolor_mustard"><a href="#games" data-icon="gamepad">Games</a>
+                        <li class="bcolor_red"><a href="#shop" data-icon="shop">Shop</a></li>
+                        <li class="bcolor_blue"><a href="#cool" data-icon="coffee">Cool</a></li>
+
+                        <!--<li class="bcolor_purple"><a href="#sol_" data-icon="search">Cures?</a></li>
+                        <li class="bcolor_green"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                        <li class="bcolor_mustard"><a href="#rssmobi" data-icon="rss">Feeds</a>
+                        <li class="bcolor_red"><a href="#shop" data-icon="shop">Shop</a></li>
+                        <li class="bcolor_blue"><a href="#cool" data-icon="coffee">Cool</a></li>-->
+
+                        <!--<li class="bcolor_purple"><a href="#sol_" data-icon="search">Cures?</a></li>
+                        <li class="bcolor_green"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                        <li class="bcolor_mustard"><a href="#cool" data-icon="coffee">Cool</a>
+                        <li class="bcolor_red"><a href="#prev" data-icon="arrow-l">Prev</a></li>
+                        <li class="bcolor_blue"><a href="#next" data-icon="arrow-r">Next</a></li>-->
+
+                </ul>
+            </div>
+        </footer>
+    </div> 
+    <!-- /page -->
+    
+
+</body>
+</html>
+

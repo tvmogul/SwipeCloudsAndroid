@@ -1,0 +1,846 @@
+﻿<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
+	<!--<link rel="stylesheet" href="css/mdpi.css" media="only screen and (-webkit-max-device-pixel-ratio:1.0) and (max-device-width:480px)">-->
+	<!--<link rel="stylesheet" href="css/hdpi.css" media="only screen and (-webkit-min-device-pixel-ratio:1.5)">-->
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->   
+    <!-- For Samsung Galaxy S4-5 & larger Screens, use "target-densitydpi=medium-dpi" instead of device-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>www.SerGioApps.com</title>  
+    
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <!-- <script src="js/singleton.js" type="text/javascript"></script>-->
+    <!--<script type="text/javascript" src="js/index.js"></script>-->  
+                   
+	<!-- jQuery Mobile CSS bits -->
+	<!--<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="hdpi.css" />
+    <link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="mdpi.css" />
+    <link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 0.75)" href="ldpi.css" />-->
+
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet"  href="css/jquery.mobile.icons-1.4.0.css" />
+	<link rel="stylesheet"  href="css/jqm-icon-pack-fa.css" />
+
+    <link href="js_iscroll/jquery.mobile.iscrollview.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!--<script src="cordova.js" type="text/javascript"></script>-->
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+    <script src="js/jquery.tagcanvas.js" type="text/javascript"></script>     
+    <script src="js/jquery.mousewheel.min.js" type="text/javascript"></script>
+    <script src="js/retina.js" type="text/javascript"></script>
+
+    <script src="js/store.min.js" type="text/javascript"></script>
+    <link id="link_flappy" href="" rel="stylesheet" type="text/css" />
+        
+    <style type="text/css">        
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+        height: 100%;
+    }
+
+    body {
+        background-color: #000000 !important;
+        padding: 0 0 0 0px;
+        background-repeat: no-repeat;
+        margin: 0px aoto;
+        margin-left: 0px;
+        text-decoration: none;
+        overflow: hidden !important;
+    }
+
+    .ui-content {
+        position: fixed;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        height: 100%;
+        overflow: hidden;
+        right: 0 !important;
+        left: 0 !important;
+        top: 0 !important;
+        overflow: hidden !important;
+        height:100%;
+    }
+
+        
+    .clearfix {
+        clear: both;
+        height: 1px;
+        overflow: hidden;
+        margin-bottom: -1px;
+        line-height: 1%;
+        font-size: 0px;
+    }
+                                   
+    .ui-controlgroup {
+        margin:0; /*make the buttons flush to the top*/
+    }
+    #bars-button {
+        margin:1px;
+    }
+     
+    .ui-page, .ui-page-fullscreen {
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+    }
+    
+    .center-wrapper {
+      text-align: center;
+    }
+    .center-wrapper * {
+      margin: 0px auto 0px auto;
+    }     
+    
+    .bcolor_purple {
+        border-bottom: 6px solid #b753d8 !important;
+    }
+    .bcolor_green {
+        border-bottom: 6px solid #6bc356 !important;   
+    }
+    .bcolor_mustard {
+        border-bottom: 6px solid #fab903 !important;      
+    }
+    .bcolor_red {
+        border-bottom: 6px solid #e94739 !important;       
+    }
+    .bcolor_blue {
+        border-bottom: 6px solid #427fed !important;        
+    }
+    
+    .ui-header {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    .ui-footer {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    
+    #topnavbar li a {
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+    }
+    
+    #topnavbar {
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+	    position: fixed !important;
+        top: -6px !important;
+        left: 0 !important;
+        right: 0 !important;
+	    width:100% !important;
+	    z-index:1 !important;
+    }
+
+    .ui-navbar ul {
+        margin-top: 2px !important;
+        height: 54px !important;
+    }
+    
+    #navbar li {
+        margin-top: -6px !important;
+        height: 54px !important;
+        margin-bottom: 6px !important;
+        padding: 0px 0px 6px 0px !important;
+    }
+
+    #navbar li {
+        margin-top: -6px !important;
+        height: 54px !important;
+        margin-bottom: 6px !important;
+        padding: 0px 0px 6px 0px !important;
+    }
+        
+    #navbar li a {
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-weight: normal; 
+        letter-spacing: 0.04em;         
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    /* position dismiss panels */   
+    /* data-dismissible="false" */
+    .ui-panel-dismiss {
+        z-index: 100000 !important;
+    }
+    #panel_topnav, #panel_controls {
+        z-index: 200 !important;        
+    }  
+
+    #panel_controls {
+        width: 84%;
+        height: 100%;
+        margin: 0;
+        padding: 0px;
+    }     
+    
+    #thelist {
+        width: 80%; 
+        height: 100%;
+        margin: 0;
+        padding: 0px;
+        margin-right:36px;
+    }   
+
+    /* Swipe works with mouse as well but often causes text selection. */
+    #demo-page * {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+ 
+
+    .sc_menu_tooltip {
+        display: block;
+        position: absolute;
+        padding: 8px;
+        font-size: 1.2em;
+        color: #000;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border: 1px solid rgb(50, 50, 50);
+        background: rgb(255, 255, 194); /* Make background a bit transparent for browsers that support rgba */
+        background: rgba(255, 255, 194, 1.0); 
+    }
+
+    #tagcontent {
+        margin-left: 0px !important;
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;        
+        bottom: 0px !important; 
+    }
+ 
+    #tagcanvas {
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-left: 0px !important;
+        margin-top: 50px !important;
+        margin-bottom: 20px !important;
+        padding-top: 0px !important; 
+    }
+    #iconTags, #mainCloud, #everyCloud, #claim2fameCloud, #wordCloud, #pumpkinCloud {
+        border-bottom-style: solid;
+        border-color: Red;
+        border-width: 4px;
+        margin-left: 0px;
+        margin-top: 0px;
+        position: absolute;
+        top: 0;
+        width: 800px;
+        left: -900px;            
+    }
+    #iconTags a, #mainCloud a, #everyCloud a, #claim2fameCloud a, #wordCloud a, #pumpkinCloud a {
+        background-color: #82a7d3;
+        color: #FFFFFF;
+        display: inline-block;
+        height: 39px;
+        line-height: 37px;
+        padding: 0 15px;
+        margin-right: 2px;
+    }
+
+
+        /* add a tint layer to brighten (or darken) */
+        /*BILL SERGIO - z-index: -1 prevents controls on panel from being blurred */
+        .frosted::after {
+            z-index: -1 !important; /*BILL SERGIO - Only blurs background of panel, NOT controls on panel !!! */
+            position: absolute;
+            content: "";
+            right: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.5);
+            -webkit-filter:blur(8px) brightness(110%); 
+	        -moz-filter: blur(8px);
+	        -ms-filter: blur(8px);
+	        -o-filter: blur(8px);
+	        filter: blur(8px); 
+        }
+
+        /* The content */
+        .frosted {
+            font-family: Avenir Next, Avenir, Verdana, sans-serif;
+            color: #333;
+            text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
+            position: relative;
+            margin: 0px;
+            padding-left: 0px;
+        }
+
+        #panel_controls, #thelist, #scroller, #wrapper, #wrapper_left, .ui-panel-inner {
+	        background: transparent !important; /* #DD2C33 */ 
+        }  
+        
+        /* position dismiss panels */   
+        /* data-dismissible="false" */
+        .ui-panel-dismiss {
+            z-index: 100000 !important;
+        }
+        
+        .ui-panel {
+            position: absolute;
+            right: 0px !important;
+            margin: 0;
+            padding: 0px;
+            margin-right:0px;
+            width: 84%;
+        }  
+
+        #panel_controls {
+            width: 84%;
+            height: 100%;
+            margin: 0;
+            padding: 0px;
+        }           
+        #thelist {
+            width: 80%; 
+            height: 100%;
+            margin: 0;
+            padding: 0px;
+            margin-right:0px;
+        }  
+        
+        #scroller_player {
+          text-align: center;
+        }
+        #scroller_player * {
+          margin: 0px auto 0px auto;
+        }   
+        .backfrost_on {
+            -webkit-filter:blur(8px) brightness(110%); 
+	        -moz-filter: blur(8px);
+	        -ms-filter: blur(8px);
+	        -o-filter: blur(8px);
+	        filter: blur(8px); 
+        }
+        .backfrost_off {
+        }
+        
+        .ui-icon-myicon:after {
+	        background-image: url("iconimg.svg");
+        }
+        .ui-nosvg .ui-icon-myicon:after {
+	        background-image: url("iconimg.png");
+        }    
+
+        header {
+            clear: left;
+            box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+            -moz-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+            -webkit-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        }
+        
+        /* DO NOT REMOVE THIS !!! */
+        .iscroll-scroller {
+            min-width: 100% !important;
+        }             
+         
+	img.c  { position:absolute; }
+	div.bg { position: absolute; left: 0px; width: 16000px; background-repeat: repeat-x; }         
+    </style>
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+        var _themeid_dronestv = "";
+        if (localStorage["themeid_dronestv"]) {
+            _themeid_dronestv = localStorage["themeid_dronestv"];
+        } else {
+            //_themeid_dronestv = "light";
+            _themeid_dronestv = "dark";
+            localStorage["themeid_dronestv"] = "dark";
+        }
+        var _path = "themes/" + _themeid_dronestv + ".css";
+        $("#link_flappy").attr("href", _path);
+
+        $(document).bind("mobileinit", function () {
+            jQuery.support.cors = true;
+            jQuery.mobile.allowCrossDomainPages = true;
+            jQuery.mobile.phonegapNavigationEnabled = true;
+            jQuery.mobile.defaultDialogTransition = "slide";
+        });
+
+        $(window).bind('resize', function (e) {
+            screenAdjust();
+        });
+
+        $(window).bind('orientationchange', function (e) {
+            var orientation = "portrait";
+            if (window.orientation == -90 || window.orientation == 90) orientation = "landscape";
+
+            switch (orientation) {
+                case 'portrait':
+                    // alert('portrait');
+                    //$.mobile.fixedToolbars.setTouchToggleEnabled(true);
+                    break;
+                case 'landscape':
+                    // alert('landscape');        
+                    $.mobile.fixedToolbars.setTouchToggleEnabled(false);
+                    break;
+                default:
+                    break;
+            };
+            screenAdjust();
+        });
+
+        $(document).delegate("#mainPage", "pageinit", function () {
+            //alert('A page with an id of "aboutPage" was just created by jQuery Mobile!');
+        });
+
+        window.onload = function () {
+
+        };
+
+        $(document).delegate('header a', 'click', function () {
+            var el = $(this);
+            var link = el.attr('href');
+            //if (link == "#clouds") {
+            //}
+            return false;
+        });
+
+        $(document).delegate('footer a', 'click', function () {
+            var link = $(this).attr('href');
+            if (link == "#back") {
+                history.back();
+            }
+            else if (link == "#statiobreaktv") {
+                window.open("http://www.stationbreaktv.com/mobile/index.html", "_blank");
+            }
+        });
+
+        function screenAdjust() {
+            var the_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height() - 0);
+            var orientation = "portrait";
+            if (window.orientation == -90 || window.orientation == 90) orientation = "landscape";
+            if (orientation == "portrait") {
+                the_height = ($(window).height() - 100);
+            }
+            else {
+                the_height = ($(window).height() - 100);
+            }
+            var the_width = $(window).innerWidth();
+
+//            $('#board').width(the_width + 'px');
+//            $('#board').width(the_height + 'px');
+
+//            $('#board').css('width', the_width + 'px');
+//            $('#board').css('height', the_height + 'px');
+
+//            $('#bGrnd').width(the_width + 'px');
+//            $('#bGrnd').width(the_height + 'px');
+//            $('#bGrnd').css('width', the_width + 'px');
+//            $('#bGrnd').css('height', the_height + 'px');
+
+//            //            $('#fGrnd').width(the_width + 'px');
+//            //            $('#fGrnd').width(the_height + 'px');
+//            //            $('#fGrnd').css('width', the_width + 'px');
+//            //            $('#fGrnd').css('height', the_height + 'px');
+
+//            //localStorage["bg_wildworkout"] = _bgImage;
+//            document.getElementById('bGrnd').style.backgroundImage = "url(flappy/bg1.png)";
+//            document.getElementById('bGrnd').style.backgroundSize = 'cover'; //100% 100%;
+        }
+
+
+        //iframe.contentWindow.changeTheme();
+        function changeTheme(ztheme) {
+            localStorage["themeid_dronestv"] = ztheme;
+            var _path = "themes/" + ztheme + ".css";
+            $("#link_index").attr("href", _path);
+        }
+
+        $(document).delegate('header a', 'click touchend', function (e) {
+            //e.preventDefault();
+            //e.stopPropagation();
+            //$("#sidebar").show();
+            //$("#sidebar").trigger("updatelayout");
+            var el = $(this);
+            var link = $(this).attr('href');
+            if (link == "#go_home") {
+                window.location = "./index.html";
+            }
+            else if (link == "#go_panel_topnav") {
+                $('#panel_topnav').panel("open");
+            }
+            else if (link == "#back") {
+                history.back();
+            }
+        });
+
+        $(document).delegate('footer a', 'click', function () {
+            //$(document).delegate('.ui-footer a', 'click', function () {
+            //window.location = "./ad01.html#mainPage";
+            //window.location = "./ad01.html#mainPage";
+            var link = $(this).attr('href');
+            if (link == "#back") {
+                history.back();
+            }
+            else if (link == "#statiobreaktv") {
+                window.open("http://www.stationbreaktv.com/mobile/index.html", "_blank");
+            }
+            else if (link == '#intro') {
+                /////////////////////////////////////////////////////
+                var _link = 'b5dAMId4qdQ';
+                var _desc = 'We invite you to try out our CHEST Workout which we have included FREE. Just click on the CHEST icon on the previous page.'
+                store.set('ww_category', {
+                    cat: 'ww_chest'
+                });
+                localStorage.setItem('videoid', 'b5dAMId4qdQ');
+                localStorage.setItem('videodesc', _desc);
+                window.location = "./videoplayer.html";
+                /////////////////////////////////////////////////////
+            }
+            //<li class="bcolor_purple"><a href="#category" data-icon="coffee">Topics</a></li>
+            //<li class="bcolor_green"><a href="#sports" data-icon="video">Sports</a></li>
+            //<li class="bcolor_mustard"><a href="#animals" data-icon="power">Animals</a></li>
+            //<li class="bcolor_red"><a href="#listcloud" data-icon="bars">Bonus</a></li>
+            //<li class="bcolor_blue"><a href="#unlock" data-icon="key">Unlock</a></li>
+            else if (link == "#shop") {
+                window.open("http://www.sergioapps.com/storefront.html#/store", "_blank");
+            }
+            else if (link == "#back") {
+                history.back();
+            }
+            //YouTube User ID: TSL7kPXsdBkh918wyWVCuQ
+            //YouTube Channel ID: UCTSL7kPXsdBkh918wyWVCuQ
+            else if (link == "#stationbreaktv") {
+                window.location = "./stationbreak.html";
+                store.set('yt_criteria', {
+                    type: 'search_users',
+                    start_index: 1,
+                    qvalue: 'UCTSL7kPXsdBkh918wyWVCuQ',
+                    nb_display: 'std'
+                });
+                window.location = "./youtube.html";
+            }
+            else if (link == "#topics_m2g") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#m2g_web") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#rssmobi") {
+                window.location = "./rssmobi.html";
+            }
+            else if (link == "#tv") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#movies") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#music") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#blogs") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#shop") {
+                window.open("http://www.sergioapps.com/storefront.html#/store", "_blank");
+            }
+            else if (link == "#listcloud") {
+                $('#listcloud .ui-btn-text').text('Cloud');
+                window.location = "./general.html";
+            }
+            else if (link == "#rss_ads") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#category") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#blogs_fitness") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#tvshows_bodybuilding") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#movies_bodybuilding") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#sports") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#animals") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#unlock") {
+                window.location = "./In_App_BuyNow.html";
+            }
+            else if (link == "#games") {
+                window.location = "./games.html";
+            }
+            else if (link == "#rss_ads") {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+            else if (link == "#politics") {
+                store.set('yt_criteria', {
+                    type: 'search_users',
+                    start_index: 1,
+                    qvalue: 'RealTime',
+                    nb_display: 'std'
+                });
+                window.location = "./youtube.html";
+            }
+            else if (link == "#movies") {
+                window.location = "./movies.html";
+            }
+            else if (link == "#music") {
+                window.location = "./music.html";
+            }
+            else if (link == "#blogs") {
+                window.location = "./blogs.html";
+            }
+            else {
+                var _videolink = "stationbreaktv";
+                localStorage.setItem("videotype", "embed");
+                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+                localStorage.setItem("videodesc", "FREE Movie Channels");
+                window.location = "./videoplayer.html";
+            }
+        });
+
+
+
+        var bird = null, board = null;
+        var dimPipe = { width: 40, height: 420 }, cPos = { x: 80, y: 100, h: 40, w: 50 };
+        var gravity = 0.5, iniSpeed = -7, curSpeed = 0;
+        var score = 0, noClr = 0, tmStep = 0, state = 0; 		// 0-not started,1-play,2-over;
+
+        (function ($) {
+            $.cssNumber.rotate = true;
+            $.cssHooks.rotate = {
+                set: function (el, v) {
+                    if (typeof v === 'string')
+                        v = (v.indexOf("rad") != -1) ? parseInt(v) * 180 / Math.PI : parseInt(v);
+                    v = (~ ~v);
+                    if (v == ($.data(el, 'rotate') || 0)) return;
+                    el.style["MozTransform"] = el.style["MozTransform"] = el.style["-webkit-transform"]
+				= el.style["transform"] = " rotate(" + (v % 360) + "deg)";
+                    $.data(el, 'rotate', v);
+                },
+                get: function (el, computed) {
+                    return $.data(el, 'rotate') || 0;
+                }
+            };
+        })(jQuery);
+
+        function gameOver() {
+            state = 2;
+            $(":animated").stop();
+            if (tmStep) tmStep = window.clearInterval(tmStep);
+            bird.animate({ top: board.height() - cPos.h, rotate: 540 }, 1000)
+		.animate({ top: board.height() - cPos.h }, 500, function () {
+		    $('#score').text(' Score: ' + score);
+		    start();
+		});
+        }
+        function Parallax(elm, tmo) {
+            elm.css('left', 0).animate({ left: -15360 }, {
+                duration: tmo * 1000, easing: 'linear', //step : PrlxStep,
+                complete: function () { Parallax(elm, tmo); }
+            });
+        }
+
+        function BirdStep() {
+            curSpeed += gravity;
+            cPos.y = Math.max(cPos.y + curSpeed, 0);
+            var ang = curSpeed * 5, mh = board.height() - cPos.h, m = -12, lo = 0, actPipe = $('.obs');
+            bird.css({ top: cPos.y, rotate: (ang < -20) ? -20 : (ang > 90) ? 90 : ang });
+            if (cPos.y > mh)
+                return gameOver();
+            for (var i = actPipe.length - 1; i >= 0; i--) {
+                var s = actPipe[i].style, x = parseInt(s.left), y = parseInt(s.top);
+                lo = Math.max(lo, x);
+                if (x + dimPipe.width + m < cPos.x || x > cPos.x + cPos.w + m) continue;
+                if (y + dimPipe.height + m < cPos.y || y > cPos.y + cPos.h + m) continue;
+                return gameOver();
+            }
+            if (actPipe.length > 3 || lo > 300 || Math.random() >= 0.05 * (1 + noClr))
+                return;
+            var og = cPos.h * 2;
+            var oh = og + Math.floor(Math.random() * (mh - og + 1));
+            var obs = $("<img/><img/>").addClass('c obs').css({ left: 480, zIndex: 3 }).css(dimPipe).attr('src', 'flappy/vine.png')
+		.appendTo(board).animate({ left: -50 }, Math.max(2000, 3500 - noClr * 50), 'linear', function () {
+		    $('#score').text(' Score: ' + (score += 1 + Math.floor(++noClr / 10)));
+		    this.remove();
+		});
+            obs[0].style.top = oh + 'px';
+            obs[1].style.top = (oh - og - dimPipe.height) + "px";
+        }
+        function onTap() {
+            if (state > 1) return;
+            if (state == 0) {
+                state = 1;
+                $('#score').text(' Score: ' + (score = 0));
+                Parallax($('#bGrnd'), 240);
+                Parallax($('#fGrnd'), 80);
+                $('#instr').hide();
+                tmStep = window.setInterval(BirdStep, 30);
+            }
+            curSpeed = iniSpeed;
+        }
+        function start() {
+            state = noClr = score = 0; 				// not started
+            cPos = { x: 80, y: 100, h: 40, w: 50 };
+            bird.css({ left: cPos.x, top: cPos.y, width: cPos.w, height: cPos.h, rotate: 0 });
+            $('.obs').remove();
+            $('#instr').show();
+        }
+
+        $(document).ready(function () {
+
+            //responsive code begin
+            //you can remove responsive code if you don't want the slider scales while window resizes
+            function ScaleSlider() {
+                var parentWidth = $(window).innerWidth();
+                if (parentWidth) {
+                    var sliderWidth = parentWidth;
+
+                    //keep the slider width no more than 809
+                    //sliderWidth = Math.min(sliderWidth, 478);
+
+                    $('#board').css('width', sliderWidth);
+                }
+                else
+                    window.setTimeout(ScaleSlider, 30);
+            }
+            ScaleSlider();
+
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+            //responsive code end
+
+            bird = $('#bird');
+            var evt = (typeof (bird[0].ontouchend) == "function") ? "touchstart" : "mousedown";
+            board = $('#board').bind(evt, onTap);
+            start();
+        });
+
+    //]]>
+    </script>
+
+</head>
+<body>
+    <div data-role="page" id="mainPage" style="text-align: center; border: 0px none #fff;">
+
+        <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom:4px solid #427fed !important;">
+            <a data-icon="home" class="ui-btn-left" data-theme="a" style="margin-top:8px;" href="#go_home" rel="external">Home</a>
+            <div class="center-wrapper"><img id="header_logo" src="img/header_logo.png" alt="DronesTV" style="margin-top:4px;"></div> 
+            <a href="#back" data-role="button" data-icon="arrow-l" data-theme="a"  class="ui-btn-right" style="margin-top:8px;" data-rel="back">Back</a>
+        </header>
+
+        <div id='board' style='position:absolute; left:0px; top:50px; width:478px; height:300px; overflow:hidden;'>
+	        <div id='score' style='position:absolute; right:90px; top:10px; height:25px; z-index:5; color:red; font-weight:900'></div>
+	        <img class="c" id='bird' src="flappy/b2.gif" style="z-index:5"/>
+	        <img id='instr' src='flappy/instr.png' class='c' style="left:205px; top:75px; z-index:100" />
+	        <div class="bg" id='bGrnd' style="top:-20px; height:320px; background-image:url(flappy/bg1.png) "/>
+	        <div class="bg" id='fGrnd' style="top:235px; height:85px; z-index:4; background-image:url(flappy/bg2.png) "/>
+        </div>
+
+        <footer id="footer" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+            <div id="navbar" data-role="navbar" class="ui-navbar" role="navigation" data-theme="a">
+                <ul>
+                    <li class="bcolor_purple"><a href="#topics_ww" data-icon="coffee">Topics</a></li>
+                    <li class="bcolor_green"><a href="#animals" data-icon="power">Animals</a></li>
+                    <li class="bcolor_mustard"><a href="#sports" data-icon="video">Sports</a></li>
+                    <li class="bcolor_red"><a href="#listcloud" data-icon="bars">Bonus</a></li>
+                    <li class="bcolor_blue"><a href="#unlock" data-icon="key">Unlock</a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
+ 

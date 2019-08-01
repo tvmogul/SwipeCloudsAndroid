@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Customer List</title>
+</head>
+<body>
+
+    <div id="divCustomers"></div>
+
+    <input id="btnPrevious" type="button" value="<" disabled="disabled" onclick="movePrevious()" />
+    <input id="btnNext" type="button" value=">" disabled="disabled" onclick="moveNext()" />
+
+    <script type="text/javascript">
+
+        var _rowPerPage = 10;
+        var _pageNo = 1;
+        var _startRowIndex = 0;
+
+        function movePrevious()
+        {
+            _pageNo -= 1;
+            loadCustomers();
+        }
+
+        function moveNext()
+        {
+            _pageNo += 1;
+            loadCustomers();
+        }
+
+        function loadCustomers()
+        {
+            _startRowIndex = ((_pageNo - 1) * _rowPerPage);
+            var url = 'rsshandler.ashx?methodName=getCustomerList&start=' + _startRowIndex + '&max=' + _rowPerPage + '&jsonp=onLoaded';
+
+            addScript(url);
+        }
+
+        function onLoaded(result, methodName)
+        {
+            var html = '<ul>';
+
+            for(var i = 0; i < result.Rows.length; i++)
+            {
+                html += '<li>' + result.Rows[i].Company + '</li>';
+            }
+
+            html += '</ul>';
+            document.getElementById('divCustomers').innerHTML = html;
+
+            document.getElementById('btnPrevious').disabled = (_startRowIndex < _rowPerPage);
+            document.getElementById('btnNext').disabled = ((_startRowIndex + _rowPerPage) >= result.Total);
+        }
+
+        function addScript(scriptUrl)
+        {
+            var script = document.createElement('script');
+
+            script.setAttribute('type','text/javascript');
+            script.setAttribute('src', scriptUrl);
+
+            var head = document.getElementsByTagName('head')[0];
+            head.appendChild(script);
+        }
+
+        loadCustomers();
+
+    </script>
+</body>
+</html>

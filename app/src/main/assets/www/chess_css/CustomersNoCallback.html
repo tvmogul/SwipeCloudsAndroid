@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Top Customers without Callback</title>
+</head>
+<body>
+    <div id="divCustomers"></div>
+    <script type="text/javascript" src="rsshandler.ashx?methodName=topCustomers"></script>
+    <script type="text/javascript">
+
+        var html = '<ul>';
+
+        for(var i = 0; i < topCustomers.length; i++)
+        {
+            html += '<li>' + topCustomers[i] + '</li>';
+        }
+
+        html += '</ul>';
+
+        document.getElementById('divCustomers').innerHTML = html;
+
+    </script>
+</body>
+</html>

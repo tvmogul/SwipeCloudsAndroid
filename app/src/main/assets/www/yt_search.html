@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
+	<!--<link rel="stylesheet" href="css/mdpi.css" media="only screen and (-webkit-max-device-pixel-ratio:1.0) and (max-device-width:480px)">-->
+	<!--<link rel="stylesheet" href="css/hdpi.css" media="only screen and (-webkit-min-device-pixel-ratio:1.5)">-->
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->   
+    <!-- For Samsung Galaxy S4-5 & larger Screens, use "target-densitydpi=medium-dpi" instead of device-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>www.SerGioApps.com</title> 
+     
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery.mobile.icons-1.4.5.css" rel="stylesheet" type="text/css" />
+    <link href="css/jqm-icon-pack-fa.css" rel="stylesheet" type="text/css" />
+
+    <link href="js_iscroll/jquery.mobile.iscrollview.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="js_iscroll/demo.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!--<script src="cordova.js" type="text/javascript"></script>-->
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+    <script src="js_iscroll/iscroll.js" type="text/javascript"></script>
+    <script src="js_iscroll/jquery.mobile.iscrollview.js" type="text/javascript"></script>
+
+    <link href="youtube/youtube-video-gallery.css" rel="stylesheet" type="text/css" />
+    <script src="youtube/jquery.youtubevideogallery.js"></script>
+    <script src="js/retina.js" type="text/javascript"></script>
+
+    <link href="js_keypad/keypad.css" rel="stylesheet" type="text/css" />
+    <script src="js_keypad/keypad.js" type="text/javascript"></script>
+
+    <script src="js/general.js" type="text/javascript"></script>
+    <script src="js/store.min.js" type="text/javascript"></script>
+    <link id="link_malibudiet" href="" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">        
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+        height: 100%;
+    }
+
+    body {
+        background-color: #000000 !important;
+        padding: 0 0 0 0px;
+        background-repeat: no-repeat;
+        margin: 0px aoto;
+        margin-left: 0px;
+        text-decoration: none;
+        overflow: hidden !important;
+    }
+
+    .ui-content {
+        position: fixed;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        height: 100% !important;
+        right: 0 !important;
+        left: 0 !important;
+        overflow: hidden !important;
+    }
+
+        
+    .clearfix {
+        clear: both;
+        height: 1px;
+        overflow: hidden;
+        margin-bottom: -1px;
+        line-height: 1%;
+        font-size: 0px;
+    }
+                                   
+    
+    .ui-page, .ui-page-fullscreen {
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+    }
+    
+    .center-wrapper {
+      text-align: center;
+    }
+    .center-wrapper * {
+      margin: 0px auto 0px auto;
+    }     
+    
+    .bcolor_purple {
+        border-bottom: 6px solid #b753d8 !important;
+    }
+    .bcolor_green {
+        border-bottom: 6px solid #6bc356 !important;   
+    }
+    .bcolor_mustard {
+        border-bottom: 6px solid #fab903 !important;      
+    }
+    .bcolor_red {
+        border-bottom: 6px solid #e94739 !important;       
+    }
+    .bcolor_blue {
+        border-bottom: 6px solid #427fed !important;        
+    }
+    
+    .ui-header {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    .ui-footer {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+
+    .ui-navbar ul {
+        margin-top: 2px !important;
+        height: 54px !important;
+    }
+    
+    [data-role="navbar"] li {
+        margin-top: -6px !important;
+        height: 54px !important;
+        margin-bottom: 6px !important;
+        padding: 0px 0px 6px 0px !important;
+    }
+
+    [data-role="navbar"] a {
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+    }
+    
+
+  div {
+        overflow-x:hidden;
+        overflow-y:hidden;
+    }
+
+    #videotext {
+        width: 85% !important;
+        height: 300px !important;
+        background-color: transparent !important;
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        -webkit-font-smoothing: antialiased;
+        font-size: 1.2em; 
+        line-height: 1.0em; 
+        font-weight: normal; 
+        letter-spacing: -0.03em;          
+        position: absolute;
+        white-space: normal;
+        text-overflow: normal;
+        overflow: normal;
+        padding: 20px 0px 0px 28px;
+        vertical-align: top;
+        text-align:left;   
+        cursor: hand;    
+    }
+
+    header {
+        clear: left;
+        box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -moz-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -webkit-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+    }
+    
+    /* DO NOT REMOVE THIS !!! */
+    .iscroll-scroller {
+        min-width: 100% !important;
+    }     
+    </style>
+ 
+	<script type="text/javascript">
+
+	    var _themeid_dronestv = "";
+	    if (localStorage["themeid_dronestv"]) {
+	        _themeid_dronestv = localStorage["themeid_dronestv"];
+	    } else {
+	        //_themeid_dronestv = "light";
+	        _themeid_dronestv = "dark";
+	        localStorage["themeid_dronestv"] = "dark";
+	    }
+	    var _path = "themes/" + _themeid_dronestv + ".css";
+	    $("#link_malibudiet").attr("href", _path);
+
+
+	    //1-search_videos       -search termhttp://localhost:2666/SerGioApps_dev/Apps/TVSwipeClouds/www/youtube.html#prev
+	    //2-search_chaneels     -username
+	    //3-featured_videos     -feed
+	    //4-xxx
+	    //5-selected_channels   -categories
+	    //6-selected_playlists  -palylist id
+
+	    var refreshIntervalId;
+	    var g_content_width = 100;
+	    var g_content_height = 100;
+
+	    /* Use this for high compatibility (iDevice + Android)*/
+	    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	    document.addEventListener('DOMContentLoaded', loaded, false);
+	    //document.addEventListener("deviceready", function (e) { }, "false");
+	    document.addEventListener('deviceready', function () {
+	        //StatusBar.overlaysWebView(false);
+	        //StatusBar.backgroundColorByName('black');
+	    }, false);
+
+	    function loaded() {
+	        screenAdjust();
+	    }
+
+	    $(document).bind("mobileinit", function () {
+	        jQuery.support.cors = true;
+	        jQuery.mobile.allowCrossDomainPages = true;
+	        jQuery.mobile.phonegapNavigationEnabled = true;
+	        jQuery.mobile.defaultDialogTransition = "slide";
+	    });
+
+	    $(document).delegate('.ui-page', 'touchmove', false);
+
+	    $(document).delegate('#btnSearch', 'click', function (e) {
+	        event.preventDefault();
+	        //event.stopPropagation();
+	        var zid = $(this).data("id");
+	        if (zid == 'undefined') {
+	            return;
+	        }
+	        else if (zid == "search_cats") {
+	            var str = 'cats';
+	            str = str.replace(/\s+/g, '+');
+	            store.set('yt_criteria', {
+	                type: zid,
+	                start_index: 1,
+	                qvalue: str,
+	                nb_display: $('#zsearch').val()
+	            });
+	            screenAdjust();
+	            var _url = "http://www.youtube.com/embed?listType=search&amp;list=" + str;
+	            $.mobile.changePage("#playerPage");
+	            $("#yt_player").attr("src", _url);
+	        }
+	        else if ((zid == "search_videos") || (zid == "search_channels")) {
+
+	            var str = $('#zsearch').val();
+	            str = str.replace(/\s+/g, '+');
+	            //alert(str);
+	            store.set('yt_criteria', {
+	                type: zid,
+	                start_index: 1,
+	                qvalue: str,
+	                nb_display: $('#zsearch').val()
+	            });
+	            //alert($('#zsearch').val());
+	            screenAdjust();
+	            var _url = "http://www.youtube.com/embed?listType=search&amp;list=" + str + '&format=5';
+	            $.mobile.changePage("#playerPage");
+	            $("#yt_player").attr("src", _url);
+	        }
+
+	        //<iframe width="560" height="315" src="http://www.youtube.com/embed?listType=search&amp;list=Music+Jazz" frameborder="0" allowfullscreen></iframe><br />
+	        //<iframe width="560" height="315" src="http://www.youtube.com/embed?listType=user_uploads&amp;list=WarnerBrosPictures" frameborder="0" allowfullscreen></iframe><br />
+	        // <iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" src="http://www.youtube.com/embed/videoseries?list=PL6B3A5E1C22C42BA8&index=4&showinfo=1" width="560"></iframe><br />
+	        // <iframe width="560" height="315" src="http://www.youtube.com/embed?listType=user_uploads&amp;list=StationBreakTV" frameborder="0" allowfullscreen></iframe><br />
+
+
+
+	    });
+
+	    $(document).delegate('#search_videos', 'click touchend', function () {
+	        event.preventDefault();
+	        //event.stopPropagation();
+	        var zid = $(this).data("id");
+	        if (zid == 'undefined') {
+	            return;
+	        }
+
+	        var str = $('#zsearch').val();
+	        str = str.replace(/\s+/g, '+');
+	        //alert(str);
+	        store.set('yt_criteria', {
+	            type: zid,
+	            start_index: 1,
+	            qvalue: str,
+	            nb_display: $('#zsearch').val()
+	        });
+	        //alert($('#zsearch').val());
+	        screenAdjust();
+	        var _url = "http://www.youtube.com/embed?listType=search&amp;list=" + str + '&format=5';
+	        $.mobile.changePage("#playerPage");
+	        $("#yt_player").attr("src", _url);
+
+	    });
+
+	    $(document).delegate('.novideos-link', 'click', function () {
+	        var criteria = store.get('yt_criteria');
+	        if (criteria != 'undefined') {
+	            var _type = criteria.type;
+	            _start_index = 1;
+	            var _qvalue = criteria.qvalue;
+	            var _nb_display = criteria.nb_display;
+	            store.set('yt_criteria', {
+	                type: _type,
+	                start_index: _start_index,
+	                qvalue: _qvalue,
+	                nb_display: _nb_display
+	            });
+	        }
+	        //$('#panel_controls').panel("close");
+	        //GetVideos();
+	    });
+
+
+
+	    $(document).ready(function () {
+
+	        //By default jQM always makes an AJAX request for pages even if you've already visited it before. 
+	        //If so you will need to set reloadPage to true when you call $.mobile.changePage 
+	        //if you need to refresh the page - otherwise the page will be stale.
+	        //then only will jQM not reload pages.
+	        $.mobile.page.prototype.options.domCache = true; 
+
+	        //$("#radio-choice-1").attr("checked", "checked");
+	        //alert($("#radio-choice-1").attr("checked"));     // Displays true or checked
+	        //alert($("#radio-choice-2").attr("checked"));     // Displays false or undefined
+
+	        var criteria = store.get('yt_criteria');
+	        if ((criteria == 'undefined') || (criteria == '') || (criteria == null)) {
+	            store.set('yt_criteria', {
+	                type: 'search_videos',
+	                start_index: 1,
+	                qvalue: 'nowandbecause',
+	                nb_display: 'std'
+	            });
+	        }
+	        //GetVideos();
+	        $(this).attr("ui-btn-inner", "zclear");
+
+	    });
+
+
+	    $(window).bind('resize', function (e) {
+	        screenAdjust();
+	        //$("#panel_controls").trigger("updatelayout");
+	    });
+
+
+	    $(document).delegate("#mainPage", "pageinit", function () {
+	        //alert('A page with an id of "mainPage" was just created by jQuery Mobile!');
+	    });
+
+	    $(document).delegate("#playerPage", "pageinit", function () {
+	        //alert('A page with an id of "videoPage" was just created by jQuery Mobile!');
+	    });
+
+	    window.onload = function () {
+
+	        $('#qscroller li a').buttonMarkup('refresh');
+
+//	        $(document).delegate('.ui-footer a', 'click', function () {
+//	            //window.location = "./ad01.html#mainPage";
+//	            //window.location = "./ad01.html#mainPage";
+//	            $('#panel_controls').panel("close");
+//	            var el = $(this);
+//	            var link = el.attr('href');
+//	            if (link == "#ostaro") {
+//	                //store.set('yt_criteria', {
+//	                //    type: 'search_users',
+//	                //    start_index: 1,
+//	                //    qvalue: 'ostaro',
+//	                //    nb_display: 'std'
+//	                //});
+//	                //window.location = "./youtube.html";
+//	                window.location = "./ostaro.html";
+//	            }
+//	            else if (link == "#back") {
+//	                history.back();
+//	            }
+//	            else if (link == "#stationbreaktv") {
+//	                store.set('yt_criteria', {
+//	                    type: 'search_users',
+//	                    start_index: 1,
+//	                    qvalue: 'UCTSL7kPXsdBkh918wyWVCuQ',
+//	                    nb_display: 'std'
+//	                });
+//	                window.location = "./youtube.html";
+//	                //window.location = "./ostaro.html";
+//	            }
+//	            else if (link == "#movies") {
+//	                window.location = "./movies.html";
+//	                //$("#zvideowrapper").iscrollview("scrollTo", 0, 0, true);
+//	            }
+//	            else if (link == "#music") {
+//	                window.location = "./music.html";
+//	            }
+//	            else if (link == "#blogs") {
+//	                window.location = "./blogs.html";
+//	            }
+//	            if (link == "#prev") {
+//	                var criteria = store.get('yt_criteria');
+//	                if (criteria != 'undefined') {
+//	                    var _type = criteria.type;
+//	                    var _start_index = criteria.start_index - 50;
+//	                    if (_start_index < 1) {
+//	                        _start_index = 1;
+//	                    }
+//	                    var _qvalue = criteria.qvalue;
+//	                    var _nb_display = criteria.nb_display;
+//	                    store.set('yt_criteria', {
+//	                        type: _type,
+//	                        start_index: _start_index,
+//	                        qvalue: _qvalue,
+//	                        nb_display: _nb_display
+//	                    });
+//	                }
+//	                GetVideos();
+//	            }
+//	            if (link == "#next") {
+//	                //criteria.start_index = criteria.start_index + 20;
+//	                var criteria = store.get('yt_criteria');
+//	                if (criteria != 'undefined') {
+//	                    var _type = criteria.type;
+//	                    var _start_index = criteria.start_index + 50;
+//	                    var _qvalue = criteria.qvalue;
+//	                    var _nb_display = criteria.nb_display;
+//	                    store.set('yt_criteria', {
+//	                        type: _type,
+//	                        start_index: _start_index,
+//	                        qvalue: _qvalue,
+//	                        nb_display: _nb_display
+//	                    });
+//	                }
+//	                GetVideos();
+//	                $("#zvideowrapper").iscrollview("scrollTo", 0, 0, true);
+
+//	            }
+//	            //else if (link == "#blogs") {
+//	            //	window.location = "./blogs.html";
+//	            //}
+//	            //else if (link == "#listcloud") {
+//	            //	$('#listcloud .ui-btn-text').text('Cloud');
+//	            //	window.location = "./general.html";
+//	            //}
+//	            else if (link == "#listcloud") {
+//	                $('#listcloud .ui-btn-text').text('Cloud');
+//	                window.location = "./general.html";
+//	                //if( $('#listcloud .ui-btn-text').text() == 'Cloud' ) {
+//	                //    $('#listcloud .ui-btn-text').text('List');
+//	                //}
+//	                //else {
+//	                //    $('#listcloud .ui-btn-text').text('Cloud');
+//	                //    window.location = "./general.html";
+//	                //}
+//	            }
+//	        });
+
+	        screenAdjust();
+
+	        $("[data-role=header]").fixedtoolbar({ tapToggle: false });
+	        $("[data-role=footer]").fixedtoolbar({ tapToggle: false });
+	    };
+
+	    function screenAdjust() {
+	        g_content_width = window.innerWidth-50;
+	        g_content_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height() - 0);
+	        var orientation = "portrait";
+	        if (window.orientation == -90 || window.orientation == 90) orientation = "landscape";
+	        if (orientation == "portrait") {
+	            g_content_height = (3 * (g_content_width)) / 4;
+	            g_content_height = g_content_height + 20;
+	        }
+	        $('#yt_player').width(g_content_width + 'px');
+	        $('#yt_player').height(g_content_height + 'px');
+	    }
+
+	    function refreshListView() {
+	        refreshIntervalId = setTimeout("refreshListViewDelayed()", 100);
+	    }
+	    function refreshListViewDelayed() {
+	        clearInterval(refreshIntervalId);
+	        $('#youtube-videogallery').listview('refresh');
+	        $(".videowrapper").find(".iscroll-content").resizeWrapper();
+	    }
+
+	    $(document).delegate('header a', 'click touchend', function () {
+	        //$('header a').on('click touchend', function (e) {
+	        //e.preventDefault();
+	        //e.stopPropagation();
+	        //$("#sidebar").show();
+	        //$("#sidebar").trigger("updatelayout");
+	        var el = $(this);
+	        var link = el.attr('href');
+	        if (link == "#back") {
+	            history.back();
+	        }
+	        else if (link == "#back_from_player") {
+	            $.mobile.changePage("#mainPage");
+	            $("#mainPage").trigger("updatelayout");
+	        }
+	        else if (link == "#go_home") {
+	            window.location = "./ads.html";
+	        }
+	        return false;
+	    });
+
+	    $(document).delegate('.center-wrapper a', 'click', function (event) {
+	        event.preventDefault();
+	        //event.stopPropagation();
+	        var el = $(this);
+	        var link = el.attr('href');
+	        var zid = $(this).data("id");
+	        if (zid == 'undefined') {
+	            return;
+	        }
+	        ////////////////// KEYPAD /////////////////////////////////
+	        else if (link == '#keypad') {
+	            var _text = $(this).text();
+	            GetKeypad(_text);
+	        }
+	        ////////////////// KEYPAD /////////////////////////////////
+	        else {
+	            store.set('yt_criteria', {
+	                type: zid,
+	                start_index: 1,
+	                qvalue: $('#zsearch').val(),
+	                nb_display: $('#zsearch').val()
+	            });
+	            GetVideos();
+	        }
+	    });
+
+	    //]]>
+    </script>
+</head>
+<body>
+    <!-- /main  page -->
+    <div data-role="page" id="mainPage">
+
+        <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom:4px solid #00ff00 !important;">
+            <a href="#go_home" data-role="button" data-icon="home" data-theme="a" class="ui-btn-left" style="margin-top:8px;">Home</a>
+            <div class="center-wrapper"><img id="header_logo" src="img/header_logo.png" alt="Wild Workout" style="margin-top:4px;"></div>
+            <a href="#back" data-role="button" data-icon="arrow-l" data-theme="a"  class="ui-btn-right" style="margin-top:8px;">Back</a>
+        </header>
+
+        <div id="zvideowrapper2" data-iscroll="{
+                'hScroll':false,
+                'vScroll':true,
+                'resizeEvents':'orientationchange',
+                'resizeWrapper':true, 
+                'mouseWheel': true, 
+                'click': true, 
+                'interactiveScrollbars': true, 
+                'shrinkScrollbars': 'scale'
+                }" data-role="content" style="height: 900px; overflow: hidden;" class="ui-content iscroll-wrapper" role="main">
+            <div class="iscroll-scroller" style="padding-top:10px !important;min-height: 1600px; -webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+            <div class="center-wrapper" style="padding-top: 10px !important;">
+                <div class="iscroll-content">
+
+                    <div data-role="controlgroup" style="width:300px !important;"> 
+                    <p style="font-size:.8em !important;">Search YouTube - Returns Video plus Playlists</p>
+            <div class="center-wrapper" style="width:100% !important;padding-top: 24px !important;">                   
+
+            <div id="key_controls" data-role="controlgroup">
+                <button class="zui-btn ui-btn-inline" data-corners="false" style="display:none;"></button>
+                <!--<a href="#keypad" data-id="123" id="btnNumAlpha" class="ui-btn ui-btn-inline ui-btn-corner-c" data-corners="false">123</a>-->
+                <!--<a href="#keypad" data-id="Up" id="btnUpperLower" class="ui-btn ui-btn-inline ui-btn-corner-c" data-corners="false">Up</a>-->
+                <a href="#search_videos" data-type="button" data-icon="search" data-id="search_videos" id="search_videos" class="ui-btn ui-icon-search ui-btn-icon-left ui-btn-inline ui-btn-corner-search">Search</a>                
+                <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+            </div>
+
+            <div data-role="controlgroup" style="display:block;text-align: center !important;width:90% !important;padding-left:0px !important;">
+                <input type="text" name="zsearch" id="zsearch" class="search_input" value="" placeholder="Use Keys to Enter Search" />
+            </div>
+            <!--<div id="alpha_pad">
+                <div data-role="controlgroup">
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-c" data-corners="false">clr</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-c" data-corners="false">del</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-c" data-corners="false">sp</a>
+
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+                </div>
+                <div data-role="controlgroup">
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">a</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">b</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">c</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">d</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">e</a>
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+                </div>
+                <div data-role="controlgroup">
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">f</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">g</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">h</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">i</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">j</a>
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+                </div>
+
+                <div data-role="controlgroup">
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">k</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">l</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">m</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">n</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">o</a>
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+                </div>
+                <div data-role="controlgroup">
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">p</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">q</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">r</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">s</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">t</a>
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+                </div>
+                <div data-role="controlgroup">
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">u</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">v</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">w</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">x</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">y</a>
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+                </div>
+                <div data-role="controlgroup">
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">z</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-x" data-corners="false">-</a>
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-x" data-corners="false" style="display:none;"></button>
+                </div>
+
+            </div>
+
+            <div id="num_pad" style="display:none;">
+                <div data-role="controlgroup">
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-num" data-corners="false" style="display:none;"></button>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-num" data-corners="false">0</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-num" data-corners="false">1</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-num" data-corners="false">2</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-num" data-corners="false">3</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-num" data-corners="false">4</a>
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-num" data-corners="false" style="display:none;"></button>
+                </div>
+                <div data-role="controlgroup">
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-num" data-corners="false" style="display:none;"></button>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-num" data-corners="false">5</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-num" data-corners="false">6</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-num" data-corners="false">7</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-num" data-corners="false">8</a>
+                    <a href="#keypad" class="ui-btn ui-btn-inline ui-btn-corner-num" data-corners="false">9</a>
+                    <button class="zui-btn ui-btn-inline ui-btn-corner-num" data-corners="false" style="display:none;"></button>
+                </div>
+
+            </div>-->
+
+            </div>
+
+
+                    </div>
+
+                </div>         
+            </div>
+            </div>
+        </div>
+
+        <!--<footer id="footer1" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+        </footer>-->
+        <footer id="footer1" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+            <div id="navbar2" data-role="navbar" class="ui-navbar" role="navigation" data-theme="a">
+                <ul>
+                    <li class="bcolor_purple"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_green"><a href="#rssmobi" data-icon="rss">Feeds</a></li>
+                    <li class="bcolor_mustard"><a href="#games" data-icon="gamepad">Games</a>
+                    <li class="bcolor_red"><a href="#shop" data-icon="shop">Shop</a></li>
+                    <li class="bcolor_blue"><a href="#cool" data-icon="coffee">Cool</a></li>
+
+                    <!--<li class="bcolor_purple"><a href="#sol_" data-icon="search">Cures?</a></li>
+                    <li class="bcolor_green"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_mustard"><a href="#rssmobi" data-icon="rss">Feeds</a>
+                    <li class="bcolor_red"><a href="#shop" data-icon="shop">Shop</a></li>
+                    <li class="bcolor_blue"><a href="#cool" data-icon="coffee">Cool</a></li>-->
+
+                    <!--<li class="bcolor_purple"><a href="#sol_" data-icon="search">Cures?</a></li>
+                    <li class="bcolor_green"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_mustard"><a href="#cool" data-icon="coffee">Cool</a>
+                    <li class="bcolor_red"><a href="#prev" data-icon="arrow-l">Prev</a></li>
+                    <li class="bcolor_blue"><a href="#next" data-icon="arrow-r">Next</a></li>-->
+                </ul>
+            </div>
+        </footer>
+    </div> 
+    <!-- /main page -->
+
+
+    <!-- /player  page -->
+    <div data-role="page" id="playerPage">
+
+        <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom:4px solid #00ff00 !important;">
+            <a href="#go_home" data-role="button" data-icon="home" data-theme="a" class="ui-btn-left" style="margin-top:8px;">Home</a>
+            <div class="center-wrapper"><img id="Img1" src="img/header_logo.png" alt="Wild Workout" style="margin-top:4px;"></div>
+            <a href="#back_from_player" data-role="button" data-icon="arrow-l" data-theme="a"  class="ui-btn-right" style="margin-top:8px;">Back</a>
+        </header>
+
+        <div id="Div2" data-iscroll="{
+                'hScroll':false,
+                'vScroll':true,
+                'resizeEvents':'orientationchange',
+                'resizeWrapper':true, 
+                'mouseWheel': true, 
+                'click': true, 
+                'interactiveScrollbars': true, 
+                'shrinkScrollbars': 'scale'
+                }" data-role="content" style="height: 900px; overflow: hidden;" class="ui-content iscroll-wrapper" role="main">
+            <div class="iscroll-scroller" style="padding-top:10px !important;min-height: 1600px; -webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+            <div class="center-wrapper" style="padding-top: 10px !important;">
+                <div class="iscroll-content">
+                    <iframe id="yt_player" name="yt_player" src="about:blank" marginheight="0" frameborder="0" width="240" height="180"></iframe><br />
+                    <div id="Div3"></div>
+                </div>         
+            </div>
+            </div>
+        </div>
+
+        <!--<footer id="footer1" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+        </footer>-->
+        <footer id="footer2" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+            <div id="Div4" data-role="navbar" class="ui-navbar" role="navigation" data-theme="a">
+                <ul>
+                    <li class="bcolor_purple"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_green"><a href="#rssmobi" data-icon="rss">Feeds</a></li>
+                    <li class="bcolor_mustard"><a href="#games" data-icon="gamepad">Games</a>
+                    <li class="bcolor_red"><a href="#shop" data-icon="shop">Shop</a></li>
+                    <li class="bcolor_blue"><a href="#cool" data-icon="coffee">Cool</a></li>
+
+                    <!--<li class="bcolor_purple"><a href="#sol_" data-icon="search">Cures?</a></li>
+                    <li class="bcolor_green"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_mustard"><a href="#rssmobi" data-icon="rss">Feeds</a>
+                    <li class="bcolor_red"><a href="#shop" data-icon="shop">Shop</a></li>
+                    <li class="bcolor_blue"><a href="#cool" data-icon="coffee">Cool</a></li>-->
+
+                    <!--<li class="bcolor_purple"><a href="#sol_" data-icon="search">Cures?</a></li>
+                    <li class="bcolor_green"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_mustard"><a href="#cool" data-icon="coffee">Cool</a>
+                    <li class="bcolor_red"><a href="#prev" data-icon="arrow-l">Prev</a></li>
+                    <li class="bcolor_blue"><a href="#next" data-icon="arrow-r">Next</a></li>-->
+                </ul>
+            </div>
+        </footer>
+    </div> 
+    <!-- /player page -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

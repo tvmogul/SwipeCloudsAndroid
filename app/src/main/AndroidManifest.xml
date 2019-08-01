@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='utf-8'?>
+<manifest
+    android:hardwareAccelerated="true"
+    android:versionCode="1"
+    android:versionName="0.0.1"
+    android:windowSoftInputMode="adjustPan"
+    package="com.sergioapps.swipeclouds"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--android:installLocation="auto">-->
+
+    <supports-screens
+        android:anyDensity="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:xlargeScreens="true" />
+
+    <!--<uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />-->
+    <!--<uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />-->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <!-- remove location.gps feature if not using permission ACCESS_FINE_LOCATION -->
+    <uses-feature android:name="android.hardware.location.gps" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+
+    <!-- SCANNER PERMISSIONS -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FEATURE_CAMERA" />
+    <uses-permission android:name="android.permission.FEATURE_CAMERA_ANY" />
+    <uses-permission android:name="android.permission.FEATURE_CAMERA_AR" />
+    <uses-permission android:name="android.permission.FEATURE_CAMERA_CAPABILITY_RAW" />
+    <uses-permission android:name="android.permission.FEATURE_CAMERA_EXTERNAL" />
+    <uses-permission android:name="android.permission.FEATURE_CAMERA_FLASH" />
+    <uses-permission android:name="android.permission.FEATURE_CAMERA_FRONT" />
+    <uses-permission android:name="android.permission.FEATURE_CAMERA_LEVEL_FULL" />
+
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.RECORD_VIDEO"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+    <!-- USED IN COMPASS & OTHER SCREENS -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+
+    <!-- READ_PHONE_STATE is required for UserData to retrieve phone IDs !!! -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- PREVENT LAUCHING MULTIPLE TASKS DEPENDING ON METHOD USED-->
+    <!--<uses-permission android:name="android.permission.GET_TASKS" />-->
+
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="com.google.android.providers.gsf.permisson.READ_GSERVICES" />
+    <uses-permission android:name="android.android.permission.LOCATION_PROVIDERS_ALLOWED" />
+    <uses-permission android:name="android.android.permission.READ_OWNER_DATA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_MMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" /> -->
+    <!-- <uses-permission android:name="com.amazon.sample.admmessenger.permission.RECEIVE_ADM_MESSAGE" /> -->
+    <!-- <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />   -->
+    <!-- <uses-permission android:name="android.permission.CLEAR_APP_CACHE" /> -->
+    <!-- <uses-permission android:name="android.permission.WRITE_SETTINGS" /> -->
+    <!-- <uses-permission android:name="android.permission.WRITE_SMS" /> -->
+    <!-- <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" /> -->
+    <!-- <uses-permission android:name="android.permission.WAKE_LOCK"/> -->
+    <!-- <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> -->
+    <!-- <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" /> -->
+    <!-- <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" /> -->
+    <!-- <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /> -->
+    <!-- <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS" /> -->
+    <!-- <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /> -->
+    <!-- <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_LOGS" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" /> -->
+    <!-- <uses-permission android:name="android.permission.READ_SYNC_STATS" /> -->
+    <!-- <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> -->
+    <!-- <uses-permission android:name="android.permission.REORDER_TASKS" /> -->
+    <!-- <uses-permission android:name="android.permission.RESTART_PACKAGES" /> -->
+    <!-- <uses-permission android:name="android.permission.SET_ALWAYS_FINISH" /> -->
+    <!-- <uses-permission android:name="android.permission.SET_ANIMATION_SCALE" /> -->
+    <!-- <uses-permission android:name="android.permission.SET_DEBUG_APP" /> -->
+    <!-- <uses-permission android:name="android.permission.SET_PROCESS_LIMIT" /> -->
+    <!-- <uses-permission android:name="android.permission.SET_TIME_ZONE" /> -->
+    <!-- <uses-permission android:name="android.permission.SIGNAL_PERSISTENT_PROCESSES" /> -->
+    <!-- <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_READ" /> -->
+    <!-- <uses-permission android:name="android.permission.USE_SIP" /> -->
+
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.back" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.setParameters" />
+    <uses-feature android:name="android.webkit.WebView" />
+    <uses-feature android:name="android.webkit.JavascriptInterface" />
+    <uses-feature android:name="android.webkit.WebViewClient" />
+
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <!--<uses-permission android:name="android.permission.GET_TASKS" />-->
+
+    <!--android:theme="@style/AppTheme"-->
+    <application
+        android:name="android.support.multidex.MultiDexApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/SplashTheme">
+
+        <activity
+            android:name="com.sergioapps.swipeclouds.MainActivity"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".PdfViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+            </intent-filter>
+        </activity>
+        <!--<activity-alias android:label="@string/app_name"-->
+            <!--android:icon="@drawable/app_icon"-->
+            <!--android:name="com.sergioapps.swipeclouds.MainActivity-alpha"-->
+            <!--android:enabled="true"-->
+            <!--android:targetActivity="com.sergioapps.swipeclouds.MainActivity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        <!--</activity-alias>-->
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+    </application>
+
+</manifest>

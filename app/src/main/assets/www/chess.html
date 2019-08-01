@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
+	<!--<link rel="stylesheet" href="css/mdpi.css" media="only screen and (-webkit-max-device-pixel-ratio:1.0) and (max-device-width:480px)">-->
+	<!--<link rel="stylesheet" href="css/hdpi.css" media="only screen and (-webkit-min-device-pixel-ratio:1.5)">-->
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->   
+    <!-- For Samsung Galaxy S4-5 & larger Screens, use "target-densitydpi=medium-dpi" instead of device-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>www.SerGioApps.com</title> 
+       
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet"  href="css/jquery.mobile.icons-1.4.0.css" />
+	<link rel="stylesheet"  href="css/jqm-icon-pack-fa.css" />
+
+    <link href="js_iscroll/jquery.mobile.iscrollview.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="js_iscroll/demo.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!--<script src="cordova.js" type="text/javascript"></script>-->
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+    <script src="js_iscroll/iscroll.js" type="text/javascript"></script>
+    <script src="js_iscroll/jquery.mobile.iscrollview.js" type="text/javascript"></script>
+
+    <link href="youtube/youtube-video-gallery.css" rel="stylesheet" type="text/css" />
+    <script src="youtube/jquery.youtubevideogallery.js"></script>
+    <script src="js/retina.js" type="text/javascript"></script>
+
+<!--    <script src="js/jquery.mousewheel.min.js" type="text/javascript"></script>
+    <link href="css_iscroll/jquery.mobile.iscrollview.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="css_iscroll/safarifix.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="css_iscroll/scrollbar.css" rel="stylesheet" type="text/css" />
+    <script src="js_iscroll/iscroll.js" type="text/javascript"></script>
+    <script src="js_iscroll/jquery.mobile.iscrollview.js" type="text/javascript"></script>
+    <script src="js/retina.js" type="text/javascript"></script>-->
+
+    <script type="text/ecmascript" src="chess_com/xhr.js"></script>
+    <script type="text/ecmascript" src="chess.js"></script>
+    <link type="text/css" rel="stylesheet" href="chess_css/chess.css" />
+    <link type="text/css" rel="stylesheet" href="chess_skins/gnomechess.css" />
+    
+    <script src="js/store.min.js" type="text/javascript"></script>
+
+    <link id="link_chess" href="" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript">
+
+	    var _themeid_dronestv = "";
+	    if (localStorage["themeid_dronestv"]) {
+	        _themeid_dronestv = localStorage["themeid_dronestv"];
+	    } else {
+	        //_themeid_dronestv = "light";
+	        _themeid_dronestv = "dark";
+	        localStorage["themeid_dronestv"] = "dark";
+	    }
+	    var _path = "themes/" + _themeid_dronestv + ".css";
+	    $("#link_chess").attr("href", _path);
+
+	    var refreshIntervalId;
+	    var g_content_width = 100;
+	    var g_content_height = 100;
+
+	    /* Use this for high compatibility (iDevice + Android)*/
+	    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	    document.addEventListener('DOMContentLoaded', loaded, false);
+	    //document.addEventListener("deviceready", function (e) { }, "false");
+	    document.addEventListener('deviceready', function () {
+	        StatusBar.overlaysWebView(false);
+	        StatusBar.backgroundColorByName('black');
+	    }, false);
+
+	    function loaded() {
+	        screenAdjust();
+	    }
+
+	    $(document).bind("mobileinit", function () {
+	        jQuery.support.cors = true;
+	        jQuery.mobile.allowCrossDomainPages = true;
+	        jQuery.mobile.phonegapNavigationEnabled = true;
+	        jQuery.mobile.defaultDialogTransition = "slide";
+	    });
+
+	    $(document).delegate('.ui-page', 'touchmove', false);
+
+	    var nVwPressed = false;
+	    function pressVwBtn(nBtnId) {
+	        if (nVwPressed) { document.getElementById("viewBtn" + nVwPressed).className = ""; }
+	        document.getElementById("viewBtn" + nBtnId).className = "pressedBtn";
+	        nVwPressed = nBtnId;
+	    }
+
+	    // Firefox only
+	    function onPGNLoaded(frEvnt) {
+	        var sFBody = frEvnt.target.result;
+	        chess.readPGN(sFBody, document.chessCtrl3.plyerClr2[1].checked);
+	    }
+
+	    // Firefox only
+	    function loadPGNFile() {
+	        var oFile = document.getElementById("PGNFileData").files[0];
+	        if (oFile) {
+	            var oFReader = new FileReader();
+	            oFReader.onload = onPGNLoaded;
+	            oFReader.readAsText(oFile);
+	        }
+	    }
+
+	    function initChess() {
+	        //chess.useAI(document.chessCtrl1.useAI.checked);
+	        //chess.setPromotion(document.chessCtrl1.selPromo.selectedIndex);
+	        //chess.setFrameRate(Math.abs(Number(document.chessCtrl2.frameRateCtrl.value)) || 1000);
+	        //chess.setSide(document.chessCtrl2.selSide.selectedIndex);
+	        //chess.useKeyboard(document.chessCtrl2.KeybCtrl.checked);
+	        //chess.placeById("chessDesk");
+	        //document.chessCtrl1.plyDepthCtrl.value = "0";
+	        //chess.setView(1);
+	        //pressVwBtn(1);
+
+	        //alert(document.chessCtrl1.useAI.checked);
+	        //onclick="chess.useAI(this.checked);" 
+	        var _useAIAsk = $('#useAIAsk').is(':checked') ? 1 : 0;
+	        chess.useAI(_useAIAsk);
+
+	        //chess.setPromotion(document.chessCtrl1.selPromo.selectedIndex);
+	        //onchange="chess.setPromotion(this.selectedIndex);"
+	        //var _selPromo = $('#selPromo').val();
+	        var _selPromo = $("#selPromo").get(0).selectedIndex;
+	        //alert(_selPromo);
+
+	        //chess.setFrameRate(Math.abs(Number(document.chessCtrl2.frameRateCtrl.value)) || 1000);
+	        //<td><input type="text" name="frameRateCtrl" value="1000" size="5" onchange="var nMs=new Number(this.value);if(!isNaN(nMs)&&nMs>0){chess.setFrameRate(nMs);}" /></td>
+	        
+            //var nMs = new Number($('#frameRateCtrl').val());
+	        //alert(nMs);
+	        chess.setFrameRate(1000); 
+            //if (!isNaN(nMs) && nMs > 0) {
+            //    chess.setFrameRate(nMs); 
+            //}
+
+            //chess.setSide(document.chessCtrl2.selSide.selectedIndex);
+            //<td><select onchange="chess.setSide(this.selectedIndex);" id="selSide" name="selSide"><option>White</option><option>Black</option><option selected>Human side</option></select></td>
+	        var _selSide = $("#selSide").get(0).selectedIndex;
+	        //alert(_selSide);
+            chess.setSide(_selSide);
+
+            //chess.useKeyboard(document.chessCtrl2.KeybCtrl.checked);
+            //<td colspan="2" style="width:120px;"><label><input id="useKeybAsk" name="KeybCtrl" type="checkbox" onclick="chess.useKeyboard(this.checked);" checked />Enable keyboard</label></td>
+            var _KeybCtrl = $('#KeybCtrl').is(':checked') ? 1 : 0;
+            //alert(_KeybCtrl);
+            chess.useKeyboard(_KeybCtrl);
+
+
+            chess.placeById("chessDesk");
+
+            //document.chessCtrl1.plyDepthCtrl.value = "0";
+            //<td style="width:60px;"><input type="text" style="text-align:right;" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" id="plyDepthCtrl" name="plyDepthCtrl" value="0" size="2" 
+            //onkeypress="if(event.keyCode===13&&chess.setPlyDepth(this.value)){alert('Ply depth setted.' + (Number(this.value) > 2 ? '\nAttention! The game could be very slow.' : ' Good game :)'));}" /></td>
+            var _plyDepthCtrl = $('#plyDepthCtrl').val();
+            //alert(_plyDepthCtrl);
+            //if(event.keyCode===13&&chess.setPlyDepth(this.value)) {
+            if (chess.setPlyDepth(_plyDepthCtrl)) {
+                //alert('Play Depth Set.' + (Number(_plyDepthCtrl) > 2 ? '\nAttention! The game could be very slow.' : ' Good game :)'));
+            }
+	        
+            chess.setView(1);
+	        pressVwBtn(1);
+
+	        chess.setDimensions(300, 300);
+
+	    }
+
+
+	    $(document).ready(function () {
+	        //screenAdjust();
+
+	        $('#XXX').click(function () {
+	            //var color = $('input:radio[name=radio-choice-h-2]:checked').val();
+	            //alert(color);
+
+	            if ($('#chessCtrlPanel').css('display') != 'block') {
+	                $('#chessCtrlPanel').css('display', 'block');
+	                $('#chessClosePanel').click();
+	            }
+	            $('#chessClosePanel').click();
+
+	        });
+
+
+	        $('input:radio[name=radio-choice-h-2]').click(function () {
+	            var value = $(this).val();
+	            //alert(value);
+	            //<fieldset data-role="controlgroup" data-type="horizontal" id="setViewBtns">
+	            //<input type="radio" name="viewBtn1" id="viewBtn1" onclick="chess.setView(1);pressVwBtn(1);" onmousedown="return(false);" value="1" />
+	            chess.setView(value);
+	            //alert(value);
+	        });
+
+	        //New GAme Button
+	        //<input type="button" name="strtBtn" value="New game" onclick="chess.organize(this.form.plyerClr1[1].checked);" />
+	        $('#strtBtn').click(function () {
+	            //onclick="chess.organize(this.form.plyerClr1[1].checked);"
+	            //alert(color);
+	            //this.form.plyerClr1[1].checked
+	            //	            var _plyerClr1 = $('#plyerClr1').is(':checked') ? 1 : 0;
+	            //	            alert(_plyerClr1);
+	            //white = 0
+	            //black = 1
+
+	            var _selSide = $("#selSide").get(0).selectedIndex;
+	            //alert(_selSide);
+	            chess.setSide(_selSide);
+
+	            chess.organize(_selSide);
+
+	        });
+
+
+	        //initChess();
+	    });
+
+	    $(document).delegate('.ui-page', 'touchmove', false);
+	    function screenAdjust() {
+	        //$('#wrapper').panel("close");
+
+	        var the_width = window.innerWidth;
+
+	        var the_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height() - 0);
+
+	        var orientation = "portrait";
+	        if (window.orientation == -90 || window.orientation == 90) orientation = "landscape";
+
+	        if (orientation == "portrait") {
+	            the_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height() - 0);
+	        }
+	        else {
+	            the_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - 0);
+	        }
+
+	        //chess.setSizeChessBoard(400, 700);
+	        //chess.setSizeChessBoard(the_width - 10, the_width-10);
+	    }
+    </script>
+
+    <style>
+     .ui-page {
+         background: transparent url(img/bg_wood.jpg);
+         background-size:100% 100%; 
+         background-repeat:no-repeat;
+        background-position:center center; 
+    }
+    }
+    .ui-content{
+        background: transparent;
+    }
+    
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+
+    } 
+    
+    html 
+    { 
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden !important;
+    }
+              
+    body
+    {
+        background-color: #F2F2F2 !important;
+        padding: 0 0 0 0px;
+        background-repeat: no-repeat;
+        margin: 0px aoto;
+        margin-left: 0px;
+        text-decoration: none;
+        overflow: hidden !important;
+    }
+    
+    .ui-header {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    .ui-footer {
+        display: block !important;
+        width: 100% !important;
+        height: 2px !important;
+        z-index: 99999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    
+    .ui-page, .ui-page-fullscreen{
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+    }
+
+    .ui-content {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        left: 0 !important;
+    } 
+ 
+   
+   div {
+        overflow-x:hidden;
+        overflow-y:hidden;
+    }
+
+
+    #zvideowrapper {
+        display: inline-block;
+        width: 99%;
+        float:left;
+        top:0px;
+        left:0px;
+        margin-left:0px;
+        height:100%;
+        z-index:99999;
+        border: 1px none #303030;   
+        background-color: transparent !important; 
+        padding-bottom: 60px !important;
+    }
+
+    .center-wrapper {
+      text-align: center;
+    }
+    .center-wrapper * {
+      margin: 0px auto 0px auto;
+    }      
+
+           
+    img.tbBtn {
+	    cursor: pointer;
+	    margin: 1px 3px 1px 3px;
+    }
+
+    #pgnTable {
+	    width: auto;
+	    height: auto;
+	    margin-left: auto;
+	    margin-right: auto;
+	    border-collapse: collapse;
+	    border: 0;
+    }
+
+    #pgnTable tr td { padding: 2px; }
+
+    #chessDesk {
+	    clear: both;
+	    width: auto;
+	    height: auto;
+	    margin-top: 8px;
+	    margin-bottom: 32px;
+        margin-left: -18px !important;
+        padding-left: 0px !important;
+    }
+
+    #xxxchessToolBar {
+	    width: 95%;
+	    height: auto;
+	    margin: 12px auto;
+	    background-color: #fff;
+	    -moz-box-shadow: inset 0 25px 27px -10px #BDBDBD;
+	    -webkit-box-shadow: inset 0 25px 27px -10px #BDBDBD;
+	    border-bottom: 1px solid #424242;
+	    text-align:center;
+	    padding: 6px 3px 2px 3px;
+    }
+    
+    #div_chessCtrl1 {
+        background-color:#fff;
+        width:90%;
+        padding: 8px 12px 8px 8px !important;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        -moz-box-shadow: inset 0 0 5px 5px #888;
+        -webkit-box-shadow: inset 0 0 5px 5px#888;
+        box-shadow: inset 0 0 5px 5px #888;
+    }
+        
+    .ui-radio ui-text {
+        padding-top: 22px !important;
+    }
+    
+    * {
+	    -webkit-box-sizing: border-box;
+	    -moz-box-sizing: border-box;
+	    box-sizing: border-box;
+    }
+
+    header {
+        clear: left;
+        box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -moz-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -webkit-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+    }
+    
+    /* DO NOT REMOVE THIS !!! */
+    .iscroll-scroller {
+        min-width: 100% !important;
+    }         
+</style>
+
+</head>
+<body onload="initChess();">
+
+    <div data-role="page" id="mainPage" data-theme="d" style="text-align: center; border: 0px none #fff;">
+
+        <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom:4px solid #427fed !important;">
+            <a data-icon="home" class="ui-btn-green-left" data-theme="a" style="margin-top:8px;" href="index.html" rel="external">Home</a>
+            <div class="center-wrapper"><img id="header_logo" src="img/header_logo.png" alt="DronesTV" style="margin-top:4px;"></div>
+            <a href="#" data-rel="back" data-icon="arrow-l" class="ui-btn-right ui-btn-back" data-theme="a" style="margin-top:8px;">Back</a>
+        </header>
+        
+        <div id="scroller" data-iscroll="{
+                'hScroll':false,
+                'vScroll':true,
+                'resizeEvents':'orientationchange',
+                'resizeWrapper':true, 
+                'mouseWheel': true, 
+                'click': true, 
+                'interactiveScrollbars': true, 
+                'shrinkScrollbars': 'scale'
+                }" data-role="content" style="padding: 0px; height: 798px; overflow: hidden;" class="ui-content iscroll-wrapper" role="main">
+            <div class="iscroll-scroller" style="padding-left:8px !important;min-height: 1200px; -webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+                <div class="iscroll-content">
+
+                <div style="margin: 0px auto !important;padding-top:12px;padding-bottom:0px;width:70% !important;">
+                    <a href="#" id="XXX" type="button" data-theme="a" data-id="XXX" data-role="button" data-mini="true" />Show / Hide Stats</a>
+                </div>
+
+                <!-- chess board -->
+                <div id="chessDesk" class="zchessDesk"></div>
+ 
+                <div id="div_chessCtrl1" class="center-wrapper">
+
+                    <table style="width:100%;padding-bottom:8px;">
+                <tr>
+                    <td colspan="3"><p>3D view: use "+" & "-" keys to zoom.<br />Use numpad to play with keyboard.</p><br /></td>
+                </tr>
+
+                <tr>
+                    <td><label><input type="checkbox" id="useAIAsk" name="useAIAsk" checked>Against machine</label></td>
+                    <td style="width:120px;"><a href="#" type="button" data-theme="a" data-role="button" data-mini="true">Level</a></td>
+                    <td style="width:60px;"><input type="text" style="text-align:right;" class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" id="plyDepthCtrl" name="plyDepthCtrl" value="0" size="2" /></td>
+                </tr>
+            
+                <tr>
+                    <td colspan="3" style="width:120px;"><input type="button" data-theme="a" data-role="button" data-mini="true" name="strtBtn" id="strtBtn" value="New game" /></td>
+                </tr>
+
+                <!--<tr>
+                    <td colspan="1"><a href="#" type="button">Human: </a></td>
+                    <td colspan="2">
+                        <div data-role="controlgroup" data-type="horizontal" data-init-selector=":jqmData(role='controlgroup')">            
+                            <input type="radio" name="plyerClr1" id="white1" value="0" checked /> 
+                            <label for="white1">white</label> 
+                            <input type="radio" name="plyerClr1" id="black1" value="1" /> 
+                            <label for="black1">black</label>
+                        </div>
+                    </td>
+                </tr>-->
+
+
+                <tr>
+                    <td><a href="#" type="button" data-theme="a" data-role="button" data-mini="true">Human</a></td>
+                    <td><select id="plyerClr1" name="selSide"><option>White</option><option>Black</option></select></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <a href="#" type="button" data-theme="a" data-role="button" data-mini="true">Promote to</a>
+                    </td>
+                    <td>
+                        <select id="selPromo" name="selPromo"><option>Queen</option><option>Rook</option><option>Bishop</option><option>Knight</option></select>
+                    </td>
+                </tr>
+            </table>
+
+            <fieldset style="padding-bottom:8px;"  id="setViewBtns" data-role="controlgroup" data-type="horizontal" class="ui-corner-all ui-controlgroup ui-controlgroup-horizontal" aria-disabled="false" data-disabled="false" data-shadow="false" data-corners="true" data-exclude-invisible="true" data-mini="true" data-init-selector=":jqmData(role='controlgroup')">
+                <!--<div role="heading" class="ui-controlgroup-label"><legend>Horizontal:</legend></div>-->
+                <div class="ui-controlgroup-controls">			
+                    
+                <div  class="ui-radio"><input type="radio" name="radio-choice-h-2" id="radio-choice-h-2a" value="1" checked="checked">
+                <label for="radio-choice-h-2a" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-on" data-mini="true" class="ui-btn-icon-top">
+                    <span class="ui-btn-text">2D view</span><span class="ui-icon ui-icon-radio-on ui-icon-shadow">&nbsp;</span></label></div>
+                    
+                <div class="ui-radio"><input type="radio" name="radio-choice-h-2" id="radio-choice-h-2b" value="2">
+                <label for="radio-choice-h-2b" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-mini="true" class="ui-btn-icon-top">
+                    <span class="ui-btn-text">3D view</span><span class="ui-icon ui-icon-radio-off ui-icon-shadow">&nbsp;</span></label></div>
+                    
+                <div class="ui-radio"><input type="radio" name="radio-choice-h-2" id="radio-choice-h-2c" value="3">
+                <label for="radio-choice-h-2c" data-corners="true" data-shadow="false" data-iconshadow="true" data-wrapperels="span" data-icon="radio-off" data-mini="true" class="ui-btn-icon-top">
+                    <span class="ui-btn-text">Both</span><span class="ui-icon ui-icon-radio-off ui-icon-shadow">&nbsp;</span></label></div>
+    
+                </div>
+            </fieldset>              
+
+            <div style="padding-bottom:8px;" data-role="controlgroup" data-type="horizontal">
+                <a href="#" type="button" data-id="reverse-play"><img alt="" class="tbBtn" src="chess_icons/reverse-play.png" title="" onclick="chess.navigate(-1, true);" /></a>
+                <a href="#" type="button" data-id="stop"><img alt="" class="tbBtn" src="chess_icons/stop.png" title="" onclick="chess.stopMotion();" /></a>
+                <a href="#" type="button" data-id="play"><img alt="" class="tbBtn" src="chess_icons/play.png" title="" onclick="chess.navigate(1, true);" /></a>
+            </div>
+
+            <div style="padding-bottom:8px;" data-role="controlgroup" data-type="horizontal">
+                <a href="#" type="button" data-id="skip-backward"><img alt="" class="tbBtn" src="chess_icons/skip-backward.png" title="" onclick="chess.backToStart();" /></a>
+                <a href="#" type="button" data-id="backward"><img alt="" class="tbBtn" src="chess_icons/backward.png" title="" onclick="chess.navigate(-10, true);" /></a>
+                <a href="#" type="button" data-id="forward"><img alt="" class="tbBtn" src="chess_icons/forward.png" title="" onclick="chess.navigate(10, true);" /></a>
+                <a href="#" type="button" data-id="skip-forward"><img alt="" class="tbBtn" src="chess_icons/skip-forward.png" title="" onclick="chess.returnToEnd();" /></a>
+            </div>
+
+            <div style="padding-bottom:8px;" data-role="controlgroup" data-type="horizontal">
+                <a href="#" type="button" data-id="go-previous"><img alt="" class="tbBtn" src="chess_icons/go-previous.png" title="" onclick="chess.navigate(-1);"></a>
+                <a href="#" type="button" data-id="go-next"><img alt="" class="tbBtn" src="chess_icons/go-next.png" title="" onclick="chess.navigate(1);" /></a>
+                <a href="#" type="button" data-id="help-hint"><img alt="" class="tbBtn" src="chess_icons/help-hint.png" title="" onclick="chess.help();" /></a>
+            </div>
+
+            <table>
+                <tr>
+                    <td colspan="2">
+                        <div style="width:80% !important;"><label><input data-role="checkbox" data-mini="true" id="useKeybAsk" name="KeybCtrl" type="checkbox" checked />Enable keyboard</label></div>                        
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width:40% !important;"><a href="#" type="button" data-theme="a" data-role="button" data-mini="true">View side</a></td>
+                    <td>
+                        <div><select id="selSide" name="selSide"><option>White</option><option>Black</option><option selected>Human side</option></select></div>                    
+                    </td>
+                </tr>
+            
+                <tr>
+                    <td style="width:40% !important;"><a href="#" type="button" data-theme="a" data-role="button" data-mini="true">Fr Rate(ms)</a></td>
+                    <td style="text-align:right;"><div><input type="text" name="frameRateCtrl" id="frameRateCtrl" value="1000" size="5" style="width:90px;text-align:right;" /></div></td>
+                </tr>
+            </table>
+
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+        <footer id="footer" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+        </footer>
+
+    </div>
+</body>
+</html>
+
+
+
+                                                                                                                                                                                                                                    <!--
+<hr />
+<h3 style="text-align:center;">Running code within the "chess" object.</h3>
+<p style="text-align:center;">Please uncomment the function chess.runInside(<em>sCode</em>) to execute your code.<br />
+<textarea rows="10" cols="55" id="debugArea" onkeyup="if(event.ctrlKey&&event.shiftKey&&event.keyCode===32){chess.runInside(this.value);}">
+/**
+* Javascript Console.
+* Press Ctrl+Shift+Space to run code
+* within the "chess" object.
+*/
+
+var sRappr = "";
+for (nBoardX = 0; nBoardX &lt; 12; nBoardX++) {
+	var nBoardY = 0;
+	for (nBoardY = 0; nBoardY &lt; 10; nBoardY++) { sRappr += (etc.aBoard[nBoardX * 10 + nBoardY]) + ", "; }
+	sRappr = sRappr.substr(0, sRappr.length - 2) + "\n";
+}
+alert("This is the numeric rappresentation of the chessboard:\n\n" + sRappr); 
+</textarea></p>
+-->
+

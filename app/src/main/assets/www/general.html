@@ -1,0 +1,875 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
+	<!--<link rel="stylesheet" href="css/mdpi.css" media="only screen and (-webkit-max-device-pixel-ratio:1.0) and (max-device-width:480px)">-->
+	<!--<link rel="stylesheet" href="css/hdpi.css" media="only screen and (-webkit-min-device-pixel-ratio:1.5)">-->
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->   
+    <!-- For Samsung Galaxy S4-5 & larger Screens, use "target-densitydpi=medium-dpi" instead of device-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>www.SerGioApps.com</title> 
+       
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery.mobile.icons-1.4.5.css" rel="stylesheet" type="text/css" />
+    <link href="css/jqm-icon-pack-fa.css" rel="stylesheet" type="text/css" />
+
+    <link href="js_iscroll/jquery.mobile.iscrollview.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="js_iscroll/demo.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!--<script src="cordova.js" type="text/javascript"></script>-->
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+
+    <script src="js_iscroll/iscroll.js" type="text/javascript"></script>
+    <script src="js_iscroll/jquery.mobile.iscrollview.js" type="text/javascript"></script>
+
+    <link href="js_rss/jquery.rssfetch.css" rel="stylesheet" type="text/css">
+    <script src="js_rss/jquery.rsslistfetch.js" type="text/javascript"></script>
+
+
+    <script src="js_auth/AppItem.js" type="text/javascript"></script>
+    <script src="js/CacheManager.js" type="text/javascript"></script>    
+
+    <script src="js/general.js" type="text/javascript"></script>
+    <script src="js/store.min.js" type="text/javascript"></script>
+    <link id="link_index" href="" rel="stylesheet" type="text/css" />
+
+
+	<script type="text/javascript">
+	    var g_cache;
+
+	    var _themeid_dronestv = "";
+	    if (localStorage["themeid_dronestv"]) {
+	        _themeid_dronestv = localStorage["themeid_dronestv"];
+	    } else {
+	        _themeid_dronestv = "dark";
+	        localStorage["themeid_dronestv"] = "dark";
+	    }
+	    var _path = "themes/" + _themeid_dronestv + ".css";
+	    $("#link_index").attr("href", _path);
+
+	    /* Use this for high compatibility (iDevice + Android)*/
+	    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	    document.addEventListener('DOMContentLoaded', loaded, false);
+	    //document.addEventListener("deviceready", function (e) { }, "false");
+	    document.addEventListener('deviceready', function () {
+	        StatusBar.overlaysWebView(false);
+	        StatusBar.backgroundColorByName('black');
+	    }, false);
+
+	    function loaded() {
+	        screenAdjust();
+	    }
+
+	    $(document).bind("mobileinit", function () {
+	        jQuery.support.cors = true;
+	        jQuery.mobile.allowCrossDomainPages = true;
+	        jQuery.mobile.phonegapNavigationEnabled = true;
+	        jQuery.mobile.defaultDialogTransition = "slide";
+	    });
+
+	    function refreshListView() {
+	        refreshIntervalId = setTimeout("refreshListViewDelayed()", 100);
+	    }
+	    function refreshListViewDelayed() {
+	        clearInterval(refreshIntervalId);
+	        $('#rsslistfetch-ul').listview('refresh');
+	        $(".videowrapper").find(".iscroll-content").resizeWrapper();
+	    }
+
+	    $(document).delegate('.ui-page', 'touchmove', false);
+
+	    $(window).bind('resize', function (e) {
+	        screenAdjust();
+	    });
+
+	    $('#listview').on('click', 'li', function () {
+	        event.preventDefault();
+	    });
+
+
+
+
+
+	    $(document).ready(function () {
+	        g_cache = new Cache(localStorage, JSON);
+	    });
+
+	    // Click Events on Open Panel !!!
+	    //$(document).delegate('#thelist .ui-panel ul li > a', 'click', function (event) {
+	    $(document).delegate('#thelist a', 'click', function (event) {
+	        event.preventDefault();
+	        //event.stopPropagation();
+	        var zid = $(this).data("id");
+	        if (zid == "close") {
+	            $('#wrapper').panel("close");
+	            //$('#wrapper_left').panel("close");
+	        }
+	        if ((zid == "dark") || (zid == "light")) {
+	            $('#wrapper').panel("close");
+	            var _themeid_dronestv = zid;
+	            var _path = "themes/" + _themeid_dronestv + ".css";
+	            localStorage["themeid_dronestv"] = _themeid_dronestv;
+	            $("#link_general").attr("href", _path);
+	            //window.location = "./general.html";
+	        }
+	        if (zid == "logins") {
+	            window.location = "./logins.html";
+	        }
+
+	    });
+
+	    var refreshIntervalId2;
+	    function GetVideosDelayed() {
+	        clearInterval(refreshIntervalId2);
+	        GetVideos();
+	    }
+
+	    $(window).bind('resize', function (e) {
+	        screenAdjust();
+	        $("#wrapper_controls").trigger("updatelayout");
+	    });
+
+	    $('#listview').on('click', 'li', function () {
+	        event.preventDefault();
+	    });
+
+	    window.onload = function () {
+
+//	        //Click Events on Header !!!
+//	        $('header a').on('click touchend', function (e) {
+//	            //e.preventDefault();
+//	            //e.stopPropagation();
+//	            //	            $("#wrapper_controls").show();
+//	            //	            $("#wrapper_controls").trigger("updatelayout");
+
+//	            var el = $(this);
+//	            var link = el.attr('href');
+//	            //alert(link);
+//	            if (link == "#search") {
+//	                $('#wrapper_controls').panel("open");
+//	            }
+//	        });
+
+	        screenAdjust();
+
+	    };
+
+
+	    function screenAdjust() {
+	        $('#wrapper_controls').panel("close");
+	        g_content_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height() - 0);
+
+	        var orientation = "portrait";
+	        if (window.orientation == -90 || window.orientation == 90) orientation = "landscape";
+	        if (orientation == "portrait") {
+	            g_content_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height() - 0);
+	        }
+	        else {
+	            g_content_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - 0);
+	        }
+	        g_content_width = window.innerWidth; ;
+
+	        document.getElementById('videowrapper').style.height = g_content_height;
+	        document.getElementById('videowrapper').style.top = 0;
+	    }
+
+	    function refreshListView() {
+	        refreshIntervalId = setTimeout("refreshListViewDelayed()", 100);
+	    }
+	    function refreshListViewDelayed() {
+	        clearInterval(refreshIntervalId);
+	        $('#youtube-videogallery').listview('refresh');
+	        //$(".videowrapper").find(".iscroll-content").resizeWrapper();
+	    }
+
+	    $(document).delegate('.ui-listview a h1', 'click', function () {
+	        var zid = $(this).parent().attr("data-param");
+	        launchItem(zid);
+
+	    });
+
+
+
+
+</script>
+
+
+    <style type="text/css">
+        
+    html, body {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        overflow: hidden !important;
+    } 
+    
+    html { 
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0px;
+    }
+              
+    body {
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+    	font-size: 1.1em;
+	    line-height: 1.1em;
+        font-weight: normal; 
+        letter-spacing: -0.03em; 
+        background-color: #F2F2F2 !important;
+        background-repeat: no-repeat;
+        text-decoration: none;
+    }
+      
+    .ui-header {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    .ui-footer {
+        display: block !important;
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 99999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    
+    .ui-page, .ui-page-fullscreen{
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+    }
+
+    .ui-content {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        left: 0 !important;
+    } 
+
+    .ui-page, .ui-page-fullscreen {
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+    }
+   
+   .zclear {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+   }    
+   
+    .ui-li-aside{
+        content:'';
+        width:50px !important;
+        padding-top:-2px !important;
+        padding-right:8px !important;    
+        vertical-align:top;
+        font-size:.8em;
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        font-weight: normal;
+        font-style: normal;    
+        position:absolute;
+        float:right;
+        right:8px;
+        top:-2px;
+        color:#ff0000;
+        display: none !important;
+    }  
+
+    .imgtime {
+        z-index:99999;
+        position:absolute;
+        bottom:26px;
+        left:58px;
+        float:left;   
+        font: Helvetica, Arial, sans-serif;
+        font-size:.8em;
+        text-decoration:none;
+        font-variant:normal;
+        font-style:normal;
+        font-weight:normal;
+        color:White;
+        display: none !important;       
+    }
+
+
+  
+
+    /* rounded image styles youtube-videogallery-img */   
+    .rounded-img, .ui-li-icon {
+        float: left;
+        top: 1px;
+        padding: 0px 0px 0px 0px;
+        margin-top: 8px;
+        margin-left: 30px;
+        width: 65px !important;
+        height: 60px !important;
+	    display: inline-block;
+	    border: none 0px transparent !important;     /* #9CAAC1; */
+	    overflow: hidden; 
+	    background-color: transparent !important;
+    }
+
+    .rounded-img:hover, img.ui-li-icon:hover {
+        float: left;
+        top: 1px;
+        padding: 0px 0px 0px 0px;
+        margin-left: 40px;
+        width: 65px !important;
+        height: 60px !important;
+	    display: inline-block;
+	    border: none 0px transparent !important;    /* #9CAAC1; */
+	    overflow: hidden;
+	    -webkit-border-radius: 10px;
+	    -moz-border-radius: 12px;
+	    border-radius: 12px;
+	    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    border:1px solid #ff0000 !important;
+    }
+    
+    .ellipsis {
+        position: absolute;
+        top: 2px;
+        left: 0px;
+        width: 60%;
+        margin: 0px 0px 0px 118px;
+        padding: 0px 0px 0px 0px;
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        -webkit-font-smoothing: antialiased; 
+        font-size: 1.1em;
+	    line-height: .9em;
+	    font-weight: normal;
+        font-style: normal;
+        display: list-item;
+        white-space: normal;
+        background-color: transparent !important;
+    }
+    
+    .ellipsis2 {
+        position: absolute;
+        top: 24px;
+        left: 0px;
+        width: 60%;
+        height: 70px !important;
+        margin: 0px 0px 0px 118px;
+        padding: 0px 0px 0px 0px;   
+        font-family: "Calibri", Arial, Helvetica, sans-serif;   
+        font-size: .8em;
+        font-weight: normal;
+        font-style: normal;
+        display: list-item;
+        text-overflow: ellipsis;
+        overflow: ellipsis;
+        white-space: normal;  
+        text-decoration: inherit;
+        -webkit-font-smoothing: antialiased;
+        vertical-align: top;
+        line-height: 1.0em;
+        text-align: left;
+        background-color: transparent !important;
+    }
+    
+    #zvideowrapper ul li, #zvideowrapper li {
+        height: 94px !important;
+        z-index:1 !important;
+        border-bottom: 1px solid #464954;
+        border-top: 1px solid #464954;
+
+    }
+    
+    .center-wrapper {
+      text-align: center;
+    }
+    .center-wrapper * {
+      margin: 0px auto 0px auto;
+    }     
+    
+    
+    .bcolor_purple {
+        border-bottom: 6px solid #b753d8 !important;
+    }
+    .bcolor_green {
+        border-bottom: 6px solid #6bc356 !important;   
+    }
+    .bcolor_mustard {
+        border-bottom: 6px solid #fab903 !important;      
+    }
+    .bcolor_red {
+        border-bottom: 6px solid #e94739 !important;       
+    }
+    .bcolor_blue {
+        border-bottom: 6px solid #427fed !important;        
+    }
+ 
+    .ui-li-divider {
+        line-height:60px !important;
+        text-decoration: none;
+        white-space:nowrap;
+    }
+    .ui-li-divider img {
+        max-width: 300px;
+        max-height: 60px;
+        padding-top: 0px!important;
+    }
+
+    .ui-navbar ul {
+        margin-top: 2px !important;
+        height: 54px !important;
+    }
+    
+    #navbar li {
+        margin-top: -6px !important;
+        height: 54px !important;
+        margin-bottom: 6px !important;
+        padding: 0px 0px 6px 0px !important;
+    }
+        
+    #navbar li a {
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-weight: normal; 
+        letter-spacing: 0.04em;         
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+        
+    .bcolor_purple {
+        border-bottom: 6px solid #b753d8 !important;
+    }
+    .bcolor_green {
+        border-bottom: 6px solid #6bc356 !important;
+    }
+    .bcolor_mustard {
+        border-bottom: 6px solid #fab903 !important;
+    }
+    .bcolor_red {
+        border-bottom: 6px solid #e94739 !important;
+    }
+    .bcolor_blue {
+        border-bottom: 6px solid #427fed !important;
+    }
+        
+    .feed_wrapper li {
+        float: left;
+        padding-right: 40px !important;
+        width: 100% !important;
+    }
+
+    .category_header {
+        float: left;
+        padding-top: 12px !important;
+        padding-left: 12px !important;
+    }
+
+    header {
+        clear: left;
+        box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -moz-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -webkit-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+    }
+    
+    /* DO NOT REMOVE THIS !!! */
+    .iscroll-scroller {
+        min-width: 100% !important;
+    }         
+</style>
+<body>
+    <div data-role="page" id="mainPage" style="text-align: center; margin: 0 auto;">
+
+        <div data-role="panel" id="wrapper" data-display="overlay" data-position="right" class="ui-panel">                                                                                                                                                                                                                                                                                                                    
+            <ul id="thelist">
+                <li><a href="#" type="button" data-id="dark">Dark Theme</a></li>
+                <li><a href="#" type="button" data-id="light">iOS7 Plus Theme</a></li>
+                <li><a href="#" type="button" data-id="logins">Logins</a></li>
+                <li><a href="#" type="button" data-id="close" data-icon="delete">Close</a></li>
+            </ul>
+        </div>
+
+        <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom:4px solid #00ff00 !important;">
+            <a href="#" data-role="button" data-icon="arrow-l" data-theme="a"  class="ui-btn-left" style="margin-top:8px;" data-rel="back">Back</a>
+            <div class="center-wrapper"><img id="header_logo" src="img/header_logo.png" alt="Wild Workout" style="margin-top:4px;"></div>
+            <a data-rel="home" href="index.html" rel="external" data-role="button" data-icon="cloud" data-theme="a" class="ui-btn-right" style="margin-top:8px;">Clouds</a>
+        </header>
+
+
+        <div id="zvideowrapper" data-iscroll="{
+                'hScroll':false,
+                'vScroll':true,
+                'resizeEvents':'orientationchange',
+                'resizeWrapper':true, 
+                'mouseWheel': true, 
+                'click': true, 
+                'interactiveScrollbars': true, 
+                'shrinkScrollbars': 'scale'
+                }" data-id="content" data-role="content" style="padding-bottom:20px !important;">
+                <ul data-role="listview" data-inset="true" class="ui-listview general" data-theme="a" style="margin-top:20px;">
+
+
+                <!--<li data-role="listview" style="width:100%;display:block;"> HAS ARROW!!!-->
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="stationbreaktv">
+                        <img class="rounded-img" src="./img_default/1_sbtv2.png">
+                            <div class="ellipsis"> StationBreak TV </div>
+                            <div class="ellipsis2">Our Videos</div>
+                             <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="nowandbecause">
+                        <img class="rounded-img" src="./img_default/1_topbands.png">
+                            <div class="ellipsis"> Top Bands </div>
+                            <div class="ellipsis2">Check Out the Lastest Videos from the Top Bands</div>
+                                <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="sol_">
+                        <img class="rounded-img" src="img_default/1_health.png">
+                        <div class="ellipsis"> Medical Breakthroughs </div>
+                        <div class="ellipsis2">Latest Supplements for Cancer, Alzheimer's, Diabetes, Neuropathy, Heart Disease, and Skin & Beauty</div>
+                        <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="data">
+                        <img class="rounded-img" src="./img_default/1_info.png">
+                            <div class="ellipsis"> App Data </div>
+                            <div class="ellipsis2">App Data</div>
+                                <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="tools">
+                        <img class="rounded-img" src="./img_default/1_tools.png">
+                            <div class="ellipsis"> User Data, Scan & Compass </div>
+                            <div class="ellipsis2">Get Your Phone's Data.<br />And A Cool Scanner & Compass.</div>
+                                <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="games">
+                        <img class="rounded-img" src="img_default/1_rubix.png">
+                            <div class="ellipsis"> Games </div>
+                            <div class="ellipsis2">Grandmaster Chess & Many More!</div>
+                             <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="holographicvideos">
+                        <img class="rounded-img" src="img_default/1_hologram.png">
+                            <div class="ellipsis"> 3D Projector for Your Phone </div>
+                            <div class="ellipsis2">Turn Any Smart Phone Into A 3D Holographic Projector</div>
+                             <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="dtv_web_wikileaks">
+                        <img class="rounded-img" src="./img_default/1_wikileaks.png">
+                        <div class="ellipsis"> WikiLeaks </div>
+                        <div class="ellipsis2">WikiLeaks Exposes Unethical & Illegal Government Activities</div>
+                        <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="dtv_military">
+                        <img class="rounded-img" src="./img_default/1_military.png">
+                        <div class="ellipsis"> Police & Military Drones</div>
+                        <div class="ellipsis2">U.S. Drones Killing Women & Children</div>
+                        <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="politics">
+                        <img class="rounded-img" src="./img_default/1_politics.png">
+                        <div class="ellipsis">  Bad Politicians </div>
+                        <div class="ellipsis2">Some People Who Should NEVER HHave Been Elected</div>
+                        <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="dtv_flyingbikes">
+                        <img class="rounded-img" src="./img_default/1_flyingbikes.png">
+                        <div class="ellipsis"> Hover Boards & Bikes </div>
+                        <div class="ellipsis2">Buy REAL Hover Boards</div>
+                        <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="cnnmoney">
+                        <img class="rounded-img" src="img_default/1_money.png">
+                            <div class="ellipsis"> Money/Jobs </div>
+                            <div class="ellipsis2">Making Money & Job Searches</div>
+                             <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="shop_wildworkout">
+                        <img class="rounded-img" src="img_default/1_shop.png">
+                        <div class="ellipsis"> Shop </div>
+                        <div class="ellipsis2">Bargains You Won't Beliwve!</div>
+                        <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="rssmobi">
+                        <img class="rounded-img" src="img_default/1_rss.png">
+                            <div class="ellipsis"> My Feeds </div>
+                            <div class="ellipsis2">Add Your Favorite Feeds</div>
+                            <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="yt_search">
+                        <img class="rounded-img" src="img_default/1_yt_search.png">
+                            <div class="ellipsis"> YouTube Playlists </div>
+                            <div class="ellipsis2">Embedded Playlist Search</div>
+                                <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="maddogzs">
+                        <img class="rounded-img" src="img_default/1_ratings.png">
+                            <div class="ellipsis"> Models and Modelling </div>
+                            <div class="ellipsis2">Models and Cool Stuff</div>
+                                <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="drrazdan">
+                        <img class="rounded-img" src="https://yt3.ggpht.com/-YrrYdjO1Z9I/AAAAAAAAAAI/AAAAAAAAAAA/r_-qQF36c_E/s100-c-k-no/photo.jpg">
+                            <div class="ellipsis"> Dr. Sanjay Razdan </div>
+                            <div class="ellipsis2">Prostate Cancer</div>
+                                <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+
+                 <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="music">
+                        <img class="rounded-img" src="img_default/1_music.png">
+                            <div class="ellipsis"> Music Collections </div>
+                            <div class="ellipsis2">Music Videos & Concerts</div>
+                             <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>  
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="movies">
+                        <img class="rounded-img" src="./img_default/1_movies.png">
+                            <div class="ellipsis"> Movies </div>
+                            <div class="ellipsis2">Search for ALL Kinds of Full-Length Movies by Genre</div>
+                             <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="tv">
+                        <img class="rounded-img" src="./img_default/1_tv.png">
+                            <div class="ellipsis"> TV SHOWS </div>
+                            <div class="ellipsis2">Search for ALL Kinds of Full-Length TV Shows by Genre</div>
+                             <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="blogs">
+                        <img class="rounded-img" src="./img_default/1_blogs.png">
+                            <div class="ellipsis"> Blogs </div>
+                            <div class="ellipsis2">Best Blogs on Beauty, Health & Medical, Fitness & Muscle Building, etc.</div>
+                             <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="KraftCookingSchool">
+                        <img class="rounded-img" src="img_default/1_cooking.png">
+                            <div class="ellipsis"> Cooking & Receipts </div>
+                            <div class="ellipsis2">Cooking Shows, Receipts, Kitchen Gadgets</div>
+                             <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="craftzine">
+                        <img class="rounded-img" src="img_default/1_home.png">
+                            <div class="ellipsis"> Housewares </div>
+                            <div class="ellipsis2">Housewares & Garden Bargains</div>
+                             <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="malibudiet">
+                        <img class="rounded-img" src="./img_default/1_diet.png">
+                            <div class="ellipsis"> The Malibu Diet </div>
+                            <div class="ellipsis2">Since The 1980s The Malibu Diet Has Been Changing the Lives of People Everywhere...</div>
+                             <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="comedycentral">
+                        <img class="rounded-img" src="img_default/1_comedy.png">
+                            <div class="ellipsis"> Comedy </div>
+                            <div class="ellipsis2">Comedy Shows & Comedians</div>
+                             <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="ufos_all">
+                        <img class="rounded-img" src="./img_default/1_aliens.png">
+                            <div class="ellipsis"> Aliens & UFOs </div>
+                            <div class="ellipsis2">Sci-Fi Videos on Aliens, Area 51, UFOs, Anti-Gravity, etc.</div>
+                                <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="mobilemates">
+                        <img class="rounded-img" src="img_default/1_dating.png">
+                            <div class="ellipsis"> Dating </div>
+                            <div class="ellipsis2">Dating Sites, Tips on Dating</div>
+                                <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#nb_tumblr" class="rsslistfetch-link" data-param="nb_tumblr">
+                        <img class="rounded-img" src="./img_social/1_tumblr.png">
+                        <div class="ellipsis"> Tumblr </div>
+                        <div class="ellipsis2">Tumblr</div>
+                        <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="nb_instagram">
+                        <img class="rounded-img" src="./img_social/1_instagram.png">
+                        <div class="ellipsis"> Instagram </div>
+                        <div class="ellipsis2">Instagram</div>
+                        <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="nb_facebook">
+                        <img class="rounded-img" src="./img_social/1_facebook.png">
+                        <div class="ellipsis"> Facebook </div>
+                        <div class="ellipsis2">Facebook</div>
+                        <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="nb_twitter">
+                        <img class="rounded-img" src="./img_social/1_twitter.png">
+                        <div class="ellipsis"> Twitter </div>
+                        <div class="ellipsis2">Twitter</div>
+                        <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="nb_vine">
+                        <img class="rounded-img" src="./img_social/1_vine.png">
+                        <div class="ellipsis"> Vine </div>
+                        <div class="ellipsis2">Vine</div>
+                        <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <!--<li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#search_users" class="rsslistfetch-link" data-param="ostaro">
+                        <img class="rounded-img" src="./img_default/1_ostaro.png">
+                            <div class="ellipsis"> Ostaro </div>
+                            <div class="ellipsis2">Ostaro - Famous Astrologer</div>
+                            <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>-->
+                <!--<li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="rss_ads">
+                        <img class="rounded-img" src="./img_default/1_new.png">
+                            <div class="ellipsis"> Exciting New Stuff </div>
+                            <div class="ellipsis2">Exciting New Products & Breakthroughs</div>
+                                <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>
+                <li data-icon="false" data-role="listview" style="width:100%;display:block;">
+                    <a href="#" class="rsslistfetch-link" data-param="rss_cat">
+                        <img class="rounded-img" src="./img_default/1_cat.png">
+                            <div class="ellipsis"> Topics </div>
+                            <div class="ellipsis2">Tpoics & Categories of Things</div>
+                                <div class="ui-li-aside">02:30:00</div>
+                    </a>
+                </li>-->
+                <div style="height:0px;"></div>
+            </ul>
+        </div>
+
+        <!--<div id="footer1" data-role="footer" data-position="fixed" data-display="overlay" class="center-wrapper" data-theme="a" style="width:100%;">
+            <div class="center-wrapper"><a href="#"><img class="footerad" src="ads/footer_ad03_black.png" style="width: 100%;height:50px;" /></a></div>
+        </div>-->
+
+        <footer id="footer" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+            <div id="navbar" data-role="navbar" class="ui-navbar" role="navigation" data-theme="a">
+                <ul>
+                    <li class="bcolor_purple"><a href="#sol_" data-icon="search">Cures?</a></li>
+                    <li class="bcolor_green"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_mustard"><a href="#rssmobi" data-icon="rss">Feeds</a>
+                    <li class="bcolor_red"><a href="#shop" data-icon="shop">Shop</a></li>
+                    <li class="bcolor_blue"><a href="#cool" data-icon="coffee">Cool</a></li>
+
+                    <!--<li class="bcolor_purple"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_green"><a href="#rssmobi" data-icon="rss">Feeds</a></li>
+                    <li class="bcolor_mustard"><a href="#games" data-icon="gamepad">Games</a>
+                    <li class="bcolor_red"><a href="#shop" data-icon="shop">Shop</a></li>
+                    <li class="bcolor_blue"><a href="#cool" data-icon="coffee">Cool</a></li>-->
+
+                    <!--<li class="bcolor_purple"><a href="#sol_" data-icon="search">Cures?</a></li>
+                    <li class="bcolor_green"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_mustard"><a href="#cool" data-icon="coffee">Cool</a>
+                    <li class="bcolor_red"><a href="#prev" data-icon="arrow-l">Prev</a></li>
+                    <li class="bcolor_blue"><a href="#next" data-icon="arrow-r">Next</a></li>-->
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+</body>
+</html>
+
+
+<!--alert	Attached Image
+arrow-d	Attached Image
+arrow-l	Attached Image
+arrow-r	Attached Image
+arrow-u	Attached Image
+back	Attached Image
+check	Attached Image
+delete	Attached Image
+forward	Attached Image
+gear	Attached Image
+grid	Attached Image
+home	Attached Image
+info	Attached Image
+minus	Attached Image
+plus	Attached Image
+refresh	Attached Image
+search	Attached Image
+star	Attached Image-->

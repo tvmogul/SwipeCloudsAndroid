@@ -1,0 +1,331 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
+	<!--<link rel="stylesheet" href="css/mdpi.css" media="only screen and (-webkit-max-device-pixel-ratio:1.0) and (max-device-width:480px)">-->
+	<!--<link rel="stylesheet" href="css/hdpi.css" media="only screen and (-webkit-min-device-pixel-ratio:1.5)">-->
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->   
+    <!-- For Samsung Galaxy S4-5 & larger Screens, use "target-densitydpi=medium-dpi" instead of device-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>www.SerGioApps.com</title> 
+       
+    <!--<script src="cordova.js" type="text/javascript"></script>-->
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/store.min.js" type="text/javascript"></script>
+    <script src="js/utility.js" type="text/javascript"></script>
+
+    <script src="js_auth/AppItem.js" type="text/javascript"></script>
+    <script src="js/CacheManager.js" type="text/javascript"></script>    
+
+	<script type="text/javascript">
+
+	    //////////////////////////////////////////////////////////////////////////////
+	    // Author: Bill SerGio, The Infomercial King
+	    // Substantially better than the TOTAL PIECE OF CRAP FUNCTION "getUrlVars" that throw errors like crazy!
+	    // Given a query string "?to=email&why=because&first=John&Last=smith"
+	    // getUrlVar("to")  will return "email"
+	    // getUrlVar("last") will return "smith"
+	    // To convert it to a jQuery plug-in, you could try something like this:
+	    //(function ($) {
+	    //    $.getUrlVar = function (key) {
+	    //        var result = new RegExp(key + "=([^&]*)", "i").exec(window.location.search);
+	    //        return result && unescape(result[1]) || "";
+	    //    };
+	    //})(jQuery);
+	    getUrlVar = function (key) {
+	        var result = new RegExp(key + "=([^&]*)", "i").exec(window.location.search);
+	        return result && unescape(result[1]) || "";
+	    }
+	    //var _appid = getUrlVar('appid');
+	    ////if (_appid.length > 0) {
+	    //if (_appid.toLowerCase() === 'dronestv') {
+	    //    location.href = 'http://www.dronestv.net/Apps/DronesTV/assets/www/init.html';
+	    //}
+
+
+
+
+	    $(document).bind("mobileinit", function () {
+	        jQuery.support.cors = true;
+	        jQuery.mobile.allowCrossDomainPages = true;
+	        jQuery.mobile.phonegapNavigationEnabled = true;
+	        jQuery.mobile.defaultDialogTransition = "slide";
+	    });
+
+	    document.addEventListener("deviceready", function () { onDeviceReady(); }, false);
+
+	    function onDeviceReady() {
+
+
+	    } //end function
+
+	    function LoadLocalStorage() {
+	        var allVars = "";
+	        var _appname = "DTV01";
+	        var _appid = "00000000-0000-0000-0000-000000000000";
+	        var _iphoneid = "IPHONE ID";
+	        var _androidid = "ANDROID ID";
+	        var _deviceid = "DEVICE ID";
+	        var _subscriberid = "SUBSCRIBER ID";
+	        var _simcardsn = "SIM CARD SERIAL NUMBER";
+	        var _ipaddress = "IPADDRESS";
+	        var _ipaddress2 = "IPADDRESS2";
+	        var _macaddress = "MAC ADDRESS";
+	        var _devicename = "DEVICE NAME";
+	        var _appversion = "2|2.0.0";
+	        var _sdk = "SDK";
+	        var _name = "Bill SerGio";
+	        var _ph = "305-254-6329";
+	        var _email = "tvmogul1@yahoo.com";
+	        var _city = "Miami";
+	        var _state = "FL";
+	        var _ctry = "US";
+	        var _pc = "33157";
+	        var _lat = "0";
+	        var _lng = "0";
+	        var _fr = "0";
+	        //+"&methodName=installData"
+	        //+ "&jsonp=onRSSLoaded";
+
+	        try {
+	            //allVars = $.getUrlVars();
+	            if (getUrlVar('appname').length > 0) {
+	                _appname = getUrlVar('appname');
+	            }
+	            if (getUrlVar('appid').length > 0) {
+	                _appid = getUrlVar('appid');
+	            }
+	            if (getUrlVar('iphoneid').length > 0) {
+	                _iphoneid = getUrlVar('iphoneid');
+	            }
+	            if (getUrlVar('androidid').length > 0) {
+	                _androidid = getUrlVar('androidid');
+	            }
+	            if (getUrlVar('deviceid').length > 0) {
+	                _deviceid = getUrlVar('deviceid');
+	            }
+	            if (getUrlVar('subscriberid').length > 0) {
+	                _subscriberid = getUrlVar('subscriberid');
+	            }
+
+	            if (getUrlVar('simcardsn').length > 0) {
+	                _simcardsn = getUrlVar('simcardsn');
+	            }
+	            //////////////////////////////////////////////////
+	            if (getUrlVar('ipaddress').length > 0) {
+	                _ipaddress = getUrlVar('ipaddress');
+	            }
+	            if (getUrlVar('ipaddress2').length > 0) {
+	                _ipaddress2 = getUrlVar('ipaddress2');
+	            }
+	            //////////////////////////////////////////////////
+	            if (getUrlVar('macaddress').length > 0) {
+	                _macaddress = getUrlVar('macaddress');
+	            }
+
+	            if (getUrlVar('devicename').length > 0) {
+	                _devicename = getUrlVar('devicename');
+	            }
+	            if (getUrlVar('appversion').length > 0) {
+	                _appversion = getUrlVar('appversion');
+	            }
+	            if (getUrlVar('sdk').length > 0) {
+	                _sdk = getUrlVar('sdk');
+	            }
+	            if (getUrlVar('name').length > 0) {
+	                _sdk = getUrlVar('name');
+	            }
+	            if (getUrlVar('ph').length > 0) {
+	                _ph = getUrlVar('ph');
+	            }
+	            if (getUrlVar('email').length > 0) {
+	                _email = getUrlVar('email');
+	            }
+	            if (getUrlVar('city').length > 0) {
+	                _city = getUrlVar('city');
+	            }
+	            if (getUrlVar('state').length > 0) {
+	                _state = getUrlVar('state');
+	            }
+	            if (getUrlVar('ctry').length > 0) {
+	                _ctry = getUrlVar('ctry');
+	            }
+	            if (getUrlVar('pc').length > 0) {
+	                _pc = getUrlVar('pc');
+	            }
+	            if (getUrlVar('lat').length > 0) {
+	                _lat = getUrlVar('lat');
+	            }
+	            if (getUrlVar('lng').length > 0) {
+	                _lng = getUrlVar('lng');
+	            }
+	            if (getUrlVar('fr').length > 0) {
+	                _fr = getUrlVar('fr');
+	            }
+	        }
+	        catch (o) {
+
+	        }
+
+	        //if ((_appid == 'undefined') || (_appid == null) || (_appid.length < 1)) {
+	        //_appid = "00000000-0000-0000-0000-000000000000"
+	        //}
+
+	        localStorage["appid"] = _appid;
+	        if (localStorage["authorized"]) {
+	            _authorized = localStorage["authorized"];
+	        } else {
+	            _authorized = "";
+	            localStorage["authorized"] = _authorized;
+	        }
+
+	        //try {
+	        //    var s1 = ReplaceAll(_ph, "-", "");
+	        //    var s2 = ReplaceAll(s1, "(", "");
+	        //    var s3 = ReplaceAll(s2, ")", "");
+	        //    _areacode = s3.substring(0, 3);
+	        //}
+	        //catch (o) {
+	        //    _areacode = "";
+	        //}
+
+	        // Create an instance of Cache using localStorage as our storage
+	        // container and the native JSON object as our serializer.
+	        var cache = new Cache(localStorage, JSON);
+	        //cache.clear();
+	        if (cache.hasItem("appdata")) {
+	            //alert(cache.getItem("appdata").appid);
+	        }
+	        else 
+            {
+	            if (localStorage["authorized"]) {
+	                _authorized = localStorage["authorized"];
+	            } else {
+	                _authorized = "";
+	                localStorage["authorized"] = _authorized;
+	            }
+	            _fr = "1";
+
+	            var appItem = new AppItem(_appname,
+                                        _appid,
+                                        _iphoneid,
+                                        _androidid,
+                                        _deviceid,
+                                        _subscriberid,
+                                        _simcardsn,
+                                        _ipaddress,
+                                        _ipaddress2,
+                                        _macaddress,
+                                        _devicename,
+                                        _appversion,
+                                        _sdk,
+                                        _name,
+                                        _ph,
+                                        _email,
+                                        _city,
+                                        _state,
+                                        _ctry,
+                                        _pc,
+                                        _lat,
+                                        _lng,
+                                        _fr,
+                                        _authorized,
+                                        "appdata");
+
+	            cache.setItem("appdata", appItem);
+	            //alert("new");
+	        }
+
+	        //WS
+	        //alert("AppID: " + cache.getItem("appdata").name);
+
+	        //var appItem = cache.getItem("appdata");
+	        //appItem.areacode = "qqq";
+	        //cache.setItem("appdata", appItem)
+	        //alert(cache.getItem("appdata").areacode);
+
+	        //var url = "http://localhost:5901/assets/www/init.html?appid=00000000-0000-0000-0000-000000000000&appname=WW01&appversion=1|1.0&sdk=10&dn=TOSHIBA&ph=3052546329&email=tvmogul1@yahoo.com&city=Miami&state=FL&ctry=United%20States&pc=33157&lat=0.0&lng=0.0&fr=1&methodName=installData&jsonp=onRSSLoaded";
+	        //var url = window.location.href;
+	        //alert("fr: " + _fr);
+	        //alert(cache.hasItem("appdata"));
+	        //            if ((_fr === "1") && (cache.hasItem("appdata"))) {
+	        //                var url = window.location.href;
+	        //                //url = "http://localhost:5901/assets/www/init.html?appid=00000000-0000-0000-0000-000000000000&appname=WW01&appversion=1|1.0&sdk=10&dn=TOSHIBA&ph=3052546329&email=tvmogul1@yahoo.com&city=Miami&state=FL&ctry=United%20States&pc=33157&lat=0.0&lng=0.0&fr=1&methodName=installData&jsonp=onRSSLoaded";
+	        //                url.replace(/\?.+/, '')
+	        //                alert(url);
+
+	        //                //+ "&methodName=installData&jsonp=onRSSLoaded";  
+	        //                //authorized
+	        //                var url = 'http://www.sergioapps.com/rsshandler.ashx?' + url + '&methodName=installData';  //&jsonp=onRSSLoaded';  
+
+	        //                $.ajax({
+	        //                    type: 'GET',
+	        //                    url: url,
+	        //                    async: false,
+	        //                    contentType: "application/json",
+	        //                    dataType: 'jsonp'
+	        //                });
+	        //            }            
+
+	    }
+
+	    function onRSSLoaded(result, methodName) {
+
+	        //alert(result);
+
+	        //$.each(result, function (i, data) {
+	        //});
+
+	    }
+
+
+	    window.onload = function () {
+	        // AUTHOR: Bill SerGio - Loads data from Java Code into LocalStorage
+	        LoadLocalStorage();
+
+	        // AUTHOR: Bill SerGio - This loads the SQLite Plugin from JavaScript
+	        //LoadSQLitePlugin();
+
+	        //alert("Finished!");
+	        ///////////////////////////////////////////////////////////////////
+	        // AUTHOR: Bill SerGio - This calls into native Java SDK.
+	        // or C++ ndk, code and creates and loads our AdMob Frame in Java
+	        // We load it from this page because this page is never called again.
+	        //LoadAdMobPlugin();
+	        ///////////////////////////////////////////////////////////////////
+	        window.location = "index.html";
+	    };
+
+	    function supports_html5_storage() {
+	        try {
+	            return 'localStorage' in window && window['localStorage'] !== null;
+	        } catch (e) {
+	            return false;
+	        }
+	    }
+	    //if (Modernizr.localstorage) {
+	    //    // window.localStorage is available!
+	    //} else {
+	    //    // no native support for HTML5 storage :(
+	    //    // maybe try dojox.storage or a third-party solution
+	    //}
+
+	    //function generateUUID(){
+	    //    var d = new Date().getTime();
+	    //    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+	    //        var r = (d + Math.random()*16)%16 | 0;
+	    //        d = Math.floor(d/16);
+	    //        return (c=='x' ? r : (r&0x7|0x8)).toString(16);
+	    //    });
+	    //    return uuid;
+	    //};
+    </script>
+
+</head>
+<body>
+</body>
+</html>

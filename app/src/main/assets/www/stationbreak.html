@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
+	<!--<link rel="stylesheet" href="css/mdpi.css" media="only screen and (-webkit-max-device-pixel-ratio:1.0) and (max-device-width:480px)">-->
+	<!--<link rel="stylesheet" href="css/hdpi.css" media="only screen and (-webkit-min-device-pixel-ratio:1.5)">-->
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->   
+    <!-- For Samsung Galaxy S4-5 & larger Screens, use "target-densitydpi=medium-dpi" instead of device-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>www.SerGioApps.com</title> 
+       
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet"  href="css/jquery.mobile.icons-1.4.0.css" />
+	<link rel="stylesheet"  href="css/jqm-icon-pack-fa.css" />
+
+    <link href="js_iscroll/jquery.mobile.iscrollview.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="js_iscroll/demo.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!--<script src="cordova.js" type="text/javascript"></script>-->
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+    <script src="js_iscroll/iscroll.js" type="text/javascript"></script>
+    <script src="js_iscroll/jquery.mobile.iscrollview.js" type="text/javascript"></script>
+
+    <link href="youtube/youtube-video-gallery.css" rel="stylesheet" type="text/css" />
+    <script src="youtube/jquery.youtubevideogallery.js"></script>
+    <script src="js/retina.js" type="text/javascript"></script>
+   
+    <script src="js/jquery.mousewheel.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="youtube/youtube-video-gallery.css" type="text/css"/>
+    <script src="youtube/jquery.youtubevideogallery.js"></script>
+    <script src="js/retina.js" type="text/javascript"></script>
+    <script src="js/jquery.urlvars.js" type="text/javascript"></script>
+
+
+    <script src="js/store.min.js" type="text/javascript"></script>
+    <link id="link_malibudiet" href="" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript">
+
+	    var _themeid_dronestv = "";
+	    if (localStorage["themeid_dronestv"]) {
+	        _themeid_dronestv = localStorage["themeid_dronestv"];
+	    } else {
+	        _themeid_dronestv = "dark";
+	        localStorage["themeid_dronestv"] = "dark";
+	    }
+	    var _path = "themes/" + _themeid_dronestv + ".css";
+	    $("#link_malibudiet").attr("href", _path);
+
+	    var refreshIntervalId;
+	    var g_content_width = 100;
+	    var g_content_height = 100;
+
+	    /* Use this for high compatibility (iDevice + Android)*/
+	    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	    document.addEventListener('DOMContentLoaded', loaded, false);
+	    //document.addEventListener("deviceready", function (e) { }, "false");
+	    document.addEventListener('deviceready', function () {
+	        StatusBar.overlaysWebView(false);
+	        StatusBar.backgroundColorByName('black');
+	    }, false);
+
+	    function loaded() {
+	        screenAdjust();
+	    }
+
+	    $(document).bind("mobileinit", function () {
+	        jQuery.support.cors = true;
+	        jQuery.mobile.allowCrossDomainPages = true;
+	        jQuery.mobile.phonegapNavigationEnabled = true;
+	        jQuery.mobile.defaultDialogTransition = "slide";
+	    });
+
+	    function refreshListView() {
+	        refreshIntervalId = setTimeout("refreshListViewDelayed()", 100);
+	    }
+	    function refreshListViewDelayed() {
+	        clearInterval(refreshIntervalId);
+	        $('#rsslistfetch-ul').listview('refresh');
+	        $(".videowrapper").find(".iscroll-content").resizeWrapper();
+	    }
+
+	    $(document).delegate('.ui-page', 'touchmove', false);
+
+	    $(window).bind('resize', function (e) {
+	        screenAdjust();
+	    });
+
+	    $('#listview').on('click', 'li', function () {
+	        event.preventDefault();
+	    });
+
+	    window.onload = function () {
+
+	        $('#qqq a').on('click touchend', function (e) {
+	            var _link = $(this).attr('data-id');
+	            var link = _link.replace("#", "");
+	            if ((link === 'undefined') || (link === '#') || link.length < 1) {
+	                return;
+	            }
+	            else if (link === "shop") {
+	                window.open("http://www.sergioapps.com/storefront.html#/store", "_blank");
+	            }
+	            else if (link === "statiobreaktv") {
+	                window.open("http://www.stationbreaktv.com/mobile/index.html", "_blank");
+	            }
+	            else if (link === "youtube") {
+	                var _videolink = "1Tv6XjeeVqM";
+	                localStorage.setItem("videotype", "embed");
+	                localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list='" + _videolink + "'&format=5");
+	                localStorage.setItem("videodesc", "");
+	                window.location = "./videoplayer.html";
+	            }
+	            else if (link === "sol_") {
+	                store.set('rss_ads', {
+	                    cat: 'sol_',
+	                    start_index: 0
+	                });
+	                window.location = "./breakthroughs2.html";
+	            }
+	        });
+
+	    };
+
+        ////var arBGs = ["img/bg_stone.jpg", "img/bg_stone2.jpg", "img/bg_buuf.jpg", "img/bg_earth.jpg", "img/bg_clouds.jpg", "img/bg_wood.jpg", "img/bg_wood2.jpg"];
+        //var _bgImage = "img/bg_wood.jpg";
+        //document.getElementById("#mainPage").style.backgroundImage = "url(" + _bgImage + ")";
+        //document.getElementById("#mainPage").style.backgroundSize = "cover"; //100% 100%;
+</script>
+
+<style>
+    
+    .ui-page {
+         background: transparent url(img/bg_wood.jpg);
+         background-size:100% 100%; 
+         background-repeat:no-repeat;
+        background-position:center center; 
+    }
+    }
+    .ui-content{
+        background: transparent;
+    }
+    
+    /* portrait */
+    @media screen and (orientation:portrait) {
+        /* portrait-specific styles */
+        #footer {
+            display:block;
+        } 
+    }
+    /* landscape */
+    @media screen and (orientation:landscape) {
+        /* landscape-specific styles */
+        #footer {
+            display:none;
+        } 
+    }
+
+
+    #wrapper_controls {
+        width: 90% !important;
+        height: 100% !important;
+        margin: 0 auto !important;
+        top: 0 !important;
+    }        
+
+    #qscroller {
+        display: block;
+        -webkit-border-radius: 0px;
+        -moz-border-radius: 0px;
+        border-radius: 0px;
+        background-color: #fff;
+        border-color: #fff;
+        margin: 0 auto !important;
+        height:100% !important;
+        top: 0 !important;
+        width:100%;
+    }
+	 
+    .ui-content {
+        position: fixed;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        height: 100%;
+        overflow: hidden;
+        right: 0 !important;
+        left: 0 !important;
+        top: 0 !important;
+        overflow: hidden !important;
+    } 
+
+    #header_logo {
+        padding-top:4px;    
+    }
+    
+    .ui-header {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width: 0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;
+    }
+    .ui-footer {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width: 0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;
+    }
+    footer {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width: 0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;
+        font-style:normal !important;
+    }
+        
+        .ui-navbar ul {
+        margin-top: 2px !important;
+        height: 54px !important;
+    }
+
+    .navbar li {
+        margin-top: -6px !important;
+        height: 54px !important;
+        margin-bottom: 6px !important;
+        padding: 0px 0px 6px 0px !important;
+    }
+
+    .navbar li {
+        margin-top: -6px !important;
+        height: 54px !important;
+        margin-bottom: 6px !important;
+        padding: 0px 0px 6px 0px !important;
+    }
+        
+    .navbar li a {
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-weight: normal; 
+        letter-spacing: 0.04em;         
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+        
+    .bcolor_purple {
+        border-bottom: 6px solid #b753d8 !important;
+    }
+    .bcolor_green {
+        border-bottom: 6px solid #6bc356 !important;
+    }
+    .bcolor_mustard {
+        border-bottom: 6px solid #fab903 !important;
+    }
+    .bcolor_red {
+        border-bottom: 6px solid #e94739 !important;
+    }
+    .bcolor_blue {
+        border-bottom: 6px solid #427fed !important;
+    }
+    .center-wrapper {
+      text-align: center;
+    }
+    .center-wrapper * {
+      margin: 0 auto;
+    }  
+
+    /* Buttons */
+    header .ui-btn-corner-all,
+    header .ui-btn.ui-corner-all,
+    header .ui-btn-corner-all,
+    header .ui-corner-all {
+	    corner: true;
+    }
+
+    header {
+        clear: left;
+        box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -moz-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -webkit-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+    }
+    
+    /* DO NOT REMOVE THIS !!! */
+    .iscroll-scroller {
+        min-width: 100% !important;
+    }     
+</style>
+</head>
+<body>
+
+    <div data-role="page" id="mainPage">
+
+        <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom:4px solid #e2bd86 !important;">
+            <a data-icon="home" class="ui-btn-green-left" data-theme="a" style="margin-top:8px;" href="index.html" rel="external">Home</a>
+            <div class="center-wrapper"><img id="header_logo" src="img/header_logo.png" alt="Wild Workout" style="margin-top:0px;"></div>
+            <a href="#" data-rel="back" data-icon="arrow-l" class="ui-btn-right ui-btn-back" data-theme="a" style="margin-top:8px;">Back</a>
+        </header>
+        
+
+        <div id="qqq" data-role="content">
+            <div style="margin:70px auto 0px auto;" class="center-wrapper">
+
+                <a style="margin-top: 8px; width:80%;" href="#sol_" data-role="button" data-id="sol_" data-theme="a">Newest Things on The Web</a>
+                <a style="margin-top: 8px; width:80%;" href="#youtube" data-role="button" data-id="youtube" data-theme="a">StationBreak Videos</a>
+                <a style="margin-top: 8px; width:80%;" href="#statiobreaktv" data-role="button" data-id="statiobreaktv" data-theme="a">StationBreak Website</a>
+                <a style="margin-top: 8px; width:80%;" href="#shop" data-role="button" data-id="shop" data-theme="a">Buy TV Time</a>
+
+            </div>
+	    </div>
+
+        <footer data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+            <div class="navbar" data-role="navbar" data-theme="a">
+                <ul>
+                    <li class="bcolor_purple"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_green"><a href="#rssmobi" data-icon="rss">Feeds</a></li>
+                    <li class="bcolor_mustard"><a href="#games" data-icon="gamepad">Games</a>
+                    <li class="bcolor_red"><a href="#shop" data-icon="shop">Shop</a></li>
+                    <li class="bcolor_blue"><a href="#cool" data-icon="coffee">Cool</a></li>
+
+                    <!--<li class="bcolor_purple"><a href="#sol_" data-icon="search">Cures?</a></li>
+                    <li class="bcolor_green"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_mustard"><a href="#rssmobi" data-icon="rss">Feeds</a>
+                    <li class="bcolor_red"><a href="#shop" data-icon="shop">Shop</a></li>
+                    <li class="bcolor_blue"><a href="#cool" data-icon="coffee">Cool</a></li>-->
+
+                    <!--<li class="bcolor_purple"><a href="#sol_" data-icon="search">Cures?</a></li>
+                    <li class="bcolor_green"><a href="#blogs" data-icon="edit">Blogs</a></li>
+                    <li class="bcolor_mustard"><a href="#cool" data-icon="coffee">Cool</a>
+                    <li class="bcolor_red"><a href="#prev" data-icon="arrow-l">Prev</a></li>
+                    <li class="bcolor_blue"><a href="#next" data-icon="arrow-r">Next</a></li>-->
+                </ul>
+            </div>
+        </footer>
+          
+  </div>     
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+				
+
+
+
+

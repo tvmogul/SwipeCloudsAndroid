@@ -1,0 +1,1210 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
+	<!--<link rel="stylesheet" href="css/mdpi.css" media="only screen and (-webkit-max-device-pixel-ratio:1.0) and (max-device-width:480px)">-->
+	<!--<link rel="stylesheet" href="css/hdpi.css" media="only screen and (-webkit-min-device-pixel-ratio:1.5)">-->
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->   
+    <!-- For Samsung Galaxy S4-5 & larger Screens, use "target-densitydpi=medium-dpi" instead of device-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>www.SerGioApps.com</title>  
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <!-- <script src="js/singleton.js" type="text/javascript"></script>-->
+    <!--<script type="text/javascript" src="js/index.js"></script>-->  
+                   
+	<!-- jQuery Mobile CSS bits -->
+	<!--<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="hdpi.css" />
+    <link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="mdpi.css" />
+    <link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 0.75)" href="ldpi.css" />-->
+
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery.mobile.icons-1.4.5.css" rel="stylesheet" type="text/css" />
+    <link href="css/jqm-icon-pack-fa.css" rel="stylesheet" type="text/css" />
+
+    <link href="js_iscroll/jquery.mobile.iscrollview.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="js_iscroll/demo.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+    <script src="js_iscroll/iscroll.js" type="text/javascript"></script>
+    <script src="js_iscroll/jquery.mobile.iscrollview.js" type="text/javascript"></script>
+
+    <script src="js/json2.js"></script>                     
+    <script src="js/jstorage.js"></script>   
+           
+    <!-- Application JS files -->   
+    <script src="js_qrcode/UrlItem.js" type="text/javascript"></script>
+    <script src="js/CacheManager.js" type="text/javascript"></script>      
+    <script src="js_qrcode/UrlManager.js" type="text/javascript"></script>
+    <script src="js/common.js" type="text/javascript"></script>
+    <script src="js_qrcode/urlList.js" type="text/javascript"></script>
+    <!--<script src="js_qrcode/jquery.qrcode.js" type="text/javascript"></script>-->
+    <!--<script src="js_qrcode/qrcode.js" type="text/javascript"></script>-->
+    <script src="js_qrcode/jquery.qrcode.min.js" type="text/javascript"></script>      
+
+<!--    <link href="js_qrcode/stroll.min.css" rel="stylesheet" type="text/css" />
+    <script src="js_qrcode/stroll.min.js" type="text/javascript"></script>-->
+
+    <script src="js/fastclick.js"></script>
+
+    <script src="js/general.js" type="text/javascript"></script>
+    <script src="js/store.min.js" type="text/javascript"></script>
+    <link id="link_malibudiet" href="" rel="stylesheet" type="text/css" />
+       
+    <style type="text/css">  
+        
+    html, body {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        overflow: hidden !important;
+    } 
+    
+    html { 
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0px;
+    }
+              
+    body {
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+    	font-size: 1.1em;
+	    line-height: 1.1em;
+        font-weight: normal; 
+        letter-spacing: -0.03em; 
+        background-color: #252525 !important;
+        background-repeat: no-repeat;
+        text-decoration: none;
+    }
+      
+    .ui-header {
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 999999999999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    .ui-footer {
+        display: block !important;
+        width: 100% !important;
+        height: 50px !important;
+        z-index: 99999 !important;
+        padding: 0px !important;
+        margin: 0 !important;
+        border-left-width:  0 !important;
+        border-right-width: 0 !important;
+        border: 0 !important;    
+    }
+    
+    .ui-page, .ui-page-fullscreen{
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+    }
+
+    .ui-content {
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        outline: 0 !important;
+        left: 0 !important;
+    } 
+
+    .ui-page, .ui-page-fullscreen {
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important;
+    }
+   
+   .zclear {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+   }    
+   
+    .ui-li-aside{
+        content:'';
+        width:50px !important;
+        padding-top:-2px !important;
+        padding-right:8px !important;    
+        vertical-align:top;
+        font-size:.8em;
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        font-weight: normal;
+        font-style: normal;    
+        position:absolute;
+        float:right;
+        right:8px;
+        top:-2px;
+        color:#ff0000;
+        display: none !important;
+    }  
+
+    .imgtime {
+        z-index:99999;
+        position:absolute;
+        bottom:26px;
+        left:58px;
+        float:left;   
+        font: Helvetica, Arial, sans-serif;
+        font-size:.8em;
+        text-decoration:none;
+        font-variant:normal;
+        font-style:normal;
+        font-weight:normal;
+        color:White;
+        display: none !important;       
+    }
+
+
+  
+
+    /* rounded image styles youtube-videogallery-img */   
+    .rounded-img, .ui-li-icon {
+        float: left;
+        top: 1px;
+        padding: 0px 0px 0px 0px;
+        margin-top: 6px;
+        margin-left: 24px;
+        width: 54px !important;
+        height: 54px !important;
+	    display: inline-block;
+	    border: none 0px transparent !important;     /* #9CAAC1; */
+	    overflow: hidden; 
+	    background-color: transparent !important;
+    }
+
+    .zrounded-img:hover, zimg.ui-li-icon:hover {
+        float: left;
+        top: 0px;
+        padding: 0px 0px 0px 0px;
+        margin-left: 34px;
+        width: 54px !important;
+        height: 54px !important;
+	    display: inline-block;
+	    border: none 0px transparent !important;    /* #9CAAC1; */
+	    overflow: hidden;
+	    -webkit-border-radius: 10px;
+	    -moz-border-radius: 12px;
+	    border-radius: 12px;
+	    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    border:1px solid #ff0000 !important;
+    }
+    
+    .ellipsis {
+        position: absolute;
+        top: 2px;
+        left: 0px;
+        width: 60%;
+        margin: 0px 0px 0px 100px;
+        padding: 0px 0px 0px 0px;
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+        -webkit-font-smoothing: antialiased; 
+        font-size: 1.1em;
+	    line-height: .9em;
+	    font-weight: normal;
+        font-style: normal;
+        display: list-item;
+        white-space:nowrap !important;
+        background-color: transparent !important;
+    }
+    
+    .ellipsis2 {
+        position: absolute;
+        top: 26px;
+        left: 0px;
+        width: 60%;
+        height: 70px !important;
+        margin: 0px 0px 0px 100px;
+        padding: 0px 0px 0px 0px;   
+        font-family: "Calibri", Arial, Helvetica, sans-serif;   
+        font-size: .8em;
+        font-weight: normal;
+        font-style: normal;
+        display: list-item;
+        text-overflow: ellipsis;
+        overflow: ellipsis;
+        white-space: normal;  
+        text-decoration: inherit;
+        -webkit-font-smoothing: antialiased;
+        vertical-align: top;
+        line-height: 1.0em;
+        text-align: left;
+        background-color: transparent !important;
+    }
+    
+    .ellipsis3 {
+        position: absolute;
+        top: 54px;
+        left: 0px;
+        width: 60%;
+        height: 70px !important;
+        margin: 0px 0px 0px 100px;
+        padding: 0px 0px 0px 0px;   
+        font-family: "Calibri", Arial, Helvetica, sans-serif;   
+        font-size: .8em;
+        font-weight: normal;
+        font-style: normal;
+        display: list-item;
+        text-overflow: ellipsis;
+        overflow: ellipsis;
+        white-space:nowrap !important;
+        text-decoration: inherit;
+        -webkit-font-smoothing: antialiased;
+        vertical-align: top;
+        line-height: 1.0em;
+        text-align: left;
+        background-color: transparent !important;
+    }
+    
+    #zvideowrapper ul li, #zvideowrapper li {
+        z-index:1 !important;
+        border-bottom: 1px solid #464954;
+        border-top: 1px solid #464954;
+
+    }
+    
+    .center-wrapper {
+      text-align: center;
+    }
+    .center-wrapper * {
+      margin: 0px auto 0px auto;
+    }     
+    
+    
+    .bcolor_purple {
+        border-bottom: 6px solid #b753d8 !important;
+    }
+    .bcolor_green {
+        border-bottom: 6px solid #6bc356 !important;   
+    }
+    .bcolor_mustard {
+        border-bottom: 6px solid #fab903 !important;      
+    }
+    .bcolor_red {
+        border-bottom: 6px solid #e94739 !important;       
+    }
+    .bcolor_blue {
+        border-bottom: 6px solid #427fed !important;        
+    }
+ 
+    .ui-li-divider {
+        line-height:60px !important;
+        text-decoration: none;
+        white-space:nowrap;
+    }
+    .ui-li-divider img {
+        max-width: 300px;
+        max-height: 60px;
+        padding-top: 0px!important;
+    }
+
+    .ui-navbar ul, .ui-navbar2 ul, .ui-navbar3 ul, .ui-navbar4 ul, .ui-navbar5 ul, .ui-navbar6 ul {
+        margin-top: 2px !important;
+        height: 54px !important;
+    }
+    
+    #navbar li, #navbar2 li, #navbar3 li, #navbar4 li, #navbar5 li, #navbar6 li {
+        margin-top: -6px !important;
+        height: 54px !important;
+        margin-bottom: 6px !important;
+        padding: 0px 0px 6px 0px !important;
+    }
+        
+    #navbar li a, #navbar2 li a, #navbar3 li a, #navbar4 li a, #navbar5 li a, #navbar6 li a  {
+        font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        font-weight: normal; 
+        letter-spacing: 0.04em;         
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+        
+       
+    .feed_wrapper li {
+        float: left;
+        padding-right: 40px !important;
+        width: 100% !important;
+    }
+
+    .category_header {
+        float: left;
+        padding-top: 12px !important;
+        padding-left: 12px !important;
+    }
+
+    header {
+        clear: left;
+        box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -moz-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        -webkit-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+    }
+    
+    /* DO NOT REMOVE THIS !!! */
+    .iscroll-scroller {
+        min-width: 100% !important;
+    }  
+    
+    
+    
+    
+    
+    
+    
+    
+    #bars-button {
+        margin:1px;
+    }
+     
+   
+    /* Swipe works with mouse as well but often causes text selection. */
+    #listPage * {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+    }
+       
+    .split-custom-wrapper {
+        /* position wrapper on the right of the listitem */
+        position: absolute;
+        right: 10px;  /* padding for scrollbars !!! */
+        top: 0;
+        height: 100%;
+    }
+
+    .split-custom-button {
+        position: relative;
+        float: right;   /* allow multiple links stacked on the right */
+        height: 100%;
+        margin:0;
+        min-width:3em;
+        /* remove boxshadow and border */
+        border:none;
+        moz-border-radius: 0;
+        webkit-border-radius: 0;
+        border-radius: 0;
+        moz-box-shadow: none;
+        webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    .split-custom-button span.ui-btn-inner {
+        /* position icons in center of listitem*/
+        position: relative;
+        margin-top:50%;
+        margin-left:50%;
+        /* compensation for icon dimensions */
+        top:11px; 
+        left:-12px;
+        height:40%; /* stay within boundaries of list item */
+    }
+
+       
+    .wordwrap {
+        /* wrap long text and urls */
+        white-space: pre; /* CSS 2.0 */
+        white-space: pre-wrap; /* CSS 2.1 */
+        white-space: pre-line; /* CSS 3.0 */
+        white-space: -pre-wrap; /* Opera 4-6 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        white-space: -moz-pre-wrap; /* Mozilla */
+        word-wrap: break-word; /* IE 5+ */
+    } 
+    
+
+    .wrap_form_text {
+        /* wrap long text and urls */
+        white-space: pre; /* CSS 2.0 */
+        white-space: pre-wrap; /* CSS 2.1 */
+        white-space: pre-line; /* CSS 3.0 */
+        white-space: -pre-wrap; /* Opera 4-6 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        white-space: -moz-pre-wrap; /* Mozilla */
+        word-wrap: break-word; /* IE 5+ */
+    }
+    textarea {
+        min-height: 60px !important;
+    }
+    
+    #qrcontent {
+        margin: 0 !important;
+        padding: 18px 0px 8px 0px !important;
+        border: 0 !important;
+        outline: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 1100px !important;
+        background-color: #ffffff !important;
+        color: #000 !important;
+    } 
+ 
+    #url_text {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        width: 256px !important;
+    } 
+ 
+    #editdisplay {
+        width: 90% !important;
+        height: 1100px !important;
+    } 
+    
+
+    #rsslistfetch-ul li ui-li-static {
+        height: 40px !important;
+    }       
+    
+    /* 24px Sets height of edit & delete buttons in listview!!! */
+    #rsslistfetch-ul li a, #feeditems-ul a, .youtube-videogallery a {
+        height: 24px !important; 
+    }   
+    .split-custom-wrapper {
+        max-height: 24px !important; 
+    }     
+    
+    #link_wrapper {
+        padding: 0px !important;
+    }  
+    
+    /*
+    .ui-li>.ui-btn-inner {
+      padding-top: 10px
+      padding-bottom: 10px
+    }
+    */
+
+    #removeUrl, #removeAllUrls {
+        border: 1px solid #721414;
+        background: #AB2525;
+        font-weight: normal;
+        color: #fff;
+        text-shadow: 0 -1px 1px #000;
+        background-image: -moz-linear-gradient(top, #C54E4E, #AB2525);
+        background-image: -webkit-gradient(linear,left top,left bottom,
+            color-stop(0, #C54E4E),
+            color-stop(1, #AB2525));
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#C54E4E', EndColorStr='#AB2525')";
+	    -webkit-border-radius: 10px;
+	    -moz-border-radius: 12px;
+	    border-radius: 12px;
+	    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, .8);
+	    box-shadow: 0 1px 6px rgba(0, 0, 0, .8);   
+	    background-color: transparent !important;
+	    margin: 0 auto;
+	    height: 20px !important;
+	    text-align:center;
+    }
+
+    #removeUrl:hover, #removeAllUrls:hover {
+        border: 1px solid #6E0000;
+        background: #B64B4B;
+        font-weight: normal;
+        color: #fff;
+        text-shadow: 0 -1px 1px #000;
+        background-image: -moz-linear-gradient(top, 
+            #D47272, 
+            #B64B4B);
+        background-image: -webkit-gradient(linear,left top,left bottom,
+            color-stop(0, #D47272),
+            color-stop(1, #B64B4B));
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#D47272', EndColorStr='#B64B4B')";
+    }
+
+    #removeUrl:down, #removeAllUrls:down {
+        border: 1px solid #772222;
+        background: #C54E4E;
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 0 -1px 1px #000;
+        background-image: -moz-linear-gradient(top, #9E3939, #C54E4E);
+        background-image: -webkit-gradient(linear,left top,left bottom,
+            color-stop(0, #9E3939),
+            color-stop(1, #C54E4E));
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#9E3939', EndColorStr='#C54E4E')";
+    }
+           
+           
+    #zvideowrapper {
+        padding-top: 0px !important;
+        height: 100% !important;
+    }
+    
+    #zvideowrapper ul li, #zvideowrapper li {
+        max-height: 70px !important;
+        z-index:1 !important;
+        border-bottom: 1px solid #464954;
+        border-top: 1px solid #464954;
+    }
+
+    .ui-listview>.ui-li-has-thumb>.ui-btn, .ui-listview>.ui-li-static.ui-li-has-thumb {
+      min-height: 2.940em;
+      padding-left: 6.00em;
+    }
+    
+    
+    
+    /*
+    .ui-btn-inner{
+    text-overflow: initial; /* Get rid of the ellipsis 
+    padding-left: 5px; /* Play with padding to make max use of available button width 
+    }
+    */
+    
+    #footer6 .ui-btn {
+        font-size: 1.0em !important;
+    }
+
+
+    .btnscan {
+	    -moz-box-shadow:inset 0px 1px 0px 0px #f5978e;
+	    -webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;
+	    box-shadow:inset 0px 1px 0px 0px #f5978e;
+	    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f) );
+	    background:-moz-linear-gradient( center top, #f24537 5%, #c62d1f 100% );
+	    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24537', endColorstr='#c62d1f');
+	    background-color:#f24537;
+	    -webkit-border-top-left-radius:20px;
+	    -moz-border-radius-topleft:20px;
+	    border-top-left-radius:20px;
+	    -webkit-border-top-right-radius:20px;
+	    -moz-border-radius-topright:20px;
+	    border-top-right-radius:20px;
+	    -webkit-border-bottom-right-radius:20px;
+	    -moz-border-radius-bottomright:20px;
+	    border-bottom-right-radius:20px;
+	    -webkit-border-bottom-left-radius:20px;
+	    -moz-border-radius-bottomleft:20px;
+	    border-bottom-left-radius:20px;
+	    text-indent:0;
+	    border:1px solid #d02718;
+	    display:inline-block;
+	    color: #fff !important;
+	    font-family:Arial;
+	    font-size:18px !important;
+	    font-weight:bold;
+	    font-style:normal;
+	    height:50px;
+	    line-height:50px;
+	    width:110px;
+	    text-decoration:none;
+	    text-align:center;
+    }
+    .btnscan:hover {
+	    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537) );
+	    background:-moz-linear-gradient( center top, #c62d1f 5%, #f24537 100% );
+	    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537');
+	    background-color:#c62d1f;
+	    color: #fff !important;
+    }.btnscan:active {
+	    position:relative;
+	    top:1px;
+	    color: #fff !important;
+    }
+
+    .btnlookupscan {
+	    -moz-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
+	    -webkit-box-shadow:inset 0px 1px 0px 0px #c1ed9c;
+	    box-shadow:inset 0px 1px 0px 0px #c1ed9c;
+	    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9dce2c), color-stop(1, #8cb82b) );
+	    background:-moz-linear-gradient( center top, #9dce2c 5%, #8cb82b 100% );
+	    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#9dce2c', endColorstr='#8cb82b');
+	    background-color:#9dce2c;
+	    -webkit-border-top-left-radius:20px;
+	    -moz-border-radius-topleft:20px;
+	    border-top-left-radius:20px;
+	    -webkit-border-top-right-radius:20px;
+	    -moz-border-radius-topright:20px;
+	    border-top-right-radius:20px;
+	    -webkit-border-bottom-right-radius:20px;
+	    -moz-border-radius-bottomright:20px;
+	    border-bottom-right-radius:20px;
+	    -webkit-border-bottom-left-radius:20px;
+	    -moz-border-radius-bottomleft:20px;
+	    border-bottom-left-radius:20px;
+	    text-indent:0;
+	    border:1px solid #83c41a;
+	    display:inline-block;
+	    color:#fff !important;
+	    font-family:Arial;
+	    font-size:18px !important;
+	    font-weight:bold;
+	    font-style:normal;
+	    height:50px;
+	    line-height:50px;
+	    width:120px;
+	    text-decoration:none;
+	    text-align:center;
+    }
+    .btnlookupscan:hover {
+	    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #8cb82b), color-stop(1, #9dce2c) );
+	    background:-moz-linear-gradient( center top, #8cb82b 5%, #9dce2c 100% );
+	    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#8cb82b', endColorstr='#9dce2c');
+	    background-color:#8cb82b;
+	    color:#fff !important;
+    }.btnlookupscan:active {
+	    position:relative;
+	    top:1px;
+	    color:#fff !important;
+    }
+    
+    .btnencode {
+	    -moz-box-shadow:inset 0px 1px 0px 0px #f5978e;
+	    -webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;
+	    box-shadow:inset 0px 1px 0px 0px #f5978e;
+	    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f) );
+	    background:-moz-linear-gradient( center top, #f24537 5%, #c62d1f 100% );
+	    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24537', endColorstr='#c62d1f');
+	    background-color:#f24537;
+	    -webkit-border-top-left-radius:20px;
+	    -moz-border-radius-topleft:20px;
+	    border-top-left-radius:20px;
+	    -webkit-border-top-right-radius:20px;
+	    -moz-border-radius-topright:20px;
+	    border-top-right-radius:20px;
+	    -webkit-border-bottom-right-radius:20px;
+	    -moz-border-radius-bottomright:20px;
+	    border-bottom-right-radius:20px;
+	    -webkit-border-bottom-left-radius:20px;
+	    -moz-border-radius-bottomleft:20px;
+	    border-bottom-left-radius:20px;
+	    text-indent:0;
+	    border:1px solid #d02718;
+	    display:inline-block;
+	    color: #fff !important;
+	    font-family:Arial;
+	    font-size:18px !important;
+	    font-weight:bold;
+	    font-style:normal;
+	    height:50px;
+	    line-height:50px;
+	    width:110px;
+	    text-decoration:none;
+	    text-align:center;
+    }
+    .btnencode:hover {
+	    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537) );
+	    background:-moz-linear-gradient( center top, #c62d1f 5%, #f24537 100% );
+	    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537');
+	    background-color:#c62d1f;
+	    color: #fff !important;
+    }.btnencode:active {
+	    position:relative;
+	    top:1px;
+	    color: #fff !important;
+    }    
+</style>
+    <script type="text/javascript">
+
+	var scanObject = { 'scanresults': '', 'format': '', 'cancelled': true };
+	localStorage.setItem('scanObject', JSON.stringify(scanObject));
+	//var retrievedObject = localStorage.getItem('scanObject');
+	//var x = JSON.parse(scanObject);
+	//alert(x.scanresults + '\n' + x.format + '\n' + x.cancelled);
+
+	var _themeid_dronestv = "";
+	if (localStorage["themeid_dronestv"]) {
+	    _themeid_dronestv = localStorage["themeid_dronestv"];
+	} else {
+	    _themeid_dronestv = "dark";
+	    localStorage["themeid_dronestv"] = "dark";
+	}
+	var _path = "themes/" + _themeid_dronestv + ".css";
+	$("#link_malibudiet").attr("href", _path);
+
+	var refreshIntervalId;
+	var g_content_width = 100;
+	var g_content_height = 100;
+
+	var custom_event = '';
+	$(document).on("mobileinit", function () {
+	    custom_event = $.support.touch ? "vclick" : "click";
+	});
+
+	/* Use this for high compatibility (iDevice + Android)*/
+	document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	document.addEventListener('DOMContentLoaded', loaded, false);
+	document.addEventListener('deviceready', function (e) {
+	}, false);
+
+	function loaded() {
+	    screenAdjust();
+	}
+
+	$(document).bind("mobileinit", function () {
+	    jQuery.support.cors = true;
+	    jQuery.mobile.allowCrossDomainPages = true;
+	    jQuery.mobile.phonegapNavigationEnabled = true;
+	    jQuery.mobile.defaultDialogTransition = "slide";
+	});
+
+	$(document).delegate('.ui-page', 'touchmove', false);
+
+	$(window).bind('resize', function (e) {
+	    screenAdjust();
+	    //$("#panel_controls").trigger("updatelayout");
+	});
+
+	function screenAdjust() {
+	    g_content_width = window.innerWidth;
+	    g_content_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height() - 0);
+	    var orientation = "portrait";
+	    if (window.orientation == -90 || window.orientation == 90) orientation = "landscape";
+	    if (orientation == "portrait") {
+	        g_content_height = ($(window).height() - 100);
+	    }
+	    else {
+	        g_content_height = ($(window).height() - 100);
+	    }
+	}
+
+	$('#listview').on('click', 'li', function () {
+	    event.preventDefault();
+	});
+
+	$(document).ready(function () {
+	    //$("div.ui-btn-inner").click(function () {
+	    //	$(".ui-btn-inner").removeClass("red");
+	    //	$(this).addClass("red", 1000);
+
+	    //});
+	});
+
+	window.onload = function () {
+	    //By default jQM always makes an AJAX request for pages even if you've already visited it before. 
+	    //If so you will need to set reloadPage to true when you call $.mobile.changePage 
+	    //if you need to refresh the page - otherwise the page will be stale.
+	    //then only will jQM not reload pages.
+	    $.mobile.page.prototype.options.domCache = true;
+
+	    screenAdjust();
+
+//	    $("[data-role=header]").fixedtoolbar({ tapToggle: false });
+//	    $("[data-role=footer]").fixedtoolbar({ tapToggle: false });
+
+
+	};
+
+	function refreshListView() {
+	    refreshIntervalId = setTimeout("refreshListViewDelayed()", 100);
+	}
+	function refreshListViewDelayed() {
+	    clearInterval(refreshIntervalId);
+	    $('#youtube-videogallery').listview('refresh');
+	    $(".videowrapper").find(".iscroll-content").resizeWrapper();
+	}
+
+	//document.addEventListener("backbutton", function (e) {
+	//    if ($.mobile.activePage.is('#mainPage')) {
+	//        e.preventDefault();
+	//        navigator.app.exitApp();
+	//    }
+	//    else {
+	//        navigator.app.backHistory()
+	//    }
+	//}, false);
+
+	$(document).delegate('header a', 'click touchend', function (e) {
+	    //e.preventDefault();
+	    //e.stopPropagation();
+	    var link = $(this).attr('href');
+	    //alert(link);
+	    if (link == "#home") {
+	        window.location = "./ads.html";
+	    }
+	    else if (link == "#back") {
+	        history.back();
+	    }
+	    else if (link == "#qrurl") {
+	        window.location = "./qrurl.html";
+	    }
+	    else if (link == "#back_from_player") {
+	        history.back();
+	    }
+	    else if (link == "#scaninfo") {
+	        var _videolink = "stationbreaktv";
+	        localStorage.setItem("videotype", "embed");
+	        localStorage.setItem("videolink", "http://www.youtube.com/embed?listType=search&amp;list=HppJHKwCGCo&format=5");
+	        localStorage.setItem("videodesc", "FREE Movie Channels");
+	        window.location = "./videoplayer.html";
+	    }
+	    else if (link == "#qrcodelist") {
+	        window.location = "./qrurl.html#listPage";
+	    }
+	    else if (link == "#unlock") {
+	        window.location = "./In_App_BuyNow.html";
+	    }
+	    else if (link == "#encode") {
+	        window.location = "./encode.html#mainPage";
+	    } 
+	    return false;
+	});
+
+	$(document).delegate('footer a', 'click touchend', function () {
+	    var link = $(this).attr('href');
+	    if (link == "#back") {
+	        history.back();
+	    }
+	    else if (link == "#go_scan") {
+	        window.location = "./qrurl.html#mainPage";
+	    }
+	    else if (link == "#go_history") {
+	        window.location = "./qrurl.html#listPage";
+	    }
+	    else if (link == "#go_create") {
+	        window.location = "./qrurl.html#addEditPage";
+	    }
+	});
+
+
+	$(document).delegate('.btnscan', 'click', function () {
+	    event.preventDefault();
+	    //event.stopPropagation();
+	    startScan();
+	});
+
+	$(document).delegate('.btnlookupscan', 'click', function () {
+	    scanObject = localStorage.getItem('scanObject');
+	    var x = JSON.parse(scanObject);
+	    //alert(x.scanresults + '\n' + x.format + '\n' + x.cancelled);
+
+	    if (x.format == 'QR_CODE') {
+	        window.open(zurl, '_blank');
+	    }
+	    else if (x.scanresults.length > 0) {
+	        window.open('https:www.google.com/search?q=' + x.scanresults + '&gws_rd=ssl', '_blank');
+	    }
+	    else {
+	        alert("No Scan Results to lookup!");
+	    }
+	    return false;
+	});
+
+	function startScan() {
+	    //event.preventDefault();
+	    scanObject = { 'scanresults': '', 'format': '', 'cancelled': true };
+	    localStorage.setItem('scanObject', JSON.stringify(scanObject));
+	    //var retrievedObject = localStorage.getItem('scanObject');
+	    //var x = JSON.parse(scanObject);
+	    //alert(x.scanresults + '\n' + x.format + '\n' + x.cancelled);
+
+	    cordova.plugins.barcodeScanner.scan(
+		    function (result) {
+		        scanObject = { 'scanresults': result.text, 'format': result.format, 'cancelled': result.cancelled };
+		        localStorage.setItem('scanObject', JSON.stringify(scanObject));
+		        //$.mobile.changePage("#displayScan");
+		        //window.location = "./qrurl.html#displayScan";
+		        //e.preventDefault();
+		        //scanObject = { 'scanresults': '', 'format': '', 'cancelled': true };
+		        //localStorage.setItem('scanObject', JSON.stringify(scanObject));
+		        //scanObject = localStorage.getItem('scanObject');
+		        //var x = JSON.parse(scanObject);
+		        //alert(x.scanresults + '\n' + x.format + '\n' + x.cancelled);
+
+		        $('#scan_result').text(result.text);
+		        $('#scan_format').text(result.format);
+		        var urlManager = UrlManager.getInstance();
+		        if ((!result.cancelled) && (result.format.length > 0) && (result.text.length > 0)) {
+                    try {
+		                var _time = (new Date()).getDate() + "-" + ((new Date()).getMonth() + 1) + "-" + (new Date()).getFullYear();
+		                var _title = "Scan " + scanObject.format + " " + _time;
+		                var urlItem = new UrlItem(_title || '',
+                                              result.text || '',
+                                              result.format || '',
+                                              _time || '',
+                                              "Url_" + (new Date()).getTime() || '');
+		                urlManager = UrlManager.getInstance();
+		                urlManager.saveUrl(urlItem);
+                    } catch(e) {
+                        alert("Failed: " + e);
+                    }
+		        }
+		        else {
+		            $('#scan_result').text('');
+		            $('#scan_format').text('');
+		        }
+		    },
+		    function (error) {
+		        alert("Scanning failed: " + error);
+		        //$('#scan_result').text('');
+		        //$('#scan_format').text('');
+		        //scanObject = { 'scanresults': '', 'format': '', 'cancelled': true };
+		        //localStorage.setItem('scanObject', JSON.stringify(scanObject));
+		        //$.mobile.changePage("#mainPage");
+		        //window.location = "./qrurl.html#mainPage";
+		    }
+	    );
+	}
+
+	function sayHelloSuccess(data) {
+	    //alert("OK: " + data);
+	}
+
+	function sayHelloFailure(data) {
+	    //alert("FAIL: " + data);
+	}
+
+	$('.ui-btn-text').css('font-size', '1.9em !important');
+
+
+</script>
+
+</head>
+<body onload="initFastButtons();"> 
+<span id="fastclick">  
+             
+    <div data-role="page" id="listPage">
+            <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom: 4px solid #6bc356 !important;   ">
+                <a href="#home" data-role="button" data-icon="home" data-theme="a" class="ui-btn-left" style="margin-top:8px;">Home</a>    
+                <div class="center-wrapper"><img id="header_logo" src="img/header_logo.png" alt="Wild Workout" style="margin-top:4px;"></div>
+                <a href="#" id="newPage" data-icon="plus" class="ui-btn-right" data-theme="a" style="margin-top:8px;">New</a>                   
+            </header>
+
+            <div id="zvideowrapper" data-iscroll="{
+                'hScroll':false,
+                'vScroll':true,
+                'resizeEvents':'orientationchange',
+                'resizeWrapper':true, 
+                'mouseWheel': true, 
+                'click': true, 
+                'interactiveScrollbars': true, 
+                'shrinkScrollbars': 'scale'
+                }" data-id="content" data-role="content" data-iscroll>
+                <div id="scroller" style="padding-bottom: 200px !important;">
+                    <ul data-theme="a" id="urlListView" class="youtube-videogallery" data-role="listview" data-inset="false" data-filter="false" style="padding-top: 30px !important;"></ul>
+                </div>
+            </div>
+
+
+        <footer id="footer2" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+            <div id="navbar2" data-role="navbar" class="ui-navbar" role="navigation" data-theme="a">
+                <ul>
+                    <li class="bcolor_purple"><a href="#go_scan" data-icon="camera">Scan</a></li>
+                    <li class="bcolor_green"><a href="#go_history" data-icon="bullets">History</a></li>
+                    <li class="bcolor_mustard"><a href="#go_create" data-icon="edit">Create</a></li>
+                </ul>
+            </div>
+        </footer>
+                     
+        </div>    
+           
+    <div data-role="page" id="qrCodePage">
+            <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom: 4px solid #6bc356 !important;   ">
+                <a href="#home" data-role="button" data-icon="home" data-theme="a" class="ui-btn-left" style="margin-top:8px;">Home</a>
+                <div class="center-wrapper"><img id="Img2" src="img/header_logo.png" alt="Wild Workout" style="margin-top:4px;"></div>
+                <a href="#qrcodelist" data-icon="arrow-l" data-rel="back" data-theme="c" style="margin-top:8px;">Back</a>
+            </header>
+            
+            <div id="qrcontent" class="center-wrapper" data-role="content">
+                <div id="output"></div>
+                <!--<div id="qrcodeCanvas"></div>-->
+                <!--<div id="qrcodeTable"></div>-->
+                <br />
+
+                <div id="ztitle" class="wordwrap"></div>
+                <div id="zscanresults" class="wordwrap"></div>
+                <div id="zformat" class="wordwrap"></div>
+
+            </div>
+
+            <footer data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a" class="center-wrapper">
+                <div id="scan_lookup" class="center-wrapper" style="width: 60% !important;padding-top: 6px !important;">
+                    <a href="#lookup" class="red-button" data-role="button" data-icon="search" id="A4">Lookup Barcode</a>
+                </div>
+            </footer>
+
+        </div> 
+        
+    <div data-role="page" id="addEditPage">
+            <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom: 4px solid #6bc356 !important;   ">
+                <a href="#home" data-role="button" data-icon="home" data-theme="a" class="ui-btn-left" style="margin-top:8px;">Home</a>                        
+                <div class="center-wrapper"><img id="Img1" src="img/header_logo.png" alt="Wild Workout" style="margin-top:4px;"></div>                               
+                <a href="#qrcodelist" data-role="button" data-rel="back" data-icon="back" style="margin-top:8px;">Back</a> 
+            </header>
+
+
+            <div id="Div4" data-iscroll="{
+                'hScroll':false,
+                'vScroll':true,
+                'resizeEvents':'orientationchange',
+                'resizeWrapper':true, 
+                'mouseWheel': true, 
+                'click': true, 
+                'interactiveScrollbars': true, 
+                'shrinkScrollbars': 'scale'
+                }" data-role="content" style="overflow: hidden;" class="ui-content iscroll-wrapper" role="main">
+                <div class="iscroll-scroller" style="padding-top:10px !important;min-height: 1600px; -webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+                    <div class="iscroll-content"> 
+                        <div class="inner_panel center-wrapper" data-role="controlgroup">
+                            <form action="" style="max-width: 85% !important;">
+                                <div style="text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 0px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;padding-bottom: 8px;padding-top:0px;">
+                                    <h2>Create QR Code</h2>
+                                </div>
+                                <p><input type="hidden" id="vid" /></p>
+					            <p><input type="text" name="title" id="title" placeholder="title..." /></p>		
+					            <!--<p><textarea name="desc" id="desc" cols="30" rows="20" placeholder="desc..."></textarea></p>-->
+					            <p><textarea name="url" id="url" cols="30" rows="20" class="wrap_form_text" placeholder="url..."></textarea></p>
+	                            <!--<p><input type="button" value="Save" data-icon="plus" id="saveUrl" /></p>	-->	
+                            </form>	
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <footer id="footer4" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+                <!--<div id="navbar4" data-role="navbar" class="ui-navbar" role="navigation" data-theme="a">
+                    <ul>
+                        <li class="bcolor_red"><a href="#saveUrl" data-icon="save" id="saveUrl">Save Changes</a></li>
+                    </ul>
+                </div>-->
+                <div class="center-wrapper" style="padding-top: 6px !important;">
+                    <a href="#saveUrl" class="red-button" data-role="button" data-icon="save" id="A1">Save Changes</a>
+                </div>
+            </footer>
+
+        </div>        
+        
+    <div data-role="page" id="deletePage">
+            <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom: 4px solid #6bc356 !important;   ">
+                <a href="#home" data-role="button" data-icon="home" data-theme="a" class="ui-btn-left" style="margin-top:8px;">Home</a>
+                <div class="center-wrapper"><img id="Img3" src="img/header_logo.png" alt="Wild Workout" style="margin-top:4px;"></div>
+                <a href="#back" data-icon="arrow-l" data-rel="back" data-theme="a" style="margin-top:8px;">Back</a>
+            </header>
+
+            <div data-role="content">
+                <div class="inner_panel" data-role="controlgroup">  
+                    <h1>Delete URL?</h1>
+                    <p class="center" id="url_prompt">url</p>
+
+                    <div data-role="fieldcontain">
+                        <input type="hidden" name="url_value" id="url_value" value="url" />
+
+                        <div class="ui-block-a">
+                            <a href="#" class="red-button" data-inline="true" data-role="button" data-icon="delete" id="removeUrl">Delete</a>
+
+                            <a href="#listPage" data-icon="back" data-inline="true" data-role="button" class="ui-submit" data-rel="back" data-direction="reverse">Cancel</a>
+                        </div>
+
+                    </div>
+                    <div data-role="fieldcontain">
+                        <div class="center-wrapper">
+                            <a href="#" class="red-button" data-role="button" data-icon="delete" id="removeAllUrls">Remove All Except Defaults</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer id="footer5" data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a">
+                <div id="navbar5" data-role="navbar" class="ui-navbar" role="navigation" data-theme="a">
+                    <ul>
+                        <li class="bcolor_purple"><a href="#go_scan" data-icon="camera">Scan</a></li>
+                        <li class="bcolor_green"><a href="#go_history" data-icon="bullets">History</a></li>
+                        <li class="bcolor_mustard"><a href="#go_create" data-icon="edit">Create</a></li>
+                    </ul>
+                </div>
+            </footer>
+
+        </div> 	             
+        
+
+    <div data-role="page" id="manualLookup">
+        <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom: 4px solid #6bc356 !important;   ">
+            <a href="#home" data-role="button" data-icon="home" data-theme="a" class="ui-btn-left" style="margin-top:8px;">Home</a>                        
+            <div class="center-wrapper"><img id="Img6" src="img/header_logo.png" alt="Wild Workout" style="margin-top:4px;"></div>                               
+            <a href="#qrurl" data-role="button" data-rel="back" data-icon="back" style="margin-top:8px;">Back</a> 
+        </header>
+
+
+        <div id="Div5" data-iscroll="{
+            'hScroll':false,
+            'vScroll':true,
+            'resizeEvents':'orientationchange',
+            'resizeWrapper':true, 
+            'mouseWheel': true, 
+            'click': true, 
+            'interactiveScrollbars': true, 
+            'shrinkScrollbars': 'scale'
+            }" data-role="content" style="overflow: hidden;" class="ui-content iscroll-wrapper" role="main">
+            <div class="iscroll-scroller" style="padding-top:10px !important;min-height: 1600px; -webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+                <div class="iscroll-content"> 
+                    <div class="inner_panel center-wrapper" data-role="controlgroup">
+                        <div style="text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 0px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;padding-bottom: 8px;padding-top:0px;">
+                            <h2>Manual Barcode Lookup</h2>
+                        </div>
+                        <form action="" style="width: 85% !important;">
+					        <p><input type="text" name="searchbarcode" id="searchbarcode" placeholder="Enter code..." /></p>		
+                        </form>	
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a" class="center-wrapper">
+            <div id="keypad_lookupbarcode" class="center-wrapper" style="width: 60% !important;padding-top: 6px !important;">
+                <a href="#lookupbarcode" class="red-button" data-role="button" data-icon="save" id="A5">Lookup Barcode</a>
+            </div>
+        </footer>
+
+    </div>      
+
+    <div data-role="page" id="barcodeFromImage">
+        <header data-id="header" data-position="fixed" data-role="header" data-tap-toggle="false" data-transition="none" data-theme="a" style="border-bottom: 4px solid #6bc356 !important;   ">
+            <a href="#home" data-role="button" data-icon="home" data-theme="a" class="ui-btn-left" style="margin-top:8px;">Home</a>                        
+            <div class="center-wrapper"><img id="Img7" src="img/header_logo.png" alt="Wild Workout" style="margin-top:4px;"></div>                               
+            <a href="#qrurl" data-role="button" data-rel="back" data-icon="back" style="margin-top:8px;">Back</a> 
+        </header>
+
+
+        <div id="Div6" data-iscroll="{
+            'hScroll':false,
+            'vScroll':true,
+            'resizeEvents':'orientationchange',
+            'resizeWrapper':true, 
+            'mouseWheel': true, 
+            'click': true, 
+            'interactiveScrollbars': true, 
+            'shrinkScrollbars': 'scale'
+            }" data-role="content" style="overflow: hidden;" class="ui-content iscroll-wrapper" role="main">
+            <div class="iscroll-scroller" style="padding-top:10px !important;min-height: 1600px; -webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+                <div class="iscroll-content"> 
+                    <div class="inner_panel center-wrapper" data-role="controlgroup">
+                        <div style="text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 0px #ff00de, 0 0 70px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;padding-bottom: 8px;padding-top:0px;">
+                            <h2>Get Barcode from Image</h2>
+                        </div>
+    <img id="barcode" src="barcode.jpg"/>
+    <br/>
+    <button onclick="alert(getBarcodeFromImage('barcode'))">Scan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer data-role="footer" data-tap-toggle="false" data-position="fixed" data-position="bottom" data-theme="a" class="center-wrapper">
+            <div id="Div7" class="center-wrapper" style="width: 60% !important;padding-top: 6px !important;">
+                <a href="#lookupbarcode" class="red-button" data-role="button" data-icon="save" id="A3">Lookup Barcode</a>
+            </div>
+        </footer>
+
+    </div>     
+
+</span>
+</body>
+</html>

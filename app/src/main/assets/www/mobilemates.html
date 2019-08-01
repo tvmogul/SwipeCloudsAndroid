@@ -1,0 +1,715 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=medium-dpi" />
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+    <!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
+    <!--<link rel="stylesheet" href="css/mdpi.css" media="only screen and (-webkit-max-device-pixel-ratio:1.0) and (max-device-width:480px)">-->
+    <!--<link rel="stylesheet" href="css/hdpi.css" media="only screen and (-webkit-min-device-pixel-ratio:1.5)">-->
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <!-- For Samsung Galaxy S4-5 & larger Screens, use "target-densitydpi=medium-dpi" instead of device-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <title>www.SerGioApps.com</title>
+
+    <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery.mobile.icons-1.4.5.css" rel="stylesheet" type="text/css" />
+    <link href="css/jqm-icon-pack-fa.css" rel="stylesheet" type="text/css" />
+
+    <link href="cc/ccvalidate.css" rel="stylesheet" type="text/css" />
+
+    <link href="js_iscroll/jquery.mobile.iscrollview.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="js_iscroll/demo.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <!--<script src="cordova.js" type="text/javascript"></script>-->
+    <!--<script type="text/javascript" src="js/index.js"></script>-->
+
+    <script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+    <script src="js_iscroll/iscroll.js" type="text/javascript"></script>
+    <script src="js_iscroll/jquery.mobile.iscrollview.js" type="text/javascript"></script>
+
+    <script src="js/general.js" type="text/javascript"></script>
+    <script src="js/store.min.js" type="text/javascript"></script>
+    <link id="link_dronestv" href="" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden !important;
+            height: 100%;
+        }
+
+        body {
+            background-color: #000000 !important;
+            padding: 0 0 0 0px;
+            background-repeat: no-repeat;
+            margin: 0px aoto;
+            margin-left: 0px;
+            text-decoration: none;
+            overflow: hidden !important;
+        }
+
+        .ui-content {
+            position: fixed;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: 0 !important;
+            outline: 0 !important;
+            height: 100% !important;
+            right: 0 !important;
+            left: 0 !important;
+            overflow: hidden !important;
+        }
+
+
+        .clearfix {
+            clear: both;
+            height: 1px;
+            overflow: hidden;
+            margin-bottom: -1px;
+            line-height: 1%;
+            font-size: 0px;
+        }
+
+
+        .ui-page, .ui-page-fullscreen {
+            margin: 0;
+            padding: 0;
+            overflow: hidden !important;
+        }
+
+        .center-wrapper {
+            text-align: center;
+        }
+
+            .center-wrapper * {
+                margin: 0px auto 0px auto;
+            }
+
+        .bcolor_purple {
+            border-bottom: 6px solid #b753d8 !important;
+        }
+
+        .bcolor_green {
+            border-bottom: 6px solid #6bc356 !important;
+        }
+
+        .bcolor_mustard {
+            border-bottom: 6px solid #fab903 !important;
+        }
+
+        .bcolor_red {
+            border-bottom: 6px solid #e94739 !important;
+        }
+
+        .bcolor_blue {
+            border-bottom: 6px solid #427fed !important;
+        }
+
+        .ui-header {
+            width: 100% !important;
+            height: 50px !important;
+            z-index: 999999999999 !important;
+            padding: 0px !important;
+            margin: 0 !important;
+            border-left-width: 0 !important;
+            border-right-width: 0 !important;
+            border: 0 !important;
+        }
+
+        .ui-footer {
+            width: 100% !important;
+            height: 50px !important;
+            z-index: 999999999999 !important;
+            padding: 0px !important;
+            margin: 0 !important;
+            border-left-width: 0 !important;
+            border-right-width: 0 !important;
+            border: 0 !important;
+        }
+
+        .ui-navbar ul {
+            margin-top: 2px !important;
+            height: 54px !important;
+        }
+
+        [data-role="navbar"] li {
+            margin-top: -6px !important;
+            height: 54px !important;
+            margin-bottom: 6px !important;
+            padding: 0px 0px 6px 0px !important;
+        }
+
+        [data-role="navbar"] a {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+
+        div {
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        #videotext {
+            width: 85% !important;
+            height: 300px !important;
+            background-color: transparent !important;
+            font-family: "Calibri", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-size: 1.2em;
+            line-height: 1.0em;
+            font-weight: normal;
+            letter-spacing: -0.03em;
+            position: absolute;
+            white-space: normal;
+            text-overflow: normal;
+            overflow: normal;
+            padding: 20px 0px 0px 28px;
+            vertical-align: top;
+            text-align: left;
+            cursor: hand;
+        }
+
+        .cc-container {
+            margin: auto;
+        }
+
+        header {
+            clear: left;
+            box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+            -moz-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+            -webkit-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        }
+
+        input[type="text"], textarea {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            background-color: #262626;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#262626), to(#333));
+            background-image: -webkit-linear-gradient(top, #262626, #333);
+            background-image: -moz-linear-gradient(top, #262626, #333);
+            background-image: -o-linear-gradient(top, #262626, #333);
+            background-image: linear-gradient(to bottom, #262626, #333);
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3) inset, 0px 1px 0px rgba(255, 255, 255, 0.2);
+            border: 1px solid #000000;
+            border-radius: 4px;
+            padding: 1px 2px;
+            color: #fff;
+        }
+
+        #serial_number [name="serial_number"] {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            background-color: #262626;
+            background-image: -webkit-gradient(linear, left top, left bottom, from(#262626), to(#333));
+            background-image: -webkit-linear-gradient(top, #262626, #333);
+            background-image: -moz-linear-gradient(top, #262626, #333);
+            background-image: -o-linear-gradient(top, #262626, #333);
+            background-image: linear-gradient(to bottom, #262626, #333);
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3) inset, 0px 1px 0px rgba(255, 255, 255, 0.2);
+            border: 2px solid #ff0000;
+            border-radius: 5px;
+            padding: 1px 2px;
+            color: #fff;
+        }
+
+        header {
+            clear: left;
+            box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+            -moz-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+            -webkit-box-shadow: 5px 2px 10px 2px rgba(101, 100, 100, 0.75);
+        }
+
+        /* DO NOT REMOVE THIS !!! */
+        .iscroll-scroller {
+            min-width: 100% !important;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        var _themeid_dronestv = "";
+        if (localStorage["themeid_dronestv"]) {
+            _themeid_dronestv = localStorage["themeid_dronestv"];
+        } else {
+            //_themeid_dronestv = "light";
+            _themeid_dronestv = "dark";
+            localStorage["themeid_dronestv"] = "dark";
+        }
+        var _path = "themes/" + _themeid_dronestv + ".css";
+        $("#link_dronestv").attr("href", _path);
+
+
+        var refreshIntervalId;
+        var g_content_width = 100;
+        var g_content_height = 100;
+
+        /* Use this for high compatibility (iDevice + Android)*/
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+        document.addEventListener('DOMContentLoaded', loaded, false);
+        //document.addEventListener("deviceready", function (e) { }, "false");
+        document.addEventListener('deviceready', function () {
+            //StatusBar.overlaysWebView(false);
+            //StatusBar.backgroundColorByName('black');
+        }, false);
+
+        function loaded() {
+            screenAdjust();
+        }
+
+        $(document).bind("mobileinit", function () {
+            jQuery.support.cors = true;
+            jQuery.mobile.allowCrossDomainPages = true;
+            jQuery.mobile.phonegapNavigationEnabled = true;
+            jQuery.mobile.defaultDialogTransition = "slide";
+        });
+
+        $(document).delegate('.ui-page', 'touchmove', false);
+
+        $(document).delegate('#btnSearch', 'click', function (e) {
+            event.preventDefault();
+            //event.stopPropagation();
+            var zid = $(this).data("id");
+            if (zid == 'undefined') {
+                return;
+            }
+            else if (zid == "search_cats") {
+                var str = 'cats';
+                str = str.replace(/\s+/g, '+');
+                store.set('yt_criteria', {
+                    type: zid,
+                    start_index: 1,
+                    qvalue: str,
+                    nb_display: $('#zsearch').val()
+                });
+                screenAdjust();
+                var _url = "http://www.youtube.com/embed?listType=search&amp;list=" + str;
+                $.mobile.changePage("#playerPage");
+                $("#yt_player").attr("src", _url);
+            }
+            else if ((zid == "search_videos") || (zid == "search_channels")) {
+
+                var str = $('#zsearch').val();
+                str = str.replace(/\s+/g, '+');
+                //alert(str);
+                store.set('yt_criteria', {
+                    type: zid,
+                    start_index: 1,
+                    qvalue: str,
+                    nb_display: $('#zsearch').val()
+                });
+                //alert($('#zsearch').val());
+                screenAdjust();
+                var _url = "http://www.youtube.com/embed?listType=search&amp;list=" + str + '&format=5';
+                $.mobile.changePage("#playerPage");
+                $("#yt_player").attr("src", _url);
+            }
+
+            //<iframe width="560" height="315" src="http://www.youtube.com/embed?listType=search&amp;list=Music+Jazz" frameborder="0" allowfullscreen></iframe><br />
+            //<iframe width="560" height="315" src="http://www.youtube.com/embed?listType=user_uploads&amp;list=WarnerBrosPictures" frameborder="0" allowfullscreen></iframe><br />
+            // <iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" src="http://www.youtube.com/embed/videoseries?list=PL6B3A5E1C22C42BA8&index=4&showinfo=1" width="560"></iframe><br />
+            // <iframe width="560" height="315" src="http://www.youtube.com/embed?listType=user_uploads&amp;list=StationBreakTV" frameborder="0" allowfullscreen></iframe><br />
+
+        });
+
+        $(document).delegate('#search_videos', 'click touchend', function () {
+            event.preventDefault();
+            //event.stopPropagation();
+            var zid = $(this).data("id");
+            if (zid == 'undefined') {
+                return;
+            }
+
+            var str = $('#zsearch').val();
+            str = str.replace(/\s+/g, '+');
+            //alert(str);
+            store.set('yt_criteria', {
+                type: zid,
+                start_index: 1,
+                qvalue: str,
+                nb_display: $('#zsearch').val()
+            });
+            //alert($('#zsearch').val());
+            screenAdjust();
+            var _url = "http://www.youtube.com/embed?listType=search&amp;list=" + str + '&format=5';
+            $.mobile.changePage("#playerPage");
+            $("#yt_player").attr("src", _url);
+
+        });
+
+        $(document).delegate('.novideos-link', 'click', function () {
+            var criteria = store.get('yt_criteria');
+            if (criteria != 'undefined') {
+                var _type = criteria.type;
+                _start_index = 1;
+                var _qvalue = criteria.qvalue;
+                var _nb_display = criteria.nb_display;
+                store.set('yt_criteria', {
+                    type: _type,
+                    start_index: _start_index,
+                    qvalue: _qvalue,
+                    nb_display: _nb_display
+                });
+            }
+            //$('#panel_controls').panel("close");
+            //GetVideos();
+        });
+
+
+
+        $(document).ready(function () {
+
+            //By default jQM always makes an AJAX request for pages even if you've already visited it before.
+            //If so you will need to set reloadPage to true when you call $.mobile.changePage
+            //if you need to refresh the page - otherwise the page will be stale.
+            //then only will jQM not reload pages.
+            $.mobile.page.prototype.options.domCache = true;
+
+            //$("#radio-choice-1").attr("checked", "checked");
+            //alert($("#radio-choice-1").attr("checked"));     // Displays true or checked
+            //alert($("#radio-choice-2").attr("checked"));     // Displays false or undefined
+
+            var criteria = store.get('yt_criteria');
+            if ((criteria == 'undefined') || (criteria == '') || (criteria == null)) {
+                store.set('yt_criteria', {
+                    type: 'search_videos',
+                    start_index: 1,
+                    qvalue: 'nowandbecause',
+                    nb_display: 'std'
+                });
+            }
+            //GetVideos();
+            $(this).attr("ui-btn-inner", "zclear");
+
+
+            jQuery('#btnRegister').bind('click', function (event) {
+                $.mobile.changePage("#registerPage");
+            });
+            jQuery('#btnForgot').bind('click', function (event) {
+                $.mobile.changePage("#forgotPage");
+            });
+
+            jQuery('form#CCForm').bind('submit', function (event) {
+                //event.preventDefault();
+                //alert("Eureka!");
+
+                // This example is to illustrate the technique ONLY !!!!
+                // In actual practice you need to secure the Credit Card data
+                // The techniques below are adequate according to several merchant providers
+
+                //1. Check your code so you are not vulnerable to SQL Injection.
+                //2. Access your server via https instead of http.
+                //3. Add a server page (.aspx or .php) to accept a login request for a name and password which will return a unique session key.
+                //A large random number could be good enough, or a sha1 hash of random data + some data in the request.
+                //4. Store this number in a serverside database along with the date it was issued.
+                //6. Make your mobile app get a session key from this file before uploading the score.
+                //7. Make your Credit Card web page (handler, webservice, etc.) accepts your session key along with the data and compare
+                //it against the database to see if its valid, and not too old (check the issue date).
+                //8. Store a new session key and return it with the result of the data update, and remove the old session key from the database.
+                //9. Make your js use the new key in later posts, each time getting a new one form the server.
+
+                //event.preventDefault();
+                var _appid = "WW01";
+                var _name = $("#name").val();
+                var _card = $("#card").val();
+                var _month = $("#month").val();
+                var _year = $("#year").val();
+                var _cvc = $("#cvc").val();
+                var _email = $("#email").val();
+                //we don't need to pass price since we are fixing that at 99 cents
+
+                //<map methodName="payCC" typeName="PaymentHandler"/>
+
+                //PLEASE NOTE HERE WE ONLY POST CC DATA TO HTTPS !!!
+                // ALSO- in a reall app you would pass in a the equivalent of a user name and password
+                // the username and password could be the card id of the phone that was uploaded to your server when the app was originally downloaded
+
+                // HTTPS
+                //var url = 'https://www.your_domain.com/rsshandler.ashx?appid=' + _appid + '&name=' + _name + '&card=' + _card + '&month=' + _month + '&year=' + _year + '&cvc=' + _cvc + '&email=' + _email + '&methodName=payCC&jsonp=onRSSLoaded';
+
+                //for testing
+                var url = 'http://www.sergioapps.com/rsshandler.ashx?appid=' + _appid + '&name=' + _name + '&card=' + _card + '&month=' + _month + '&year=' + _year + '&cvc=' + _cvc + '&email=' + _email + '&methodName=payCC&jsonp=onRSSLoaded';
+
+                // The only thing that POST is a security measure towards? Protection against your jealous ex flipping through your browser history.
+                // That's it. The rest of the world is logged into your account laughing at you.
+                // USE SSL, namely HTTPS only for the handler!!!
+
+                // Note that you may still be attacked with CSRF even if you use HTTPS and your site does not contain XSS vulnerabilities.
+                // In short, this attack scenario assumes that the victim (the user of your site or service) is already logged in and
+                // has a proper cookie and then the victim's browser is requested to do something with your (supposedly secure) site.
+                // If you do not have protection against CSRF the attacker can still execute actions with the victims credentials.
+                // The attacker cannot see the server response because it will be transferred to the victim's browser but the damage is usually already done at that point.
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    async: false,
+                    contentType: "application/json",
+                    dataType: 'jsonp'
+                });
+
+                return false;
+            });
+        });
+
+
+        $(window).bind('resize', function (e) {
+            screenAdjust();
+            //$("#panel_controls").trigger("updatelayout");
+        });
+
+
+        $(document).delegate("#mainPage", "pageinit", function () {
+            //alert('A page with an id of "mainPage" was just created by jQuery Mobile!');
+        });
+
+        $(document).delegate("#playerPage", "pageinit", function () {
+            //alert('A page with an id of "videoPage" was just created by jQuery Mobile!');
+        });
+
+        window.onload = function () {
+
+            $('#qscroller li a').buttonMarkup('refresh');
+
+            screenAdjust();
+
+            $("[data-role=header]").fixedtoolbar({ tapToggle: false });
+            $("[data-role=footer]").fixedtoolbar({ tapToggle: false });
+        };
+
+        function screenAdjust() {
+            g_content_width = window.innerWidth - 50;
+            g_content_height = ($(window).innerHeight() - $(this).find('[data-role="header"]').height() - $(this).find('[data-role="footer"]').height() - 0);
+            var orientation = "portrait";
+            if (window.orientation == -90 || window.orientation == 90) orientation = "landscape";
+            if (orientation == "portrait") {
+                g_content_height = (3 * (g_content_width)) / 4;
+                g_content_height = g_content_height + 20;
+            }
+            $('#yt_player').width(g_content_width + 'px');
+            $('#yt_player').height(g_content_height + 'px');
+        }
+
+        function refreshListView() {
+            refreshIntervalId = setTimeout("refreshListViewDelayed()", 100);
+        }
+        function refreshListViewDelayed() {
+            clearInterval(refreshIntervalId);
+            $('#youtube-videogallery').listview('refresh');
+            $(".videowrapper").find(".iscroll-content").resizeWrapper();
+        }
+
+        $(document).delegate('header a', 'click touchend', function () {
+            //$('header a').on('click touchend', function (e) {
+            //e.preventDefault();
+            //e.stopPropagation();
+            //$("#sidebar").show();
+            //$("#sidebar").trigger("updatelayout");
+            var el = $(this);
+            var link = el.attr('href');
+            if (link == "#back") {
+                history.back();
+            }
+            else if (link == "#back_from_player") {
+                $.mobile.changePage("#mainPage");
+                $("#mainPage").trigger("updatelayout");
+            }
+            else if (link == "#go_home") {
+                window.location = "./index.html";
+            }
+            return false;
+        });
+
+        $(document).delegate('.center-wrapper a', 'click', function (event) {
+            event.preventDefault();
+            //event.stopPropagation();
+            var el = $(this);
+            var link = el.attr('href');
+            var zid = $(this).data("id");
+            if (zid == 'undefined') {
+                return;
+            }
+            ////////////////// KEYPAD /////////////////////////////////
+            else if (link == '#keypad') {
+                var _text = $(this).text();
+                GetKeypad(_text);
+            }
+            ////////////////// KEYPAD /////////////////////////////////
+            else {
+                store.set('yt_criteria', {
+                    type: zid,
+                    start_index: 1,
+                    qvalue: $('#zsearch').val(),
+                    nb_display: $('#zsearch').val()
+                });
+                GetVideos();
+            }
+        });
+
+        $(document).delegate('z#btnSubmit', 'click', function (event) {
+            return false;
+        });
+
+        function onRSSLoaded(result, methodName) {
+            alert(JSON.stringify(result));
+
+            //Authorize your digital content here
+            //Save token to database that app is authorized
+
+            // Get the page we are going to write our content into.
+            //var $page = $("#mainPage");
+            // Get the content area element for the page.
+            //var $content = $page.children(":jqmData(role=content)");
+
+        }
+        //]]>
+    </script>
+</head>
+<body>
+    <!-- /main  page -->
+    <div data-role="page" id="mainPage">
+
+        <div id="zvideowrapper2" data-iscroll="{
+                'hScroll':false,
+                'vScroll':true,
+                'resizeEvents':'orientationchange',
+                'resizeWrapper':true,
+                'mouseWheel': true,
+                'click': true,
+                'interactiveScrollbars': true,
+                'shrinkScrollbars': 'scale'
+                }" data-role="content" style="height: 900px; overflow: hidden;" class="ui-content iscroll-wrapper" role="main">
+            <div class="iscroll-scroller" style="padding-top:10px !important;min-height: 1600px; -webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+                <div class="center-wrapper" style="padding-top: 10px !important;">
+                    <div class="iscroll-content">
+                        <div data-role="controlgroup" style="width:300px !important;">
+                            <h4>Mobile Mates</h4><br />
+                            <h4>100% FREE Mobile Dating</h4><br />
+                            <h4>Coming Soon...</h4><br />
+
+                            <form method="post" id="CCForm">
+                                <div style="padding:0px 0px 6px 0px;">
+                                    <input id="username" name="username" data-min-length="2" type="text" placeholder="Username" required autofocus />
+                                </div>
+                                <div style="padding:0px 0px 6px 0px;">
+                                    <input id="password" name="password" data-min-length="2" type="text" placeholder="Password" required autofocus />
+                                </div>
+                                <!--<div style="padding:0px 0px 6px 0px;">
+                                    <input id="card" name="card" type="text" placeholder="Enter Credit Card Number" required />
+                                </div>
+                                <div style="float:left;width:30%;padding: 0px 4px 6px 0px;">
+                                    <input id="month" name="month" type="text" placeholder="MM" required />
+                                </div>
+                                <div style="float:left;width:30%;padding: 0px 4px 6px 0px;">
+                                    <input id="year" name="year" type="text" placeholder="YYYY" required />
+                                </div>
+                                <div style="float:right;width:30%;padding: 0px 4px 6px 0px;">
+                                    <input id="cvc" name="cvc" type="text" placeholder="CVC" required />
+                                </div>
+                                <div style="float:left;width:100%;padding: 2px 4px 6px 0px;">
+                                    <input id="email" name="email" type="text" placeholder="somebody@domain.com" required />
+                                </div><br />-->
+                                <!--<div style="float:left;width:46%;padding: 10px 4px 36px 0px;"><img src="img/cc.gif" /></div>-->
+                                <div style="float:right;width:44%;padding: 0px 4px 6px 0px;"><input id="btnSubmit" type="submit" value="Login" /></div><br /><br /><br />
+                                <div>
+                                    <div style="font-size:.9em !important;float:left;height:26px !important;width:40%;padding: 0px 4px 6px 0px;"><input id="btnRegister" type="button" value="Register" /></div>
+                                    <div style="font-size:.9em !important;float:right;height:26px !important;width:54%;padding: 0px 4px 6px 0px;"><input id="btnForgot" type="button" value="Forget Password" /></div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /main page -->
+
+    <!-- /register  page -->
+    <div data-role="page" id="registerPage">
+
+        <div id="zvideowrapper2" data-iscroll="{
+                'hScroll':false,
+                'vScroll':true,
+                'resizeEvents':'orientationchange',
+                'resizeWrapper':true,
+                'mouseWheel': true,
+                'click': true,
+                'interactiveScrollbars': true,
+                'shrinkScrollbars': 'scale'
+                }" data-role="content" style="height: 900px; overflow: hidden;" class="ui-content iscroll-wrapper" role="main">
+            <div class="iscroll-scroller" style="padding-top:10px !important;min-height: 1600px; -webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+                <div class="center-wrapper" style="padding-top: 10px !important;">
+                    <div class="iscroll-content">
+                        <div data-role="controlgroup" style="width:300px !important;">
+                            <h4>Join Us!</h4><br />
+
+                            <form method="post" id="CCForm">
+                                <div style="padding:0px 0px 6px 0px;">
+                                    <input id="username" name="username" data-min-length="2" type="text" placeholder="Username" required autofocus />
+                                </div>
+                                <div style="padding:0px 0px 6px 0px;">
+                                    <input id="password" name="password" data-min-length="2" type="text" placeholder="Password" required autofocus />
+                                </div>
+                                <div style="float:left;width:100%;padding: 2px 4px 6px 0px;">
+                                    <input id="email" name="email" type="text" placeholder="somebody@domain.com" required />
+                                </div><br />
+                                <div style="float:right;width:44%;padding: 0px 4px 6px 0px;"><input id="btnSubmit" type="submit" value="Register" /></div><br /><br /><br />
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /register page -->
+
+    <!-- /forgot  page -->
+    <div data-role="page" id="forgotPage">
+
+        <div id="zvideowrapper2" data-iscroll="{
+                'hScroll':false,
+                'vScroll':true,
+                'resizeEvents':'orientationchange',
+                'resizeWrapper':true,
+                'mouseWheel': true,
+                'click': true,
+                'interactiveScrollbars': true,
+                'shrinkScrollbars': 'scale'
+                }" data-role="content" style="height: 900px; overflow: hidden;" class="ui-content iscroll-wrapper" role="main">
+            <div class="iscroll-scroller" style="padding-top:10px !important;min-height: 1600px; -webkit-transition: -webkit-transform 0ms; transition: -webkit-transform 0ms; -webkit-transform-origin: 0px 0px; -webkit-transform: translate(0px, 0px) translateZ(0px);">
+                <div class="center-wrapper" style="padding-top: 10px !important;">
+                    <div class="iscroll-content">
+                        <div data-role="controlgroup" style="width:300px !important;">
+                            <h4>Forgot Your Password?</h4><br />
+
+                            <form method="post" id="CCForm">
+                                <div style="float:left;width:100%;padding: 2px 4px 6px 0px;">
+                                    <input id="email" name="email" type="text" placeholder="Enter Your Email Address" required />
+                                </div><br />
+                                <div style="float:right;width:44%;padding: 0px 4px 6px 0px;"><input id="btnSubmit" type="submit" value="Submit" /></div><br /><br /><br /><br /><br />
+                                <h4>Your password will be<br />sent to your email address</h4><br />
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /forgot page -->
+
+</body>
+</html>
