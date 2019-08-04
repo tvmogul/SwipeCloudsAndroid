@@ -4,3 +4,8 @@
 *.js linguist-detectable=false  
 *.html linguist-detectable=false  
 *.xml linguist-detectable=false    
+
+* text=auto
+*.js linguist-language=java
+*.css linguist-language=java
+*.html linguist-language=java
